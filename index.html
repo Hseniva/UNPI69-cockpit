@@ -201,6 +201,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
 .rep-tab-btn.active{color:var(--blue)!important;border-bottom-color:var(--blue)!important;font-weight:600!important}
 .rep-tab-btn:hover{color:var(--blue)!important}
 </style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
@@ -953,11 +954,17 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
           <div style="position:relative;z-index:1;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
             <div style="flex:1;min-width:220px">
               <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.5;margin-bottom:10px">◈ Marketing Intelligence Level</div>
-              <div style="font-size:72px;font-weight:700;font-family:var(--mono);line-height:1;margin-bottom:12px">14<span style="font-size:32px;opacity:.5">%</span></div>
+              <div id="brain-level-pct-wrap" style="font-size:72px;font-weight:700;font-family:var(--mono);line-height:1;margin-bottom:12px"><span id="brain-level-pct">14</span><span style="font-size:32px;opacity:.5">%</span></div>
               <div style="height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin-bottom:10px;overflow:hidden">
-                <div style="height:6px;background:linear-gradient(90deg,#003189,#F59E0B);border-radius:3px;animation:levelFill 2s ease-out forwards"></div>
+                <div id="brain-level-bar" style="height:6px;background:linear-gradient(90deg,#003189,#F59E0B);border-radius:3px;animation:levelFill 2s ease-out forwards"></div>
               </div>
-              <div style="font-size:12px;opacity:.6">1 source connectée sur 7 &nbsp;·&nbsp; <span style="color:#F59E0B">GA4 en cours d'activation</span></div>
+              <div id="brain-level-sub" style="font-size:12px;opacity:.6">1 source connect&#233;e sur 7 &nbsp;&#183;&nbsp; <span style="color:#F59E0B">GA4 en cours d'activation</span></div>
+              <div style="margin-top:16px">
+                <button id="ga4-connect-btn" onclick="connectGA4()" style="background:#003189;color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Connecter GA4
+                </button>
+              </div>
             </div>
             <div style="display:grid;grid-template-columns:1fr;gap:8px;min-width:200px">
               <div style="font-size:11px;opacity:.5;letter-spacing:1px;text-transform:uppercase;font-family:var(--mono);margin-bottom:4px">Roadmap d'activation</div>
@@ -2461,17 +2468,37 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
           </div>
         </div>
         <div class="grid-4 mb-24">
-          <div class="kpi-card"><div class="kpi-label">Sessions</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">En attente GA4</div></div>
-          <div class="kpi-card"><div class="kpi-label">Taux d'engagement</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible &gt;60%</div></div>
-          <div class="kpi-card"><div class="kpi-label">Taux de conversion</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible &gt;2%</div></div>
-          <div class="kpi-card"><div class="kpi-label">Qualité des leads</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">À mesurer</div></div>
+          <div class="kpi-card"><div class="kpi-label">Sessions</div><div id="ga4-sessions" class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">30 derniers jours</div></div>
+          <div class="kpi-card"><div class="kpi-label">Taux d'engagement</div><div id="ga4-engagement" class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible &gt;60%</div></div>
+          <div class="kpi-card"><div class="kpi-label">Conversions</div><div id="ga4-conversions" class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Événements GA4</div></div>
+          <div class="kpi-card"><div class="kpi-label">Taux de rebond</div><div id="ga4-bounce" class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible &lt;50%</div></div>
         </div>
+        <div class="section-label mb-12">Top 5 pages — 30 derniers jours</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>#</th><th>Page</th><th>Pages vues</th><th>Engagement</th></tr></thead>
+            <tbody id="ga4-pages-tbody">
+              <tr><td colspan="4" style="text-align:center;padding:20px;color:var(--muted);font-style:italic">Connecter GA4 pour voir les données →</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label mb-12">Sources de trafic — Sessions par canal</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Canal</th><th>Sessions</th><th>Part</th><th>Conversions</th></tr></thead>
+            <tbody id="ga4-sources-tbody">
+              <tr><td colspan="4" style="text-align:center;padding:20px;color:var(--muted);font-style:italic">Connecter GA4 pour voir les données →</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="section-label mb-12">Entonnoir de conversion — Phase 1 Meta Ads</div>
         <div style="display:flex;flex-direction:column;gap:2px;max-width:500px;margin:0 auto 24px">
           <div style="background:#EFF6FF;border-radius:8px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600">Impressions<div style="font-family:var(--mono);font-size:18px;color:var(--blue);margin-top:4px">—</div></div>
           <div style="background:#DBEAFE;border-radius:8px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600;max-width:420px;margin:0 auto;width:90%">Clics vers landing page<div style="font-family:var(--mono);font-size:18px;color:var(--blue);margin-top:4px">—</div></div>
           <div style="background:#BFDBFE;border-radius:8px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600;max-width:340px;margin:0 auto;width:75%">Form Views<div style="font-family:var(--mono);font-size:18px;color:var(--blue);margin-top:4px">—</div></div>
-          <div style="background:#93C5FD;border-radius:8px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600;max-width:260px;margin:0 auto;width:60%;color:#1e3a8a">Leads soumis<div style="font-family:var(--mono);font-size:18px;margin-top:4px">—</div></div>
+          <div style="background:#93C5FD;border-radius:8px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600;max-width:260px;margin:0 auto;width:60%;color:#1e3a8a">Leads soumis<div id="ga4-funnel-conv" style="font-family:var(--mono);font-size:18px;margin-top:4px">—</div></div>
           <div style="background:#003189;border-radius:8px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600;max-width:200px;margin:0 auto;width:45%;color:#fff">Adhérents<div style="font-family:var(--mono);font-size:18px;margin-top:4px">—</div></div>
         </div>
         <div class="section-label mb-12">Performance des landing pages</div>
@@ -2629,6 +2656,181 @@ function filterActions(status, btn) {
     }
   });
 }
+
+// ═══════════════ GA4 INTEGRATION ═══════════════
+const GA4_PROPERTY = '380231460';
+const GA4_CLIENT_ID = '880049838469-ko9bvivme4dkrop90gemlq61uvq529cp.apps.googleusercontent.com';
+const GA4_SCOPE = 'https://www.googleapis.com/auth/analytics.readonly';
+let ga4TokenClient = null;
+let ga4AccessToken = sessionStorage.getItem('ga4_token') || null;
+
+function initGA4Auth() {
+  if (!window.google || !window.google.accounts) return;
+  ga4TokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: GA4_CLIENT_ID,
+    scope: GA4_SCOPE,
+    callback: (resp) => {
+      if (resp.access_token) {
+        ga4AccessToken = resp.access_token;
+        sessionStorage.setItem('ga4_token', resp.access_token);
+        fetchAllGA4Data();
+        activateGA4BrainNode();
+      }
+    }
+  });
+}
+
+function connectGA4() {
+  if (!ga4TokenClient) initGA4Auth();
+  if (ga4TokenClient) ga4TokenClient.requestAccessToken();
+  else alert('Google Sign-In is still loading. Please try again in a moment.');
+}
+
+async function ga4Fetch(body) {
+  const resp = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY}:runReport`, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${ga4AccessToken}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (resp.status === 401) {
+    ga4AccessToken = null; sessionStorage.removeItem('ga4_token');
+    updateGA4ConnectBtn(false); return null;
+  }
+  return resp.json();
+}
+
+async function fetchAllGA4Data() {
+  updateGA4ConnectBtn(true);
+  await Promise.all([fetchGA4Overview(), fetchGA4Pages(), fetchGA4Sources(), fetchGA4Funnel()]);
+}
+
+async function fetchGA4Overview() {
+  const data = await ga4Fetch({
+    dateRanges: [{startDate:'30daysAgo',endDate:'today'}],
+    metrics: [
+      {name:'sessions'},{name:'totalUsers'},{name:'engagedSessions'},
+      {name:'engagementRate'},{name:'conversions'},{name:'bounceRate'}
+    ]
+  });
+  if (!data || !data.rows) return;
+  const r = data.rows[0].metricValues;
+  const fmt = (v,dec=0) => parseFloat(v).toLocaleString('fr-FR',{maximumFractionDigits:dec});
+  const pct = v => (parseFloat(v)*100).toFixed(1)+'%';
+  const els = {
+    'ga4-sessions': fmt(r[0].value),
+    'ga4-users': fmt(r[1].value),
+    'ga4-engagement': pct(r[3].value),
+    'ga4-conversions': fmt(r[4].value),
+    'ga4-bounce': pct(r[5].value)
+  };
+  Object.entries(els).forEach(([id,val]) => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = val; el.style.color = 'var(--blue)'; }
+  });
+  // Update intelligence level
+  document.querySelectorAll('.ga4-status-pending').forEach(el => {
+    el.textContent = '● Actif'; el.style.color='#22C55E';
+  });
+}
+
+async function fetchGA4Pages() {
+  const data = await ga4Fetch({
+    dateRanges: [{startDate:'30daysAgo',endDate:'today'}],
+    dimensions: [{name:'pageTitle'}],
+    metrics: [{name:'screenPageViews'},{name:'engagementRate'}],
+    orderBys: [{metric:{metricName:'screenPageViews'},desc:true}],
+    limit: 5
+  });
+  if (!data || !data.rows) return;
+  const tbody = document.getElementById('ga4-pages-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = data.rows.map((row,i) => {
+    const title = row.dimensionValues[0].value.slice(0,45);
+    const views = parseInt(row.metricValues[0].value).toLocaleString('fr-FR');
+    const eng = (parseFloat(row.metricValues[1].value)*100).toFixed(0)+'%';
+    return `<tr><td>${i+1}. ${title}</td><td style="font-family:var(--mono)">${views}</td><td>${eng}</td></tr>`;
+  }).join('');
+}
+
+async function fetchGA4Sources() {
+  const data = await ga4Fetch({
+    dateRanges: [{startDate:'30daysAgo',endDate:'today'}],
+    dimensions: [{name:'sessionDefaultChannelGroup'}],
+    metrics: [{name:'sessions'},{name:'conversions'}],
+    orderBys: [{metric:{metricName:'sessions'},desc:true}],
+    limit: 6
+  });
+  if (!data || !data.rows) return;
+  const tbody = document.getElementById('ga4-sources-tbody');
+  if (!tbody) return;
+  const total = data.rows.reduce((s,r)=>s+parseInt(r.metricValues[0].value),0);
+  tbody.innerHTML = data.rows.map(row => {
+    const ch = row.dimensionValues[0].value;
+    const sess = parseInt(row.metricValues[0].value);
+    const conv = parseInt(row.metricValues[1].value);
+    const pct = total>0?((sess/total)*100).toFixed(1)+'%':'—';
+    return `<tr><td>${ch}</td><td style="font-family:var(--mono)">${sess.toLocaleString('fr-FR')}</td><td>${pct}</td><td style="font-family:var(--mono)">${conv}</td></tr>`;
+  }).join('');
+}
+
+async function fetchGA4Funnel() {
+  const data = await ga4Fetch({
+    dateRanges: [{startDate:'30daysAgo',endDate:'today'}],
+    metrics: [{name:'sessions'},{name:'engagedSessions'},{name:'conversions'}]
+  });
+  if (!data || !data.rows) return;
+  const r = data.rows[0].metricValues;
+  const sessions = parseInt(r[0].value);
+  const engaged = parseInt(r[1].value);
+  const convs = parseInt(r[2].value);
+  const fmt = v => parseInt(v).toLocaleString('fr-FR');
+  ['ga4-funnel-sessions','ga4-funnel-engaged','ga4-funnel-conv'].forEach((id,i) => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = fmt([sessions,engaged,convs][i]); el.style.color='var(--blue)'; }
+  });
+}
+
+function activateGA4BrainNode() {
+  // Update Marketing Intelligence Level to 28% (2/7)
+  const levelEl = document.getElementById('brain-level-pct');
+  const levelBar = document.getElementById('brain-level-bar');
+  const levelSub = document.getElementById('brain-level-sub');
+  if (levelEl) levelEl.textContent = '28';
+  if (levelBar) { levelBar.style.animation='none'; levelBar.style.width='28%'; }
+  if (levelSub) levelSub.innerHTML = '2 sources connect&#233;es sur 7 &nbsp;&#183;&nbsp; <span style="color:#22C55E">GA4 actif</span>';
+  // Animate GA4 SVG node to active
+  const ga4Circle = document.querySelector('#ga4-node-circle');
+  if (ga4Circle) {
+    ga4Circle.setAttribute('stroke','#22C55E');
+    ga4Circle.setAttribute('opacity','1');
+  }
+  document.querySelectorAll('.ga4-status-pending').forEach(el => {
+    el.innerHTML = '&#9679; Actif'; el.style.color='#22C55E';
+  });
+}
+
+function updateGA4ConnectBtn(connected) {
+  const btn = document.getElementById('ga4-connect-btn');
+  if (!btn) return;
+  if (connected) {
+    btn.innerHTML = '&#10003; GA4 Connect&#233;';
+    btn.style.background='#22C55E'; btn.style.cursor='default';
+    btn.onclick = null;
+  }
+}
+
+// Auto-reconnect if token stored
+window.addEventListener('load', () => {
+  // Init GIS after load
+  setTimeout(() => {
+    initGA4Auth();
+    if (ga4AccessToken) {
+      fetchAllGA4Data().then(activateGA4BrainNode);
+    }
+  }, 1500);
+});
+// ═══════════════ END GA4 ═══════════════
+
 </script>
 
 
