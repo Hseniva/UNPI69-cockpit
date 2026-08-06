@@ -932,9 +932,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
           <div class="callout-text">Le CPL obtenu sur Meta en Phase 1 calibre tous les autres projections. Si le CPL Phase 1 est &lt;25€, on scale agressivement en Phase 2 sur tous les canaux. Si le CPL est &gt;40€, on optimise les créatifs avant d'ouvrir Google Ads. La data décide — pas les projections.</div>
         </div>
       </div>
-      <div class="rep-tab-content" id="rep-int-cerveau" style="display:none">
-        
-      </div>
+      
       <div class="rep-tab-content" id="rep-int-cerveau" style="display:none">
         <style>
           @keyframes brainFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -959,7 +957,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
               <div style="height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin-bottom:10px;overflow:hidden">
                 <div style="height:6px;background:linear-gradient(90deg,#003189,#F59E0B);border-radius:3px;animation:levelFill 2s ease-out forwards"></div>
               </div>
-              <div style="font-size:12px;opacity:.6">1 source connectée sur 7</div>
+              <div style="font-size:12px;opacity:.6">1 source connectée sur 7 &nbsp;·&nbsp; <span style="color:#F59E0B">GA4 en cours d'activation</span></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr;gap:8px;min-width:200px">
               <div style="font-size:11px;opacity:.5;letter-spacing:1px;text-transform:uppercase;font-family:var(--mono);margin-bottom:4px">Roadmap d'activation</div>
@@ -980,8 +978,8 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
               </div>
               <div style="display:flex;align-items:center;gap:8px;font-size:12px;opacity:.35">
                 <span style="width:8px;height:8px;border-radius:50%;background:#FF6D00;display:inline-block"></span>
-                <span>GA4 + GSC — Phase 2</span>
-                <span style="margin-left:auto;font-family:var(--mono);font-size:10px">+27%</span>
+                <span style="color:#F59E0B">GA4 Analytics</span>
+                <span style="margin-left:auto;font-family:var(--mono);font-size:10px;color:#F59E0B">◐ Prochaine</span>
               </div>
               <div style="display:flex;align-items:center;gap:8px;font-size:12px;opacity:.3">
                 <span style="width:8px;height:8px;border-radius:50%;background:#7C3AED;display:inline-block"></span>
@@ -1107,14 +1105,13 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
               <text x="367" y="162" fill="#374151" text-anchor="middle" font-size="8" font-family="monospace">Ads</text>
               <text x="367" y="174" fill="#1F2937" text-anchor="middle" font-size="7" font-family="monospace">Ph.2</text>
             </g>
-          <g class="node-inactive-ring">
-              <circle cx="396" cy="283" r="28" fill="#0D1117" stroke="#1E293B" stroke-width="1.5" opacity="0.6">
-                <animate attributeName="opacity" values="0.4;0.65;0.4" dur="3.8s" repeatCount="indefinite" begin="0.6s"/>
+          <g class="node-pending">
+              <circle cx="396" cy="283" r="28" fill="#0D1117" stroke="#F59E0B" stroke-width="1.5" opacity="0.85">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
               </circle>
-              <text x="396" y="278" fill="#374151" text-anchor="middle" font-size="8" font-family="monospace">GA4</text>
-              <text x="396" y="289" fill="#374151" text-anchor="middle" font-size="8" font-family="monospace">Behaviour</text>
-              <text x="396" y="301" fill="#1F2937" text-anchor="middle" font-size="7" font-family="monospace">Ph.2</text>
-            </g>
+              <circle cx="396" cy="283" r="32" fill="none" stroke="#F59E0B" stroke-width="0.5" opacity="0.4">
+                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
           <g class="node-inactive-ring">
               <circle cx="315" cy="385" r="28" fill="#0D1117" stroke="#1E293B" stroke-width="1.5" opacity="0.6">
                 <animate attributeName="opacity" values="0.4;0.65;0.4" dur="4.2s" repeatCount="indefinite" begin="0.9s"/>
@@ -2603,14 +2600,15 @@ function initDonut() {
 }
 
 
-function showRepTab(id, btn) {
-  document.querySelectorAll('.rep-tab-btn').forEach(b => {
+function showRepTab(id, btn, parent) {
+  const scope = parent || btn.closest('.tab-content') || document;
+  scope.querySelectorAll('.rep-tab-btn').forEach(b => {
     b.classList.remove('active');
     b.style.color = 'var(--muted)';
     b.style.borderBottom = '2px solid transparent';
     b.style.fontWeight = '500';
   });
-  document.querySelectorAll('.rep-tab-content').forEach(t => { t.style.display = 'none'; });
+  scope.querySelectorAll('.rep-tab-content').forEach(t => { t.style.display = 'none'; });
   btn.classList.add('active');
   btn.style.color = 'var(--blue)';
   btn.style.borderBottom = '2px solid var(--blue)';
