@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: unpi69-cockpit
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
