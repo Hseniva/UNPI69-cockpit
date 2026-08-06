@@ -202,6 +202,9 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
 .rec-title{font-size:15px;font-weight:700}
 .rec-text{font-size:13px;color:var(--muted);line-height:1.6;padding-left:40px}
 .period-note{background:#EFF4FF;border:1px solid #BFDBFE;border-radius:8px;padding:10px 14px;font-size:12px;color:var(--blue);font-family:var(--mono);margin-bottom:16px}
+
+.rep-tab-btn.active{color:var(--blue)!important;border-bottom-color:var(--blue)!important;font-weight:600!important}
+.rep-tab-btn:hover{color:var(--blue)!important}
 </style>
 </head>
 <body>
@@ -247,7 +250,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
   <!-- TABS -->
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="showTab('overview',this)">Vue d'Ensemble</button>
-    <button class="tab-btn" onclick="showTab('intelligence',this)">Intelligence</button>
+    <button class="tab-btn" onclick="showTab('rapports',this)">Rapports & Intelligence</button>
     <button class="tab-btn" onclick="showTab('strategie',this)">Stratégie</button>
     <button class="tab-btn" onclick="showTab('media',this)">Plan Média</button>
     <button class="tab-btn" onclick="showTab('seo',this)">SEO & Digital</button>
@@ -366,63 +369,248 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
       </div>
     </div>
 
-    <!-- TAB 2: INTELLIGENCE -->
-    <div class="tab-content" id="tab-intelligence">
-      <div class="section-label">Intelligence Marketing</div>
-      <div class="section-title">Moteur d'analyse &amp; d'insights</div>
+    <!-- TAB 2: RAPPORTS & INTELLIGENCE -->
+    <div class="tab-content" id="tab-rapports">
+      <div class="section-label">Rapports &amp; Intelligence</div>
+      <div class="section-title">Performance multi-canal &amp; insights</div>
 
-      <div class="callout mb-24">
-        <div class="callout-title">→ Moteur d'intelligence marketing</div>
-        <div class="callout-text">Une fois les campagnes lancées, ce module analysera automatiquement vos données pour détecter en temps réel : opportunités de croissance, anomalies de performance, créatifs en fatigue, segments sous-exploités et leviers d'optimisation budgétaire.</div>
-      </div>
-
-      <div class="section-label mb-16">Insights pré-lancement</div>
-
-      <div class="insight-card">
-        <div class="insight-type opportunity">◆ Opportunité</div>
-        <div class="insight-title">Ciblage haute-intention — Segment Patrimoine</div>
-        <div class="insight-text">Les propriétaires 45-65 ans cherchant "encadrement loyers Lyon" ou "défense bailleur" ont une intention d'adhésion élevée. Ce segment représente 60% du budget (9 500€) et sera prioritaire en Phase 2. Préparer des messages spécifiques sur la protection juridique et l'optimisation fiscale.</div>
-      </div>
-
-      <div class="insight-card">
-        <div class="insight-type alert">● Alerte critique</div>
-        <div class="insight-title">SEO — Score 25/100 bloque la performance organique</div>
-        <div class="insight-text">Sans correction des 7 problèmes critiques identifiés (double H1, zéro schema markup, titres trop courts), les campagnes SEA et les landing pages sous-performeront. Chaque visiteur payant atterrit sur un site non optimisé. Correction SEO = action prioritaire avant tout lancement.</div>
-      </div>
-
-      <div class="insight-card">
-        <div class="insight-type optimization">→ Optimisation</div>
-        <div class="insight-title">Réallocation budgétaire — Règle de décision Phase 1</div>
-        <div class="insight-text">La répartition Meta 40% / SEA 36% est optimale pour démarrer. Règle à appliquer à J+30 : si CPL Meta &lt; 22€, augmenter sa part jusqu'à 50%. Si CPL SEA &lt; 35€ sur requêtes génériques, tester budget +20%. Si LinkedIn CPL &gt; 200€, réduire à 3% et réallouer vers Meta.</div>
-      </div>
-
-      <div class="insight-card">
-        <div class="insight-type opportunity">◆ Opportunité — LinkedIn</div>
-        <div class="insight-title">Audience notaires &amp; experts-comptables Lyon</div>
-        <div class="insight-text">Les notaires, experts-comptables et conseillers en gestion de patrimoine de Lyon Métropole sont des prescripteurs naturels pour UNPI 69. Une campagne LinkedIn ciblant ces professions (fonction + localisation) pourrait générer des leads qualifiés à fort potentiel de conversion, complémentaires au ciblage Meta.</div>
-      </div>
-
-      <div class="section-label mb-16" style="margin-top:24px">Détection d'anomalies — Actif post-lancement</div>
-      <div class="grid-3">
-        <div class="card" style="opacity:.6">
-          <div class="insight-type alert mb-8" style="font-size:10px;font-family:var(--mono);font-weight:700;letter-spacing:1px;text-transform:uppercase">● Anomalie CPL</div>
-          <div style="font-size:13px;font-weight:600;margin-bottom:6px">CPL > seuil d'alerte</div>
-          <div style="font-size:12px;color:var(--muted)">Détection automatique si CPL dépasse le seuil défini par canal pendant 7 jours consécutifs.</div>
-          <div class="badge badge-gray" style="margin-top:12px">En attente de données</div>
-        </div>
-        <div class="card" style="opacity:.6">
-          <div class="insight-type alert mb-8" style="font-size:10px;font-family:var(--mono);font-weight:700;letter-spacing:1px;text-transform:uppercase">● Fatigue créative</div>
-          <div style="font-size:13px;font-weight:600;margin-bottom:6px">Fréquence &gt; 3,5 détectée</div>
-          <div style="font-size:12px;color:var(--muted)">Alerte automatique lorsque la fréquence d'un créatif dépasse 3,5 sur 7 jours — signe de fatigue publicitaire.</div>
-          <div class="badge badge-gray" style="margin-top:12px">En attente de données</div>
-        </div>
-        <div class="card" style="opacity:.6">
-          <div class="insight-type alert mb-8" style="font-size:10px;font-family:var(--mono);font-weight:700;letter-spacing:1px;text-transform:uppercase">● Budget</div>
-          <div style="font-size:13px;font-weight:600;margin-bottom:6px">Sous-consommation budgétaire</div>
-          <div style="font-size:12px;color:var(--muted)">Détection si une campagne consomme moins de 70% de son budget hebdomadaire prévu — signal de ciblage trop restrictif.</div>
-          <div class="badge badge-gray" style="margin-top:12px">En attente de données</div>
+      <!-- STATUS BANNER -->
+      <div style="background:#FEF9EC;border:1.5px solid var(--gold);border-radius:12px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:14px">
+        <div style="font-size:22px">◈</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:3px">En attente des premières données de campagne</div>
+          <div style="font-size:12px;color:#92400E;opacity:.8">Dès réception de l'export Excel, cette section sera mise à jour avec les données réelles. Toutes les métriques ci-dessous sont des projections basées sur le plan média.</div>
         </div>
       </div>
+
+      <!-- REPORT SUB-TABS -->
+      <div style="display:flex;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--border);padding-bottom:0">
+        <button class="rep-tab-btn active" onclick="showRepTab('overview-rep',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px">Vue consolidée</button>
+        <button class="rep-tab-btn" onclick="showRepTab('meta-rep',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px">Meta Ads</button>
+        <button class="rep-tab-btn" onclick="showRepTab('sea-rep',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px">SEA Google</button>
+        <button class="rep-tab-btn" onclick="showRepTab('linkedin-rep',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px">LinkedIn</button>
+        <button class="rep-tab-btn" onclick="showRepTab('cerveau-rep',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--blue);border-bottom:2px solid transparent;margin-bottom:-2px">◈ Le Cerveau</button>
+      </div>
+
+      <!-- VUE CONSOLIDÉE -->
+      <div class="rep-tab-content active" id="rep-overview-rep">
+        <div class="section-label mb-16">Performance globale — Tous canaux</div>
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Budget dépensé</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">En attente de données</div></div>
+          <div class="kpi-card"><div class="kpi-label">Leads générés</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">En attente de données</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL moyen</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible : 25-35€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Adhérents convertis</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Objectif : +300</div></div>
+        </div>
+
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Canal</th><th>Budget alloué</th><th>Dépensé</th><th>Impressions</th><th>Clics</th><th>Leads</th><th>CPL</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Meta Lead Ads</strong></td><td>18 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;22€</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>SEA Google</strong></td><td>16 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;35€</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>Demand Gen</strong></td><td>6 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>CTR &gt;0,15%</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>LinkedIn Ads</strong></td><td>3 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;150€</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr style="background:#F8FAFC;font-weight:700"><td>TOTAL</td><td>45 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label mb-16">Répartition budget vs dépense</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px">
+          <svg id="rep-bar-chart" width="100%" height="180" style="display:block"></svg>
+          <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:8px;font-family:var(--mono)">Budget alloué vs dépensé par canal — données à venir</div>
+        </div>
+      </div>
+
+      <!-- META DEEP DIVE -->
+      <div class="rep-tab-content" id="rep-meta-rep" style="display:none">
+        <div class="section-label mb-16">Meta Ads — Analyse approfondie</div>
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Budget Meta</div><div class="kpi-value">18 000€</div><div class="kpi-sub">Alloué · Phase 1+2</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL cible</div><div class="kpi-value" style="color:var(--green)">&lt;22€</div><div class="kpi-sub">Seuil alerte : 30€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Fréquence max</div><div class="kpi-value">2×</div><div class="kpi-sub">Par semaine / utilisateur</div></div>
+          <div class="kpi-card"><div class="kpi-label">Période</div><div class="kpi-value" style="font-size:18px">15 sem.</div><div class="kpi-sub">Juin – Septembre 2026</div></div>
+        </div>
+
+        <div class="grid-2 mb-24">
+          <div class="card">
+            <div class="section-label mb-12">Segment A — Primo-accédants (25-45 ans)</div>
+            <div class="table-wrap" style="margin-bottom:0">
+              <table>
+                <thead><tr><th>Métrique</th><th>Cible</th><th>Réalisé</th></tr></thead>
+                <tbody>
+                  <tr><td>Budget</td><td>9 500€</td><td>—</td></tr>
+                  <tr><td>Impressions</td><td>—</td><td>—</td></tr>
+                  <tr><td>CTR</td><td>&gt;1,5%</td><td>—</td></tr>
+                  <tr><td>CPL</td><td>&lt;22€</td><td>—</td></tr>
+                  <tr><td>Leads</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-label mb-12">Segment B — Patrimoine constitué (45-65 ans)</div>
+            <div class="table-wrap" style="margin-bottom:0">
+              <table>
+                <thead><tr><th>Métrique</th><th>Cible</th><th>Réalisé</th></tr></thead>
+                <tbody>
+                  <tr><td>Budget</td><td>9 500€</td><td>—</td></tr>
+                  <tr><td>Impressions</td><td>—</td><td>—</td></tr>
+                  <tr><td>CTR</td><td>&gt;1,5%</td><td>—</td></tr>
+                  <tr><td>CPL</td><td>&lt;22€</td><td>—</td></tr>
+                  <tr><td>Leads</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-24">
+          <div class="section-label mb-12">Formats &amp; placements</div>
+          <div class="table-wrap" style="margin-bottom:0">
+            <table>
+              <thead><tr><th>Placement</th><th>Format</th><th>Impressions</th><th>CTR</th><th>CPL</th><th>Statut</th></tr></thead>
+              <tbody>
+                <tr><td>Feed &amp; Explore</td><td>1:1 / 4:5 — Statique &amp; Vidéo</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+                <tr><td>Story &amp; Reels</td><td>9:16 — Vidéo</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+                <tr><td>Carrousel</td><td>1:1</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">→ Détection fatigue créative</div>
+          <div class="callout-text">Rotation des visuels toutes les 2 semaines pour éviter la fatigue publicitaire. Alerte déclenchée si fréquence &gt; 3,5 sur 7 jours consécutifs. Exclusion automatique des non-performants après 14 jours.</div>
+        </div>
+      </div>
+
+      <!-- SEA DEEP DIVE -->
+      <div class="rep-tab-content" id="rep-sea-rep" style="display:none">
+        <div class="section-label mb-16">SEA Google — Analyse approfondie</div>
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Budget SEA</div><div class="kpi-value">16 000€</div><div class="kpi-sub">36% du budget total</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL cible</div><div class="kpi-value" style="color:var(--green)">&lt;35€</div><div class="kpi-sub">Seuil alerte : 45€ / 7j</div></div>
+          <div class="kpi-card"><div class="kpi-label">Types de campagnes</div><div class="kpi-value" style="font-size:18px">3</div><div class="kpi-sub">Brand · Générique · PMax</div></div>
+          <div class="kpi-card"><div class="kpi-label">Stratégie</div><div class="kpi-value" style="font-size:16px">RSA</div><div class="kpi-sub">15 titres × 2 descriptions</div></div>
+        </div>
+
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Type campagne</th><th>Budget</th><th>Impressions</th><th>Clics</th><th>CPC</th><th>Conversions</th><th>CPL</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Brand (UNPI Lyon)</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td><strong>Générique (propriétaires Lyon)</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td><strong>PMax (test)</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="section-label mb-12">Mots-clés prioritaires</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">syndicat propriétaires Lyon</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">défense bailleur Lyon</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">conseil immobilier Lyon</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">encadrement loyers Lyon</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">UNPI 69</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">DPE propriétaire Lyon</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">fiscalité immobilière Lyon</span>
+            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">copropriété Lyon conseil</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKEDIN DEEP DIVE -->
+      <div class="rep-tab-content" id="rep-linkedin-rep" style="display:none">
+        <div class="section-label mb-16">LinkedIn Ads — Analyse approfondie</div>
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Budget LinkedIn</div><div class="kpi-value">3 000€</div><div class="kpi-sub">7% du budget total</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL cible</div><div class="kpi-value" style="color:var(--orange)">&lt;150€</div><div class="kpi-sub">Seuil alerte : 200€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Qualité leads cible</div><div class="kpi-value">&gt;70%</div><div class="kpi-sub">Taux qualification</div></div>
+          <div class="kpi-card"><div class="kpi-label">Format</div><div class="kpi-value" style="font-size:16px">Lead Gen</div><div class="kpi-sub">Formulaire natif LinkedIn</div></div>
+        </div>
+
+        <div class="grid-2 mb-24">
+          <div class="card">
+            <div class="section-label mb-12">Ciblages professionnels</div>
+            <div class="phase-item mb-8">Notaires — Lyon Métropole</div>
+            <div class="phase-item mb-8">Experts-comptables — Rhône</div>
+            <div class="phase-item mb-8">Conseillers en gestion de patrimoine</div>
+            <div class="phase-item mb-8">Agents immobiliers indépendants</div>
+            <div class="phase-item">Propriétaires bailleurs (fonction)</div>
+          </div>
+          <div class="card">
+            <div class="section-label mb-12">Performance</div>
+            <div class="table-wrap" style="margin-bottom:0">
+              <table>
+                <thead><tr><th>Métrique</th><th>Cible</th><th>Réalisé</th></tr></thead>
+                <tbody>
+                  <tr><td>Impressions</td><td>—</td><td>—</td></tr>
+                  <tr><td>CTR</td><td>&gt;0,5%</td><td>—</td></tr>
+                  <tr><td>Leads</td><td>—</td><td>—</td></tr>
+                  <tr><td>CPL</td><td>&lt;150€</td><td>—</td></tr>
+                  <tr><td>Qualification</td><td>&gt;70%</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LE CERVEAU -->
+      <div class="rep-tab-content" id="rep-cerveau-rep" style="display:none">
+        <div style="background:#0F172A;border-radius:16px;padding:32px;margin-bottom:24px;color:#fff">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:2px;opacity:.5;margin-bottom:12px;text-transform:uppercase">◈ Intelligence artificielle</div>
+          <div style="font-size:24px;font-weight:700;margin-bottom:8px">Le Cerveau — Moteur d'apprentissage</div>
+          <div style="font-size:14px;opacity:.75;line-height:1.7">Chaque export de données que vous partagez est ingéré, analysé et comparé aux périodes précédentes. Le cerveau apprend en continu : il détecte les patterns, anticipe les anomalies et génère des recommandations de plus en plus précises à mesure que la campagne progresse.</div>
+        </div>
+
+        <div class="grid-3 mb-24">
+          <div style="background:#0F172A;border-radius:12px;padding:20px;color:#fff;text-align:center">
+            <div style="font-family:var(--mono);font-size:11px;opacity:.5;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">→ INGEST</div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Ingestion</div>
+            <div style="font-size:12px;opacity:.6;line-height:1.6">Tous les exports Meta, Google, LinkedIn sont intégrés. Chaque upload enrichit la base de performance historique.</div>
+          </div>
+          <div style="background:#003189;border-radius:12px;padding:20px;color:#fff;text-align:center">
+            <div style="font-family:var(--mono);font-size:11px;opacity:.7;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">∑ ANALYSE</div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Analyse</div>
+            <div style="font-size:12px;opacity:.8;line-height:1.6">Comparaison période vs période. Détection des variations &gt;20%, identification des drivers de performance et des anomalies.</div>
+          </div>
+          <div style="background:var(--gold);border-radius:12px;padding:20px;color:#fff;text-align:center">
+            <div style="font-family:var(--mono);font-size:11px;opacity:.8;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">◈ PRÉDIT</div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Prédiction</div>
+            <div style="font-size:12px;opacity:.9;line-height:1.6">Génère des recommandations actionnables basées sur les patterns détectés. S'affine à chaque nouvelle donnée.</div>
+          </div>
+        </div>
+
+        <div class="section-label mb-16">Exemples d'insights que Le Cerveau générera</div>
+
+        <div class="insight-card">
+          <div class="insight-type alert">● Alerte performance</div>
+          <div class="insight-title">"Le CPL Meta a augmenté de 24% sur les 7 derniers jours"</div>
+          <div class="insight-text">Principalement dû à une hausse de la fréquence sur le créatif Segment B (3,8 vs seuil 3,5) et un déclin du CTR de 1,8% à 1,1%. Recommandation : rafraîchir le créatif Segment B avant d'augmenter le budget. Rotation suggérée : format carrousel → vidéo 9:16.</div>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-type opportunity">◆ Opportunité de scaling</div>
+          <div class="insight-title">"Google Ads dispose d'un potentiel de budget non utilisé"</div>
+          <div class="insight-text">La campagne brand affiche un CPL de 18€ — 49% en dessous du seuil d'alerte (35€). Impression Share perdu sur budget estimé à 34%. Recommandation : réallouer 2 000€ du budget Demand Gen vers SEA brand pour capter les 34% d'impressions manquées.</div>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-type optimization">→ Optimisation segment</div>
+          <div class="insight-title">"Segment A surperforme Segment B à ratio 2:1"</div>
+          <div class="insight-text">Les Primo-accédants 25-45 ans génèrent 2× plus de leads que le Segment Patrimoine pour le même budget. Recommandation : tester une augmentation du budget Segment A à 55% (vs 40% initial) sur les 2 prochaines semaines et mesurer l'impact sur le CPL global.</div>
+        </div>
+
+        <div style="background:#F8FAFC;border:1px dashed var(--border);border-radius:12px;padding:24px;text-align:center;margin-top:8px">
+          <div style="font-size:32px;margin-bottom:12px;color:var(--muted)">◈</div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:8px">Le cerveau s'active au premier upload de données</div>
+          <div style="font-size:13px;color:var(--muted)">Partagez votre premier export Excel après le lancement des campagnes.<br>Les insights réels remplaceront ces exemples automatiquement.</div>
+        </div>
+      </div>
+
     </div>
 
     <!-- TAB 3: STRATÉGIE -->
@@ -966,6 +1154,17 @@ function initDonut() {
       <div class="legend-dot" style="background:${d.color}"></div>
       <div><strong>${d.label}</strong> — ${d.pct}% · <span style="font-family:'IBM Plex Mono',monospace;font-weight:600">${d.amt}</span></div>
     </div>`).join('');
+}
+
+
+function showRepTab(id, btn) {
+  document.querySelectorAll('.rep-tab-btn').forEach(b => { b.classList.remove('active'); b.style.color=''; b.style.borderBottomColor=''; b.style.fontWeight=''; });
+  document.querySelectorAll('.rep-tab-content').forEach(t => t.style.display='none');
+  btn.classList.add('active');
+  btn.style.color='var(--blue)';
+  btn.style.borderBottomColor='var(--blue)';
+  btn.style.fontWeight='600';
+  document.getElementById('rep-' + id).style.display='block';
 }
 
 // ACTION FILTER
