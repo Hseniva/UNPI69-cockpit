@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UNPI 69 · Intelligence Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#003189;--blue-light:#EFF4FF;--gold:#C9A84C;--gold-light:#FDF8EC;
+  --red:#DC2626;--green:#16A34A;--orange:#D97706;
+  --bg:#F1F5F9;--card:#fff;--border:#E2E8F0;
+  --text:#0F172A;--muted:#64748B;
+  --font:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh}
+/* LOGIN */
+#login-overlay{position:fixed;inset:0;background:#0F172A;display:flex;align-items:center;justify-content:center;z-index:9999}
+.login-box{background:#fff;border-radius:16px;padding:48px 40px;width:360px;text-align:center}
+.login-logo{font-size:28px;font-weight:700;color:var(--blue);letter-spacing:-1px;margin-bottom:4px}
+.login-sub{font-size:13px;color:var(--muted);margin-bottom:32px;font-family:var(--mono)}
+.login-label{font-size:11px;font-weight:600;letter-spacing:1px;color:var(--muted);text-align:left;display:block;margin-bottom:6px;margin-top:16px;text-transform:uppercase}
+.login-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font);font-size:14px;outline:none;transition:.2s}
+.login-input:focus{border-color:var(--blue)}
+.login-btn{width:100%;margin-top:24px;padding:12px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
+.login-btn:hover{background:#002070}
+.login-err{color:var(--red);font-size:12px;margin-top:10px;display:none}
+.login-badge{font-size:10px;letter-spacing:1.5px;font-family:var(--mono);color:var(--muted);margin-top:24px;text-transform:uppercase}
+/* APP */
+#app{display:none;flex-direction:column;min-height:100vh}
+/* HEADER */
+.header{background:var(--blue);color:#fff;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
+.header-brand{font-size:15px;font-weight:700;letter-spacing:-.3px}
+.header-sub{font-size:11px;opacity:.7;font-family:var(--mono);margin-left:8px}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-clock{font-family:var(--mono);font-size:12px;opacity:.8}
+.badge-conf{background:var(--red);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;font-family:var(--mono);text-transform:uppercase}
+/* DATE RANGE */
+.daterange-bar{background:#fff;border-bottom:1px solid var(--border);padding:10px 24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.daterange-label{font-size:12px;font-weight:600;color:var(--muted);font-family:var(--mono);margin-right:4px;text-transform:uppercase;letter-spacing:.5px}
+.dr-btn{padding:5px 14px;border:1.5px solid var(--border);background:#fff;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;transition:.15s;color:var(--text)}
+.dr-btn:hover{border-color:var(--blue);color:var(--blue)}
+.dr-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.dr-note{font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:auto}
+/* TABS */
+.tab-nav{background:#fff;border-bottom:2px solid var(--border);padding:0 24px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{padding:14px 18px;font-size:13px;font-weight:500;border:none;background:none;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:.15s}
+.tab-btn:hover{color:var(--blue)}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
+/* CONTENT */
+.tab-content{display:none;padding:28px 24px;max-width:1200px;margin:0 auto;width:100%}
+.tab-content.active{display:block}
+.main-wrap{flex:1}
+/* SECTION */
+.section-label{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.section-title{font-size:22px;font-weight:700;color:var(--text);margin-bottom:24px;letter-spacing:-.3px}
+/* GRID */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px}
+@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}
+@media(max-width:500px){.grid-4{grid-template-columns:1fr}}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.card.urgent{border-left:4px solid var(--red)}
+.card.gold{border-left:4px solid var(--gold)}
+.card.blue{border-left:4px solid var(--blue)}
+.card.green{border-left:4px solid var(--green)}
+.card.orange{border-left:4px solid var(--orange)}
+/* KPI CARD */
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.kpi-label{font-size:11px;font-weight:600;letter-spacing:1px;color:var(--muted);text-transform:uppercase;font-family:var(--mono);margin-bottom:12px}
+.kpi-value{font-size:32px;font-weight:700;color:var(--blue);font-family:var(--mono);line-height:1;margin-bottom:8px}
+.kpi-sub{font-size:12px;color:var(--muted)}
+.kpi-trend-down{color:var(--red);font-weight:600;font-size:13px}
+.kpi-trend-up{color:var(--green);font-weight:600;font-size:13px}
+/* CALLOUT */
+.callout{background:var(--blue);color:#fff;border-radius:12px;padding:24px 28px;margin-bottom:24px}
+.callout-title{font-size:13px;font-weight:700;letter-spacing:.5px;font-family:var(--mono);margin-bottom:10px;opacity:.8;text-transform:uppercase}
+.callout-text{font-size:15px;line-height:1.7;opacity:.95}
+.callout.gold{background:var(--gold)}
+.callout.dark{background:#0F172A}
+/* SIGNAL BARS */
+.signal-item{margin-bottom:14px}
+.signal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.signal-name{font-size:13px;font-weight:500}
+.signal-pct{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted)}
+.signal-track{background:#F1F5F9;border-radius:4px;height:8px;overflow:hidden}
+.signal-bar{height:8px;border-radius:4px;background:var(--red);transition:width 1s ease;width:0}
+.signal-bar.orange{background:var(--orange)}
+.signal-bar.green{background:var(--green)}
+/* TIMELINE */
+.timeline{display:flex;align-items:flex-start;gap:0;margin-bottom:24px;position:relative}
+.timeline::before{content:'';position:absolute;top:16px;left:16px;right:16px;height:2px;background:var(--border);z-index:0}
+.tl-item{flex:1;text-align:center;position:relative;z-index:1;padding:0 8px}
+.tl-dot{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;border:3px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+.tl-date{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
+.tl-label{font-size:12px;font-weight:500;line-height:1.4}
+/* TABLE */
+.table-wrap{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+table{width:100%;border-collapse:collapse}
+thead{background:var(--blue);color:#fff}
+thead th{padding:12px 16px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-family:var(--mono)}
+tbody tr{border-bottom:1px solid var(--border)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:nth-child(even){background:#F8FAFC}
+tbody td{padding:12px 16px;font-size:13px;color:var(--text)}
+/* BADGE */
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;font-family:var(--mono)}
+.badge-red{background:#FEE2E2;color:var(--red)}
+.badge-orange{background:#FEF3C7;color:var(--orange)}
+.badge-green{background:#DCFCE7;color:var(--green)}
+.badge-blue{background:#EFF4FF;color:var(--blue)}
+.badge-gray{background:#F1F5F9;color:var(--muted)}
+/* PHASE */
+.phase-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-bottom:24px}
+.phase-arrow{font-size:28px;color:var(--blue);text-align:center}
+.phase-card{border:2px solid var(--blue);border-radius:12px;padding:24px}
+.phase-card.gold{border-color:var(--gold)}
+.phase-num{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.phase-name{font-size:18px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.phase-name.gold{color:var(--gold)}
+.phase-period{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:16px}
+.phase-budget{font-size:28px;font-weight:700;font-family:var(--mono);color:var(--blue);margin-bottom:16px}
+.phase-budget.gold{color:var(--gold)}
+.phase-item{font-size:13px;color:var(--text);margin-bottom:6px;padding-left:16px;position:relative}
+.phase-item::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:700}
+.phase-kpi{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.phase-kpi-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.phase-kpi-val{font-size:16px;font-weight:700;font-family:var(--mono);color:var(--blue)}
+@media(max-width:700px){.phase-wrap{grid-template-columns:1fr}.phase-arrow{display:none}}
+/* FUNNEL */
+.funnel-wrap{margin:0 auto 24px;max-width:520px}
+.funnel-stage{margin-bottom:4px;display:flex;align-items:center;gap:12px}
+.funnel-bar{background:var(--blue);color:#fff;border-radius:6px;padding:12px 20px;font-size:13px;font-weight:500;text-align:center;transition:.3s}
+.funnel-label{font-size:12px;color:var(--muted);white-space:nowrap;min-width:120px}
+/* SCENARIO */
+.scenario-card{border-radius:12px;padding:20px;border:1.5px solid}
+.scenario-card.optimiste{border-color:var(--green);background:#F0FDF4}
+.scenario-card.reference{border-color:var(--blue);background:var(--blue-light)}
+.scenario-card.prudent{border-color:var(--orange);background:#FFFBEB}
+.scenario-title{font-size:14px;font-weight:700;margin-bottom:16px}
+.scenario-stat{display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;border-bottom:1px solid rgba(0,0,0,.07);padding-bottom:8px}
+.scenario-stat:last-child{border:none;margin:0;padding:0}
+.scenario-val{font-family:var(--mono);font-weight:700}
+/* SEO BARS */
+.seo-bar-item{margin-bottom:16px}
+.seo-bar-header{display:flex;justify-content:space-between;margin-bottom:6px}
+.seo-bar-name{font-size:13px;font-weight:500}
+.seo-bar-score{font-family:var(--mono);font-size:13px;font-weight:700}
+.seo-track{background:#F1F5F9;border-radius:6px;height:12px;overflow:hidden}
+.seo-fill{height:12px;border-radius:6px;transition:width 1.2s ease;width:0}
+.seo-fill.red{background:var(--red)}
+.seo-fill.orange{background:var(--orange)}
+.seo-fill.green{background:var(--green)}
+/* FINDING */
+.finding{display:flex;gap:12px;padding:14px;background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;margin-bottom:10px}
+.finding-num{width:24px;height:24px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;font-family:var(--mono)}
+.finding-text{font-size:13px;line-height:1.5}
+/* ACTION TABLE */
+.action-filters{display:flex;gap:8px;margin-bottom:16px}
+.filter-btn{padding:6px 14px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text);transition:.15s}
+.filter-btn:hover,.filter-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.status-todo{color:var(--red);font-weight:600;font-size:12px}
+.status-progress{color:var(--orange);font-weight:600;font-size:12px}
+.status-done{color:var(--green);font-weight:600;font-size:12px}
+/* INSIGHT CARD */
+.insight-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px}
+.insight-type{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.insight-type.opportunity{color:var(--green)}
+.insight-type.alert{color:var(--red)}
+.insight-type.optimization{color:var(--blue)}
+.insight-title{font-size:15px;font-weight:700;margin-bottom:6px}
+.insight-text{font-size:13px;color:var(--muted);line-height:1.6}
+/* FOOTER */
+footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text-align:center;font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.3px}
+.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
+.text-center{text-align:center}
+.competitor-badge{font-size:11px;font-family:var(--mono);font-weight:600}
+.donut-wrap{display:flex;gap:32px;align-items:center;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.donut-legend{display:flex;flex-direction:column;gap:10px}
+.legend-item{display:flex;align-items:center;gap:10px;font-size:13px}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.monthly-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:700px){.monthly-cards{grid-template-columns:repeat(2,1fr)}}
+.monthly-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.monthly-month{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.monthly-amount{font-size:20px;font-weight:700;font-family:var(--mono);color:var(--blue)}
+.monthly-detail{font-size:11px;color:var(--muted);margin-top:4px}
+.global-score{text-align:center;padding:32px;margin-bottom:24px}
+.global-score-num{font-size:80px;font-weight:700;font-family:var(--mono);color:var(--red);line-height:1}
+.global-score-denom{font-size:32px;font-weight:400;color:var(--muted)}
+.global-score-label{font-size:14px;color:var(--muted);margin-top:8px;font-family:var(--mono)}
+.rec-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px}
+.rec-num{width:28px;height:28px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:var(--mono);flex-shrink:0}
+.rec-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.rec-title{font-size:15px;font-weight:700}
+.rec-text{font-size:13px;color:var(--muted);line-height:1.6;padding-left:40px}
+.period-note{background:#EFF4FF;border:1px solid #BFDBFE;border-radius:8px;padding:10px 14px;font-size:12px;color:var(--blue);font-family:var(--mono);margin-bottom:16px}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-overlay">
+  <div class="login-box">
+    <div class="login-logo">UNPI 69</div>
+    <div class="login-sub">Tableau de Bord Intelligence Marketing</div>
+    <label class="login-label">Identifiant</label>
+    <input class="login-input" id="login-user" type="text" placeholder="Identifiant" autocomplete="off">
+    <label class="login-label">Mot de passe</label>
+    <input class="login-input" id="login-pass" type="password" placeholder="••••••••">
+    <button class="login-btn" onclick="doLogin()">Accéder →</button>
+    <div class="login-err" id="login-err">Identifiant ou mot de passe incorrect.</div>
+    <div class="login-badge">▣ Accès Confidentiel</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header class="header">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="header-brand">UNPI 69</span>
+      <span class="header-sub">· Intelligence Marketing</span>
+    </div>
+    <div class="header-right">
+      <span class="header-clock" id="clock"></span>
+      <span class="badge-conf">Confidentiel</span>
+    </div>
+  </header>
+
+  <!-- DATE RANGE -->
+  <div class="daterange-bar">
+    <span class="daterange-label">Période</span>
+    <button class="dr-btn" onclick="setRange('7j',this)">7 jours</button>
+    <button class="dr-btn" onclick="setRange('30j',this)">30 jours</button>
+    <button class="dr-btn" onclick="setRange('3m',this)">3 mois</button>
+    <button class="dr-btn active" onclick="setRange('all',this)">Depuis le début</button>
+    <span class="dr-note" id="dr-note">Données disponibles dès le lancement des campagnes</span>
+  </div>
+
+  <!-- TABS -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('overview',this)">Vue d'Ensemble</button>
+    <button class="tab-btn" onclick="showTab('intelligence',this)">Intelligence</button>
+    <button class="tab-btn" onclick="showTab('strategie',this)">Stratégie</button>
+    <button class="tab-btn" onclick="showTab('media',this)">Plan Média</button>
+    <button class="tab-btn" onclick="showTab('seo',this)">SEO & Digital</button>
+    <button class="tab-btn" onclick="showTab('marche',this)">Marché</button>
+    <button class="tab-btn" onclick="showTab('reco',this)">Recommandations</button>
+    <button class="tab-btn" onclick="showTab('actions',this)">Centre d'Actions</button>
+  </nav>
+
+  <div class="main-wrap">
+
+    <!-- TAB 1: VUE D'ENSEMBLE -->
+    <div class="tab-content active" id="tab-overview">
+      <div class="section-label">Vue d'ensemble</div>
+      <div class="section-title">Tableau de bord — UNPI 69 Lyon Métropole</div>
+
+      <div class="grid-4">
+        <div class="kpi-card">
+          <div class="kpi-label">Base adhérents</div>
+          <div class="kpi-value">2 120</div>
+          <div class="kpi-trend-down">▼ -5,5% / an</div>
+          <div class="kpi-sub" style="margin-top:6px">Érosion structurelle</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Objectif 2026</div>
+          <div class="kpi-value">+300</div>
+          <div class="kpi-sub">Adhérents à acquérir</div>
+          <div class="kpi-sub">d'ici décembre 2026</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Budget total</div>
+          <div class="kpi-value">50K€</div>
+          <div class="kpi-sub">Dont 45 000€ média</div>
+          <div class="kpi-sub">Mai – Décembre 2026</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Historique digital</div>
+          <div class="kpi-value">0</div>
+          <div class="kpi-sub">Campagne structurée</div>
+          <div class="kpi-sub">Tout est à construire</div>
+        </div>
+      </div>
+
+      <div class="callout mb-24">
+        <div class="callout-title">→ Contexte stratégique</div>
+        <div class="callout-text">L'UNPI 69 fait face à une érosion structurelle de sa base d'adhérents depuis 5 à 7 ans. Zéro campagne digitale structurée n'a été menée à ce jour — tout est à construire : tracking, landing pages, comptes publicitaires, créatifs. Le contexte réglementaire 2026 (DPE obligatoire, encadrement des loyers, fiscalité alourdie) crée une fenêtre d'opportunité unique pour capter des propriétaires en recherche active d'accompagnement.</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-label mb-16">Maturité digitale actuelle</div>
+          <div id="signal-bars">
+            <div class="signal-item">
+              <div class="signal-header"><span class="signal-name">Présence digitale</span><span class="signal-pct">5%</span></div>
+              <div class="signal-track"><div class="signal-bar" data-w="5"></div></div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-header"><span class="signal-name">Optimisation SEO</span><span class="signal-pct">25%</span></div>
+              <div class="signal-track"><div class="signal-bar" data-w="25"></div></div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-header"><span class="signal-name">Notoriété Meta / Instagram</span><span class="signal-pct">10%</span></div>
+              <div class="signal-track"><div class="signal-bar" data-w="10"></div></div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-header"><span class="signal-name">Conversion parcours adhésion</span><span class="signal-pct">20%</span></div>
+              <div class="signal-track"><div class="signal-bar" data-w="20"></div></div>
+            </div>
+            <div class="signal-item">
+              <div class="signal-header"><span class="signal-name">Tracking &amp; mesure</span><span class="signal-pct">0%</span></div>
+              <div class="signal-track"><div class="signal-bar" data-w="0"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-label mb-16">Contexte réglementaire 2026</div>
+          <div class="card urgent mb-16">
+            <strong style="font-size:13px">DPE G/F — Interdiction de location</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px">Les logements classés G et F sont désormais interdits à la location. Les propriétaires concernés ont besoin d'accompagnement urgent.</div>
+          </div>
+          <div class="card urgent mb-16">
+            <strong style="font-size:13px">Fiscalité alourdie</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px">Hausse de la taxe foncière + obligations déclaratives renforcées. Les propriétaires cherchent des solutions d'optimisation fiscale.</div>
+          </div>
+          <div class="card urgent">
+            <strong style="font-size:13px">Encadrement des loyers — Lyon</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px">Encadrement généralisé sur Lyon Métropole. Les bailleurs ont besoin de conseil juridique et de défense de leurs droits.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-24">
+        <div class="section-label mb-24">Feuille de route 2026</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">1</div>
+            <div class="tl-date">Mai 2026</div>
+            <div class="tl-label">Lancement Phase 1<br>Pilote &amp; Fondations</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">2</div>
+            <div class="tl-date">Juillet 2026</div>
+            <div class="tl-label">Point de décision<br>GO / NO-GO</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">3</div>
+            <div class="tl-date">Septembre 2026</div>
+            <div class="tl-label">Lancement Phase 2<br>Conversion &amp; Scale</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">4</div>
+            <div class="tl-date">Décembre 2026</div>
+            <div class="tl-label">Bilan final<br>Objectif +300 adhérents</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: INTELLIGENCE -->
+    <div class="tab-content" id="tab-intelligence">
+      <div class="section-label">Intelligence Marketing</div>
+      <div class="section-title">Moteur d'analyse &amp; d'insights</div>
+
+      <div class="callout mb-24">
+        <div class="callout-title">→ Moteur d'intelligence marketing</div>
+        <div class="callout-text">Une fois les campagnes lancées, ce module analysera automatiquement vos données pour détecter en temps réel : opportunités de croissance, anomalies de performance, créatifs en fatigue, segments sous-exploités et leviers d'optimisation budgétaire.</div>
+      </div>
+
+      <div class="section-label mb-16">Insights pré-lancement</div>
+
+      <div class="insight-card">
+        <div class="insight-type opportunity">◆ Opportunité</div>
+        <div class="insight-title">Ciblage haute-intention — Segment Patrimoine</div>
+        <div class="insight-text">Les propriétaires 45-65 ans cherchant "encadrement loyers Lyon" ou "défense bailleur" ont une intention d'adhésion élevée. Ce segment représente 60% du budget (9 500€) et sera prioritaire en Phase 2. Préparer des messages spécifiques sur la protection juridique et l'optimisation fiscale.</div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-type alert">● Alerte critique</div>
+        <div class="insight-title">SEO — Score 25/100 bloque la performance organique</div>
+        <div class="insight-text">Sans correction des 7 problèmes critiques identifiés (double H1, zéro schema markup, titres trop courts), les campagnes SEA et les landing pages sous-performeront. Chaque visiteur payant atterrit sur un site non optimisé. Correction SEO = action prioritaire avant tout lancement.</div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-type optimization">→ Optimisation</div>
+        <div class="insight-title">Réallocation budgétaire — Règle de décision Phase 1</div>
+        <div class="insight-text">La répartition Meta 40% / SEA 36% est optimale pour démarrer. Règle à appliquer à J+30 : si CPL Meta &lt; 22€, augmenter sa part jusqu'à 50%. Si CPL SEA &lt; 35€ sur requêtes génériques, tester budget +20%. Si LinkedIn CPL &gt; 200€, réduire à 3% et réallouer vers Meta.</div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-type opportunity">◆ Opportunité — LinkedIn</div>
+        <div class="insight-title">Audience notaires &amp; experts-comptables Lyon</div>
+        <div class="insight-text">Les notaires, experts-comptables et conseillers en gestion de patrimoine de Lyon Métropole sont des prescripteurs naturels pour UNPI 69. Une campagne LinkedIn ciblant ces professions (fonction + localisation) pourrait générer des leads qualifiés à fort potentiel de conversion, complémentaires au ciblage Meta.</div>
+      </div>
+
+      <div class="section-label mb-16" style="margin-top:24px">Détection d'anomalies — Actif post-lancement</div>
+      <div class="grid-3">
+        <div class="card" style="opacity:.6">
+          <div class="insight-type alert mb-8" style="font-size:10px;font-family:var(--mono);font-weight:700;letter-spacing:1px;text-transform:uppercase">● Anomalie CPL</div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px">CPL > seuil d'alerte</div>
+          <div style="font-size:12px;color:var(--muted)">Détection automatique si CPL dépasse le seuil défini par canal pendant 7 jours consécutifs.</div>
+          <div class="badge badge-gray" style="margin-top:12px">En attente de données</div>
+        </div>
+        <div class="card" style="opacity:.6">
+          <div class="insight-type alert mb-8" style="font-size:10px;font-family:var(--mono);font-weight:700;letter-spacing:1px;text-transform:uppercase">● Fatigue créative</div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px">Fréquence &gt; 3,5 détectée</div>
+          <div style="font-size:12px;color:var(--muted)">Alerte automatique lorsque la fréquence d'un créatif dépasse 3,5 sur 7 jours — signe de fatigue publicitaire.</div>
+          <div class="badge badge-gray" style="margin-top:12px">En attente de données</div>
+        </div>
+        <div class="card" style="opacity:.6">
+          <div class="insight-type alert mb-8" style="font-size:10px;font-family:var(--mono);font-weight:700;letter-spacing:1px;text-transform:uppercase">● Budget</div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px">Sous-consommation budgétaire</div>
+          <div style="font-size:12px;color:var(--muted)">Détection si une campagne consomme moins de 70% de son budget hebdomadaire prévu — signal de ciblage trop restrictif.</div>
+          <div class="badge badge-gray" style="margin-top:12px">En attente de données</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: STRATÉGIE -->
+    <div class="tab-content" id="tab-strategie">
+      <div class="section-label">Stratégie d'Acquisition</div>
+      <div class="section-title">Dispositif en 2 phases — Test &amp; Learn</div>
+
+      <div class="phase-wrap">
+        <div class="phase-card">
+          <div class="phase-num">Phase 01</div>
+          <div class="phase-name">Pilote &amp; Fondations</div>
+          <div class="phase-period">Mai – Juillet 2026</div>
+          <div class="phase-budget">15 000€</div>
+          <div class="phase-item">Setup GA4 + pixels Meta / LinkedIn</div>
+          <div class="phase-item">2-3 landing pages dédiées par segment</div>
+          <div class="phase-item">6-8 visuels créatifs par cible</div>
+          <div class="phase-item">Bâtir audiences qualifiées</div>
+          <div class="phase-item">Valider les hypothèses CPL</div>
+          <div class="phase-kpi">
+            <div class="phase-kpi-label">CPL cible</div>
+            <div class="phase-kpi-val">À définir sur données</div>
+          </div>
+        </div>
+        <div class="phase-arrow">→</div>
+        <div class="phase-card gold">
+          <div class="phase-num">Phase 02</div>
+          <div class="phase-name gold">Conversion &amp; Scale</div>
+          <div class="phase-period">Septembre – Décembre 2026</div>
+          <div class="phase-budget gold">35 000€</div>
+          <div class="phase-item">Retargeting + lookalikes Phase 1</div>
+          <div class="phase-item">Nurturing email 3-4 touches</div>
+          <div class="phase-item">Optimisation UX landing pages</div>
+          <div class="phase-item">Scale combinaisons gagnantes</div>
+          <div class="phase-item">Meta Lead Ads + SEA générique</div>
+          <div class="phase-kpi">
+            <div class="phase-kpi-label">CPL cible</div>
+            <div class="phase-kpi-val" style="color:var(--gold)">25 – 35€</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-24">
+        <div class="section-label mb-16">Tunnel d'acquisition — 5 étapes</div>
+        <div class="funnel-wrap">
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:100%;background:#003189">1 · Clic publicitaire — Meta / SEA / LinkedIn</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:85%;background:#1a4aab;margin:0 auto">2 · Landing page — Promesse + preuves sociales</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:65%;background:#3562c3;margin:0 auto">3 · Formulaire — Contact / intérêt qualifié</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:45%;background:#4f7adb;margin:0 auto">4 · Nurturing CRM — 3-4 emails personnalisés</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:25%;background:#C9A84C;margin:0 auto">5 · Adhésion — 250€ en ligne</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2 mb-24">
+        <div class="card blue">
+          <div class="section-label mb-8">Segment A — Primo-accédants</div>
+          <div style="font-size:20px;font-weight:700;margin-bottom:4px">25-45 ans</div>
+          <div class="badge badge-blue mb-16">40% du budget · 9 500€</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Besoins : copropriété, DPE, fiscalité</div>
+          <div style="font-size:13px;font-style:italic;color:var(--blue);font-weight:500">"Évitez les pièges — conseils copro / DPE / fiscalité"</div>
+        </div>
+        <div class="card gold">
+          <div class="section-label mb-8">Segment B — Patrimoine constitué</div>
+          <div style="font-size:20px;font-weight:700;margin-bottom:4px">45-65 ans</div>
+          <div class="badge badge-orange mb-16">60% du budget · 9 500€</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Besoins : sécurité, optimisation fiscale, défense bailleurs</div>
+          <div style="font-size:13px;font-style:italic;color:var(--gold);font-weight:500">"Encadrement loyers, DPE, fiscalité : UNPI vous accompagne"</div>
+        </div>
+      </div>
+
+      <div class="section-label mb-16">Projections économiques — 3 scénarios</div>
+      <div class="grid-3">
+        <div class="scenario-card optimiste">
+          <div class="scenario-title" style="color:var(--green)">◆ Scénario optimiste</div>
+          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">25€</span></div>
+          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">15%</span></div>
+          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">167€</span></div>
+          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~300</span></div>
+          <div class="scenario-stat"><span>Rentabilité</span><span class="scenario-val">&lt; 12 mois</span></div>
+        </div>
+        <div class="scenario-card reference">
+          <div class="scenario-title" style="color:var(--blue)">→ Scénario de référence</div>
+          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">40€</span></div>
+          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">11%</span></div>
+          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">400€</span></div>
+          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~124</span></div>
+          <div class="scenario-stat"><span>Valeur 3 ans</span><span class="scenario-val">528€</span></div>
+        </div>
+        <div class="scenario-card prudent">
+          <div class="scenario-title" style="color:var(--orange)">▸ Scénario prudent</div>
+          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">35€</span></div>
+          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">7%</span></div>
+          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">583€</span></div>
+          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~75</span></div>
+          <div class="scenario-stat"><span>Point de départ</span><span class="scenario-val">Conservateur</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: PLAN MÉDIA -->
+    <div class="tab-content" id="tab-media">
+      <div class="section-label">Plan Média</div>
+      <div class="section-title">Répartition budgétaire &amp; pilotage</div>
+
+      <div class="card mb-24">
+        <div class="section-label mb-16">Budget total — 45 000€ média</div>
+        <div class="donut-wrap">
+          <svg id="donut-chart" width="200" height="200"></svg>
+          <div class="donut-legend" id="donut-legend"></div>
+        </div>
+      </div>
+
+      <div class="section-label mb-16">Planning mensuel</div>
+      <div class="monthly-cards">
+        <div class="monthly-card">
+          <div class="monthly-month">Juin 2026</div>
+          <div class="monthly-amount">2 533€</div>
+          <div class="monthly-detail">2 semaines · Phase 1</div>
+        </div>
+        <div class="monthly-card">
+          <div class="monthly-month">Juillet 2026</div>
+          <div class="monthly-amount">6 333€</div>
+          <div class="monthly-detail">5 semaines · Phase 1</div>
+        </div>
+        <div class="monthly-card">
+          <div class="monthly-month">Août 2026</div>
+          <div class="monthly-amount">5 067€</div>
+          <div class="monthly-detail">4 semaines · Transition</div>
+        </div>
+        <div class="monthly-card">
+          <div class="monthly-month">Septembre 2026</div>
+          <div class="monthly-amount">5 067€</div>
+          <div class="monthly-detail">4 semaines · Phase 2</div>
+        </div>
+      </div>
+
+      <div class="table-wrap mb-24">
+        <table>
+          <thead>
+            <tr><th>Canal</th><th>Stratégie</th><th>CPL Cible</th><th>Seuil d'alerte</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>SEA Google</strong></td><td>Intention forte, requêtes brand</td><td><span class="badge badge-green">&lt; 35€</span></td><td>&gt; 45€ sur 7j</td></tr>
+            <tr><td><strong>Meta Lead Ads</strong></td><td>Volume + ciblage granulaire</td><td><span class="badge badge-green">&lt; 22€</span></td><td>&gt; 30€ ou complétion &lt; 60%</td></tr>
+            <tr><td><strong>Demand Gen</strong></td><td>Retargeting + lookalike</td><td><span class="badge badge-blue">CTR &gt; 0,15%</span></td><td>CTR &lt; 0,08% sur 14j</td></tr>
+            <tr><td><strong>LinkedIn Ads</strong></td><td>Profils pros qualifiés</td><td><span class="badge badge-orange">&lt; 150€</span></td><td>&gt; 200€</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="card blue">
+          <div class="section-label mb-8">Ciblage — Segment A</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:12px">Primo-accédants · 25-45 ans</div>
+          <div class="badge badge-blue mb-16">Budget Meta : 9 500€</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Intérêts</div>
+          <div style="font-size:13px;line-height:2">Immobilier · Premier achat immobilier · Prêt immobilier · Copropriété · DPE · Jeunes actifs · Famille</div>
+        </div>
+        <div class="card gold">
+          <div class="section-label mb-8">Ciblage — Segment B</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:12px">Patrimoine constitué · 45-65 ans</div>
+          <div class="badge badge-orange mb-16">Budget Meta : 9 500€</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Intérêts</div>
+          <div style="font-size:13px;line-height:2">Investissement locatif · Défiscalisation · Gestion de patrimoine · Retraite · Revenus locatifs · Résidence secondaire</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: SEO -->
+    <div class="tab-content" id="tab-seo">
+      <div class="section-label">SEO &amp; Présence Digitale</div>
+      <div class="section-title">Audit — État des lieux</div>
+
+      <div class="global-score">
+        <div class="global-score-num">25<span class="global-score-denom">/100</span></div>
+        <div><span class="badge badge-red" style="font-size:12px;padding:4px 12px">● Action Requise — Score Global</span></div>
+      </div>
+
+      <div class="grid-2 mb-24">
+        <div class="card">
+          <div class="section-label mb-16">Scores par catégorie</div>
+          <div id="seo-bars">
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">SEO Technique</span><span class="seo-bar-score" style="color:var(--red)">35/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="35"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Optimisation On-Page</span><span class="seo-bar-score" style="color:var(--red)">28/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="28"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Contenu &amp; Mots-clés</span><span class="seo-bar-score" style="color:var(--red)">20/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="20"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Données Structurées</span><span class="seo-bar-score" style="color:var(--red)">0/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="0"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Maillage Interne</span><span class="seo-bar-score" style="color:var(--orange)">55/100 <span class="badge badge-orange">Moyen</span></span></div>
+              <div class="seo-track"><div class="seo-fill orange" data-w="55"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Autorité &amp; Backlinks</span><span class="seo-bar-score" style="color:var(--orange)">10/100 <span class="badge badge-orange">Moyen</span></span></div>
+              <div class="seo-track"><div class="seo-fill orange" data-w="10"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-label mb-16">5 constats critiques</div>
+          <div class="finding"><div class="finding-num">1</div><div class="finding-text"><strong>Double balise H1 sur la homepage</strong> — Google ne peut pas identifier la page principale du site.</div></div>
+          <div class="finding"><div class="finding-num">2</div><div class="finding-text"><strong>Zéro schema markup sur 57 URLs</strong> — aucun rich snippet possible (FAQ, LocalBusiness, BreadcrumbList).</div></div>
+          <div class="finding"><div class="finding-num">3</div><div class="finding-text"><strong>Titres trop courts</strong> — 24 caractères sur la homepage vs optimum 50-60 caractères.</div></div>
+          <div class="finding"><div class="finding-num">4</div><div class="finding-text"><strong>17+ images sans attribut ALT</strong> — perte de signaux SEO et problème d'accessibilité.</div></div>
+          <div class="finding"><div class="finding-num">5</div><div class="finding-text"><strong>Écart total avec la concurrence</strong> — fnaim.fr génère 156 615 visites/mois vs ~0 pour UNPI 69. Aucun mot-clé en commun.</div></div>
+        </div>
+      </div>
+
+      <div class="table-wrap mb-24">
+        <table>
+          <thead>
+            <tr><th>Page</th><th>Title actuel</th><th>Car.</th><th>Title optimisé</th><th>Car.</th><th>Priorité</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Homepage</td><td>UNPI 69 - LYON MÉTROPOLE</td><td><span class="badge badge-red">24</span></td><td>Syndicat Propriétaires Lyon — Conseil &amp; Défense — UNPI 69</td><td><span class="badge badge-green">55</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
+            <tr><td>/nos-services/</td><td>Nos services - UNPI 69 Lyon Métropole</td><td><span class="badge badge-orange">37</span></td><td>Conseil Juridique Propriétaire Lyon — Nos Services — UNPI 69</td><td><span class="badge badge-green">47</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
+            <tr><td>/adherer-a-lunpi-69/</td><td>Devenir adhérent - UNPI 69 Lyon Métropole</td><td><span class="badge badge-orange">41</span></td><td>Adhésion UNPI 69 Lyon — Tarifs &amp; Avantages Propriétaire</td><td><span class="badge badge-green">56</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Action SEO</th><th>Impact</th><th>Effort</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-red">1</span></td><td>Corriger double H1 homepage</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td><span class="badge badge-red">2</span></td><td>Implémenter schema markup (LocalBusiness + FAQPage)</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-orange">Moyen</span></td></tr>
+            <tr><td><span class="badge badge-red">3</span></td><td>Optimiser titles + meta descriptions (3 pages prioritaires)</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td><span class="badge badge-orange">4</span></td><td>Ajouter attributs ALT sur 17+ images</td><td><span class="badge badge-orange">Moyen</span></td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td><span class="badge badge-orange">5</span></td><td>Stratégie de contenu — mots-clés propriétaires Lyon</td><td><span class="badge badge-red">Très fort</span></td><td><span class="badge badge-red">Élevé</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 6: MARCHÉ -->
+    <div class="tab-content" id="tab-marche">
+      <div class="section-label">Marché &amp; Concurrence</div>
+      <div class="section-title">Positionnement — Lyon Métropole</div>
+
+      <div class="callout mb-24" style="background:#0F172A">
+        <div class="callout-title">→ Insight clé</div>
+        <div class="callout-text">L'UNPI 69 n'a pas un seul mot-clé en commun avec fnaim.fr. Le retard digital est total — mais c'est aussi une opportunité : tout est à prendre sur ce marché non disputé en acquisition payante.</div>
+      </div>
+
+      <div class="table-wrap mb-24">
+        <table>
+          <thead><tr><th>Organisation</th><th>Visites / mois</th><th>Présence digitale</th><th>Publicité payante</th><th>Positionnement</th></tr></thead>
+          <tbody>
+            <tr><td><strong>fnaim.fr</strong></td><td><span class="badge badge-red">~156 615</span></td><td>Très forte</td><td>Oui</td><td>Agents immobiliers</td></tr>
+            <tr><td><strong>seloger.com</strong></td><td><span class="badge badge-red">Très élevé</span></td><td>Très forte</td><td>Oui</td><td>Portail immobilier</td></tr>
+            <tr><td><strong>SNAPAP</strong></td><td><span class="badge badge-orange">Faible</span></td><td>Moyenne</td><td>Non</td><td>Syndicat national</td></tr>
+            <tr><td><strong>UNPI 69</strong></td><td><span class="badge badge-red">~0</span></td><td>Inexistante</td><td>Non</td><td>Syndicat local — défense bailleurs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2 mb-24">
+        <div class="card blue">
+          <div class="section-label mb-8">Offre UNPI 69</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:16px">Adhésion individuelle</div>
+          <div class="scenario-stat"><span>An 1</span><span class="scenario-val" style="color:var(--blue)">250€</span></div>
+          <div class="scenario-stat"><span>Dont droits d'entrée (une fois)</span><span class="scenario-val">74€</span></div>
+          <div class="scenario-stat"><span>À partir de l'an 2</span><span class="scenario-val">176€ / an</span></div>
+          <div class="scenario-stat"><span>LTV 3 ans</span><span class="scenario-val" style="color:var(--green)">602€</span></div>
+          <div style="margin-top:12px;font-size:12px;color:var(--muted)">● Cotisation déductible des revenus locatifs</div>
+        </div>
+        <div class="card">
+          <div class="section-label mb-8">Avantages concurrentiels</div>
+          <div class="phase-item" style="margin-bottom:10px">Seul syndicat dédié propriétaires dans le Rhône</div>
+          <div class="phase-item" style="margin-bottom:10px">Conseil juridique illimité inclus</div>
+          <div class="phase-item" style="margin-bottom:10px">Défense collective des droits bailleurs</div>
+          <div class="phase-item" style="margin-bottom:10px">Accompagnement DPE et mise en conformité</div>
+          <div class="phase-item" style="margin-bottom:10px">Ancrage local — Lyon Métropole depuis 1880</div>
+          <div class="phase-item">Cotisation fiscalement déductible</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card blue">
+          <div class="section-label mb-8">Segment A — Message clé</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:8px">Primo-accédants · 25-45 ans</div>
+          <div style="font-size:15px;font-style:italic;color:var(--blue);margin-bottom:12px">"Protégez votre premier bien — conseil et défense UNPI 69"</div>
+          <div style="font-size:13px;color:var(--muted)">Copropriété · DPE · Fiscalité · Accompagnement juridique</div>
+        </div>
+        <div class="card gold">
+          <div class="section-label mb-8">Segment B — Message clé</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:8px">Patrimoine constitué · 45-65 ans</div>
+          <div style="font-size:15px;font-style:italic;color:var(--gold);margin-bottom:12px">"Vos droits, votre fiscalité, vos loyers — UNPI 69 à vos côtés"</div>
+          <div style="font-size:13px;color:var(--muted)">Défense bailleurs · Optimisation fiscale · Sécurité juridique</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7: RECOMMANDATIONS -->
+    <div class="tab-content" id="tab-reco">
+      <div class="section-label">Recommandations &amp; Apprentissages</div>
+      <div class="section-title">Synthèse stratégique</div>
+
+      <div class="callout mb-24">
+        <div class="callout-title">→ Moteur d'insights</div>
+        <div class="callout-text">Ce module synthétise les recommandations prioritaires issues de l'analyse stratégique et des documents de cadrage. Mis à jour en continu une fois les campagnes actives — les insights ci-dessous reflètent l'état pré-lancement.</div>
+      </div>
+
+      <div class="section-label mb-16">Recommandations prioritaires</div>
+
+      <div class="rec-card">
+        <div class="rec-header"><div class="rec-num">1</div><div class="rec-title">Lancer le tracking avant tout — priorité absolue</div></div>
+        <div class="rec-text">Sans GA4 + pixels Meta/LinkedIn correctement installés, aucune donnée fiable ne sera disponible. Chaque jour de retard = données perdues définitivement. Le tag GA4 doit être fourni à l'agence web avant tout lancement de campagne.</div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-header"><div class="rec-num">2</div><div class="rec-title">Créer des landing pages dédiées avant le lancement</div></div>
+        <div class="rec-text">Le site actuel (unpi69.fr) n'est pas conçu pour convertir — il est informatif. Sans landing pages dédiées par segment, le CPL sera artificiellement élevé et les résultats Phase 1 seront non-représentatifs. Investissement minimal, impact maximal sur le CAC.</div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-header"><div class="rec-num">3</div><div class="rec-title">Tester le code promo dès la Phase 1</div></div>
+        <div class="rec-text">Une réduction sur les droits d'entrée (74€) est le levier de conversion le plus direct sur un ticket à 250€. Ex. : "Adhérez avant le 31 juillet — droits d'entrée offerts". Tester dès Phase 1 pour mesurer l'impact sur le taux lead→adhésion.</div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-header"><div class="rec-num">4</div><div class="rec-title">Corriger le SEO technique immédiatement</div></div>
+        <div class="rec-text">Les 4 corrections critiques (H1, schema markup, titles, ALT images) sont toutes à faible effort et fort impact. Elles doivent être réalisées avant le lancement des campagnes SEA — chaque visite payante atterrit sur un site SEO-faible qui pénalise le Quality Score Google.</div>
+      </div>
+
+      <div class="rec-card">
+        <div class="rec-header"><div class="rec-num">5</div><div class="rec-title">Règle de réallocation budgétaire — appliquer à J+30</div></div>
+        <div class="rec-text">À J+30 : si CPL Meta &lt; 22€ → augmenter à 50% du budget. Si CPL SEA &lt; 35€ sur requêtes génériques → tester +20%. Si LinkedIn CPL &gt; 200€ → réduire à 3% et réallouer vers Meta. Aucune réallocation sans 7 jours de données consécutives.</div>
+      </div>
+
+      <div class="section-label mb-16" style="margin-top:24px">Ce que nous savons / testons / optimiserons</div>
+      <div class="grid-3">
+        <div class="card blue">
+          <div class="section-label mb-8">Ce qu'on sait</div>
+          <div class="phase-item mb-8">Base 2 120 adhérents · -5,5%/an</div>
+          <div class="phase-item mb-8">Zéro digital — tout à construire</div>
+          <div class="phase-item mb-8">Contexte réglementaire favorable</div>
+          <div class="phase-item">SEO score : 25/100 — action urgente</div>
+        </div>
+        <div class="card gold">
+          <div class="section-label mb-8">Ce qu'on va tester</div>
+          <div class="phase-item mb-8">CPL réel par segment et canal</div>
+          <div class="phase-item mb-8">Taux conversion LP → formulaire</div>
+          <div class="phase-item mb-8">Qualité leads brut → adhérent</div>
+          <div class="phase-item">Impact code promo sur conversion</div>
+        </div>
+        <div class="card green">
+          <div class="section-label mb-8">Ce qu'on optimisera</div>
+          <div class="phase-item mb-8">Réallocation inter-leviers si écart &gt;20%</div>
+          <div class="phase-item mb-8">Rotation créas toutes les 2 semaines</div>
+          <div class="phase-item mb-8">Audiences lookalike Phase 2</div>
+          <div class="phase-item">Nurturing email 3-4 touches</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 8: ACTIONS -->
+    <div class="tab-content" id="tab-actions">
+      <div class="section-label">Centre d'Actions</div>
+      <div class="section-title">Pilotage opérationnel</div>
+
+      <div class="period-note" id="actions-period">● Période : Depuis le début · Toutes les actions</div>
+
+      <div class="action-filters">
+        <span style="font-size:12px;font-weight:600;color:var(--muted);font-family:var(--mono);align-self:center">Filtrer :</span>
+        <button class="filter-btn active" onclick="filterActions('all',this)">Tout</button>
+        <button class="filter-btn" onclick="filterActions('todo',this)">À faire</button>
+        <button class="filter-btn" onclick="filterActions('progress',this)">En cours</button>
+        <button class="filter-btn" onclick="filterActions('done',this)">Terminé</button>
+      </div>
+
+      <div class="grid-3 mb-24">
+        <div class="kpi-card" style="text-align:center">
+          <div class="kpi-label">À faire</div>
+          <div class="kpi-value" style="color:var(--red)" id="count-todo">8</div>
+        </div>
+        <div class="kpi-card" style="text-align:center">
+          <div class="kpi-label">En cours</div>
+          <div class="kpi-value" style="color:var(--orange)" id="count-progress">1</div>
+        </div>
+        <div class="kpi-card" style="text-align:center">
+          <div class="kpi-label">Terminé</div>
+          <div class="kpi-value" style="color:var(--green)" id="count-done">0</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="action-table">
+          <thead>
+            <tr><th>#</th><th>Action</th><th>Canal</th><th>Impact</th><th>Responsable</th><th>Statut</th><th>Échéance</th></tr>
+          </thead>
+          <tbody>
+            <tr data-status="todo"><td><span class="badge badge-red">Urgent</span></td><td>Installer tag GA4 sur unpi69.fr</td><td>Tracking</td><td><span class="badge badge-red">Critique</span></td><td>Avinesh Media</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Avant lancement</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-red">Urgent</span></td><td>Configurer pixels Meta + LinkedIn</td><td>Tracking</td><td><span class="badge badge-red">Critique</span></td><td>Avinesh Media</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Avant lancement</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-red">Urgent</span></td><td>Corriger double H1 homepage</td><td>SEO</td><td><span class="badge badge-green">Fort</span></td><td>Agence web UNPI</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Immédiat</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-red">Urgent</span></td><td>Implémenter schema markup LocalBusiness</td><td>SEO</td><td><span class="badge badge-green">Fort</span></td><td>Agence web UNPI</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Semaine 1</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-blue">Haut</span></td><td>Créer LP Segment A (Primo-accédants)</td><td>Conversion</td><td><span class="badge badge-green">Fort</span></td><td>Avinesh Media</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Phase 1</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-blue">Haut</span></td><td>Créer LP Segment B (Patrimoine)</td><td>Conversion</td><td><span class="badge badge-green">Fort</span></td><td>Avinesh Media</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Phase 1</td></tr>
+            <tr data-status="progress"><td><span class="badge badge-blue">Haut</span></td><td>Simplifier formulaire adhésion en ligne</td><td>UX</td><td><span class="badge badge-green">Fort</span></td><td>Anaïs (UNPI)</td><td><span class="status-progress">◆ En cours</span></td><td style="font-family:var(--mono);font-size:12px">Avant Phase 1</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-gray">Moyen</span></td><td>Définir code promo droits d'entrée</td><td>Conversion</td><td><span class="badge badge-orange">Moyen</span></td><td>UNPI 69</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Phase 1</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-gray">Moyen</span></td><td>Créer 6-8 visuels créatifs par segment</td><td>Créatifs</td><td><span class="badge badge-green">Fort</span></td><td>Avinesh Media</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Phase 1</td></tr>
+            <tr data-status="todo"><td><span class="badge badge-gray">Moyen</span></td><td>Setup reporting Looker Studio</td><td>Reporting</td><td><span class="badge badge-orange">Moyen</span></td><td>Avinesh Media</td><td><span class="status-todo">● À faire</span></td><td style="font-family:var(--mono);font-size:12px">Semaine 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Préparé par Avinesh — avineshbundhoo.com · Confidentiel · UNPI 69 Lyon Métropole · 2026</footer>
+</div>
+
+<script>
+// LOGIN
+function doLogin() {
+  const u = document.getElementById('login-user').value.trim();
+  const p = document.getElementById('login-pass').value.trim();
+  if (u === 'UNPI69' && p === 'Lyon2026') {
+    sessionStorage.setItem('unpi69_auth', '1');
+    document.getElementById('login-overlay').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    initApp();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+// AUTO-LOGIN
+if (sessionStorage.getItem('unpi69_auth') === '1') {
+  document.getElementById('login-overlay').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  setTimeout(initApp, 100);
+}
+
+// CLOCK
+function updateClock() {
+  const now = new Date();
+  const t = now.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
+  const el = document.getElementById('clock');
+  if (el) el.textContent = t;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// DATE RANGE
+let currentRange = 'all';
+function setRange(r, btn) {
+  currentRange = r;
+  document.querySelectorAll('.dr-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const labels = {'7j':'7 derniers jours','30j':'30 derniers jours','3m':'3 derniers mois','all':'Depuis le début'};
+  document.getElementById('dr-note').textContent = labels[r] + ' · Données disponibles dès le lancement des campagnes';
+  const ap = document.getElementById('actions-period');
+  if (ap) ap.textContent = '● Période : ' + labels[r] + ' · Toutes les actions';
+}
+
+// TABS
+let donutInited = false;
+let seoBarsInited = false;
+let signalBarsInited = false;
+
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (id === 'media' && !donutInited) { donutInited = true; setTimeout(initDonut, 100); }
+  if (id === 'seo' && !seoBarsInited) { seoBarsInited = true; setTimeout(initSeoBars, 100); }
+  if (id === 'overview' && !signalBarsInited) { signalBarsInited = true; setTimeout(initSignalBars, 100); }
+}
+
+function initApp() {
+  updateClock();
+  setTimeout(initSignalBars, 300);
+}
+
+// SIGNAL BARS
+function initSignalBars() {
+  document.querySelectorAll('#signal-bars .signal-bar').forEach(bar => {
+    const w = bar.getAttribute('data-w');
+    bar.style.width = w + '%';
+  });
+  signalBarsInited = true;
+}
+
+// SEO BARS
+function initSeoBars() {
+  document.querySelectorAll('#seo-bars .seo-fill').forEach(bar => {
+    const w = bar.getAttribute('data-w');
+    bar.style.width = w + '%';
+  });
+}
+
+// DONUT CHART
+function initDonut() {
+  const data = [
+    {label:'Meta Lead Ads', pct:40, amt:'18 000€', color:'#1877F2'},
+    {label:'SEA Google', pct:36, amt:'16 000€', color:'#4285F4'},
+    {label:'Demand Gen', pct:13, amt:'6 000€', color:'#6C5CE7'},
+    {label:'LinkedIn Ads', pct:7, amt:'3 000€', color:'#0A66C2'},
+    {label:'Setup & Tests', pct:4, amt:'2 000€', color:'#94A3B8'}
+  ];
+  const w = 200, h = 200, r = 80, ir = 50;
+  const svg = d3.select('#donut-chart').attr('width', w).attr('height', h);
+  const g = svg.append('g').attr('transform', `translate(${w/2},${h/2})`);
+  const pie = d3.pie().value(d => d.pct).sort(null);
+  const arc = d3.arc().innerRadius(ir).outerRadius(r);
+  const arcs = g.selectAll('path').data(pie(data)).enter().append('path')
+    .attr('fill', d => d.data.color).attr('stroke', '#fff').attr('stroke-width', 2)
+    .attr('d', arc);
+  svg.append('text').attr('x', w/2).attr('y', h/2 - 6).attr('text-anchor','middle')
+    .style('font-family','IBM Plex Mono,monospace').style('font-size','20px').style('font-weight','700').style('fill','#0F172A').text('45K€');
+  svg.append('text').attr('x', w/2).attr('y', h/2 + 14).attr('text-anchor','middle')
+    .style('font-family','IBM Plex Mono,monospace').style('font-size','10px').style('fill','#64748B').text('BUDGET TOTAL');
+  const legend = document.getElementById('donut-legend');
+  legend.innerHTML = data.map(d => `
+    <div class="legend-item">
+      <div class="legend-dot" style="background:${d.color}"></div>
+      <div><strong>${d.label}</strong> — ${d.pct}% · <span style="font-family:'IBM Plex Mono',monospace;font-weight:600">${d.amt}</span></div>
+    </div>`).join('');
+}
+
+// ACTION FILTER
+function filterActions(status, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#action-table tbody tr').forEach(row => {
+    if (status === 'all' || row.getAttribute('data-status') === status) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
