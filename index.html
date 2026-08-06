@@ -238,7 +238,8 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
     <button class="tab-btn" onclick="showTab('intelligence',this)">Intelligence</button>
     <button class="tab-btn" onclick="showTab('concurrence',this)">Concurrence</button>
     <button class="tab-btn" onclick="showTab('actions-reco',this)">Actions &amp; Recommandations</button>
-    <button class="tab-btn" onclick="showTab('rapport',this)">Rapport</button>
+    <button class="tab-btn" onclick="showTab('creatifs', this)" style="padding:14px 20px;border:none;background:none;font-size:14px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap">Cr&#233;atifs</button>
+        <button class="tab-btn" onclick="showTab('rapport',this)">Rapport</button>
   </nav>
 
   <div class="main-wrap">
@@ -930,6 +931,9 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
           <div class="callout-title">→ La clé : Phase 1 Meta détermine tout</div>
           <div class="callout-text">Le CPL obtenu sur Meta en Phase 1 calibre tous les autres projections. Si le CPL Phase 1 est &lt;25€, on scale agressivement en Phase 2 sur tous les canaux. Si le CPL est &gt;40€, on optimise les créatifs avant d'ouvrir Google Ads. La data décide — pas les projections.</div>
         </div>
+      </div>
+      <div class="rep-tab-content" id="rep-int-cerveau" style="display:none">
+        
       </div>
       <div class="rep-tab-content" id="rep-int-cerveau" style="display:none">
         <style>
@@ -1884,7 +1888,199 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
         <div style="margin-top:16px;text-align:right">
           <a href="https://seo.avineshbundhoo.com" target="_blank" style="font-size:11px;color:var(--muted);text-decoration:none;font-family:var(--mono)">Site audité avec CrazyDodo →</a>
         </div>
-      </div></div
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-creatifs">
+      <div class="section-label">Intelligence Cr&#233;ative</div>
+      <div class="section-title">Quels cr&#233;atifs performent &amp; pourquoi ?</div>
+
+      <div style="display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid var(--border);overflow-x:auto">
+        <button class="rep-tab-btn active" onclick="showRepTab('creat-perf',this,this.closest('.tab-content'))" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--blue);border-bottom:2px solid var(--blue);margin-bottom:-2px;white-space:nowrap">Performance</button>
+        <button class="rep-tab-btn" onclick="showRepTab('creat-format',this,this.closest('.tab-content'))" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Formats &amp; Messages</button>
+        <button class="rep-tab-btn" onclick="showRepTab('creat-audience',this,this.closest('.tab-content'))" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Audiences &#215; Cr&#233;atifs</button>
+        <button class="rep-tab-btn" onclick="showRepTab('creat-reco',this,this.closest('.tab-content'))" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Recommandations</button>
+      </div>
+
+      <!-- PERFORMANCE -->
+      <div class="rep-tab-content" id="rep-creat-perf">
+        <div style="background:#FEF9EC;border:1.5px solid var(--gold);border-radius:12px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:14px">
+          <div style="font-size:22px;color:var(--gold)">&#9672;</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:3px">En attente des donn&#233;es de campagne Meta Ads</div>
+            <div style="font-size:12px;color:#92400E;opacity:.8">D&#232;s le premier rapport Excel export&#233;, cette section affichera les m&#233;triques cr&#233;atives r&#233;elles&#160;: CTR, CPL, fr&#233;quence, taux d&#8217;engagement par cr&#233;atif.</div>
+          </div>
+        </div>
+        <div class="grid-4 mb-28">
+          <div class="kpi-card"><div class="kpi-label">CTR moyen</div><div class="kpi-value" style="color:var(--muted)">&#8212;</div><div class="kpi-sub">Cible &gt;2%</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL moyen</div><div class="kpi-value" style="color:var(--muted)">&#8212;</div><div class="kpi-sub">Cible &lt;40&#8364;</div></div>
+          <div class="kpi-card"><div class="kpi-label">Fr&#233;quence</div><div class="kpi-value" style="color:var(--muted)">&#8212;</div><div class="kpi-sub">Alerte &gt;3.5</div></div>
+          <div class="kpi-card"><div class="kpi-label">Engagement</div><div class="kpi-value" style="color:var(--muted)">&#8212;</div><div class="kpi-sub">Benchmark secteur</div></div>
+        </div>
+        <div class="section-label mb-12">Tableau de performance par cr&#233;atif</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Cr&#233;atif</th><th>Segment</th><th>Format</th><th>Impressions</th><th>CTR</th><th>CPL</th><th>Leads</th><th>Fr&#233;quence</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td colspan="9" style="text-align:center;padding:32px;color:var(--muted);font-style:italic">Donn&#233;es disponibles apr&#232;s le premier export Meta Ads</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:12px;padding:20px">
+            <div style="font-size:12px;font-weight:700;color:#065F46;font-family:var(--mono);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">&#9733; Top performers</div>
+            <div style="font-size:13px;color:#065F46;font-style:italic;opacity:.7">&#192; identifier apr&#232;s donn&#233;es r&#233;elles</div>
+          </div>
+          <div style="background:#FEF2F2;border:1.5px solid #FECACA;border-radius:12px;padding:20px">
+            <div style="font-size:12px;font-weight:700;color:#991B1B;font-family:var(--mono);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">&#9660; &#192; optimiser</div>
+            <div style="font-size:13px;color:#991B1B;font-style:italic;opacity:.7">&#192; identifier apr&#232;s donn&#233;es r&#233;elles</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMATS & MESSAGES -->
+      <div class="rep-tab-content" id="rep-creat-format" style="display:none">
+        <div class="section-label mb-12" style="color:var(--blue)">Strat&#233;gie cr&#233;ative Phase 1 &#8212; Meta Ads</div>
+        <div class="table-wrap mb-28">
+          <table>
+            <thead><tr><th>Format</th><th>Segment</th><th>Message principal</th><th>CTA</th><th>Objectif</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td>Vid&#233;o &lt;15s</td><td>Primo-acc&#233;dants 25&#8209;45</td><td>Propri&#233;taire &#224; Lyon&#160;? Prot&#233;gez-vous avec l&#8217;UNPI 69</td><td>Rejoindre maintenant</td><td>Notori&#233;t&#233; + Lead</td><td><span class="badge badge-orange">&#192; cr&#233;er</span></td></tr>
+              <tr><td>Image statique</td><td>Primo-acc&#233;dants 25&#8209;45</td><td>DPE G/F interdit en 2025 &#8212; &#234;tes-vous pr&#234;t&#160;?</td><td>Je me renseigne</td><td>Lead generation</td><td><span class="badge badge-orange">&#192; cr&#233;er</span></td></tr>
+              <tr><td>Carrousel</td><td>Patrimoine 45&#8209;65</td><td>3 droits que vous ignorez peut-&#234;tre en tant que bailleur</td><td>D&#233;couvrir mes droits</td><td>Engagement + Lead</td><td><span class="badge badge-orange">&#192; cr&#233;er</span></td></tr>
+              <tr><td>Image statique</td><td>Patrimoine 45&#8209;65</td><td>Bailleur &#224; Lyon depuis plus de 10 ans&#160;? L&#8217;UNPI vous d&#233;fend</td><td>Rejoindre l&#8217;UNPI</td><td>Lead generation</td><td><span class="badge badge-orange">&#192; cr&#233;er</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="section-label mb-12">Performance par format &#8212; En attente</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+          <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;margin-bottom:8px">&#127909;</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px">Vid&#233;o</div>
+            <div style="font-size:24px;font-weight:700;color:var(--muted);font-family:var(--mono)">&#8212;</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">CTR moyen</div>
+          </div>
+          <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;margin-bottom:8px">&#128444;</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px">Image statique</div>
+            <div style="font-size:24px;font-weight:700;color:var(--muted);font-family:var(--mono)">&#8212;</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">CTR moyen</div>
+          </div>
+          <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;margin-bottom:8px">&#9638;</div>
+            <div style="font-size:13px;font-weight:700;margin-bottom:4px">Carrousel</div>
+            <div style="font-size:24px;font-weight:700;color:var(--muted);font-family:var(--mono)">&#8212;</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">CTR moyen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIENCES x CREATIFS -->
+      <div class="rep-tab-content" id="rep-creat-audience" style="display:none">
+        <div class="section-label mb-16">Audiences &#215; Cr&#233;atifs &#8212; Matrice de performance</div>
+        <div style="background:#FEF9EC;border:1.5px solid var(--gold);border-radius:12px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:14px">
+          <div style="font-size:22px;color:var(--gold)">&#9672;</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:3px">En attente de donn&#233;es Meta Ads</div>
+            <div style="font-size:12px;color:#92400E;opacity:.8">La matrice audience &#215; cr&#233;atif identifie les combinaisons gagnantes par segment d&#232;s le premier export de campagne.</div>
+          </div>
+        </div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Audience</th><th>Vid&#233;o &lt;15s</th><th>Image statique</th><th>Carrousel</th><th>Lead Form</th><th>Meilleur combo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Primo-acc&#233;dants 25&#8209;35</strong><br><span style="font-size:11px;color:var(--muted)">Lookalike + Int&#233;r&#234;ts</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><em style="color:var(--muted)">&#192; d&#233;terminer</em></td></tr>
+              <tr><td><strong>Primo-acc&#233;dants 35&#8209;45</strong><br><span style="font-size:11px;color:var(--muted)">Int&#233;r&#234;ts immobilier</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><em style="color:var(--muted)">&#192; d&#233;terminer</em></td></tr>
+              <tr><td><strong>Patrimoine 45&#8209;55</strong><br><span style="font-size:11px;color:var(--muted)">Propri&#233;taires actifs</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><em style="color:var(--muted)">&#192; d&#233;terminer</em></td></tr>
+              <tr><td><strong>Patrimoine 55&#8209;65</strong><br><span style="font-size:11px;color:var(--muted)">Bailleurs exp&#233;riment&#233;s</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><em style="color:var(--muted)">&#192; d&#233;terminer</em></td></tr>
+              <tr><td><strong>Retargeting visiteurs</strong></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><span class="badge badge-gray">&#8212;</span></td><td><em style="color:var(--muted)">&#192; d&#233;terminer</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <div class="callout-title">&#8594; R&#232;gle d&#8217;optimisation cr&#233;ative</div>
+          <div class="callout-text">Apr&#232;s 500 impressions par combo, identifier les 3 meilleures combinaisons (CTR &gt;2% + CPL &lt;40&#8364;). Couper les combos &#224; CTR &lt;0.8% apr&#232;s 1&#160;000 impressions. Tester 1 variable &#224; la fois (message OU format, jamais les deux simultan&#233;ment).</div>
+        </div>
+      </div>
+
+      <!-- RECOMMANDATIONS -->
+      <div class="rep-tab-content" id="rep-creat-reco" style="display:none">
+        <div class="section-label mb-16">Recommandations cr&#233;atives &#8212; Best practices secteur</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="background:#fff;border:1.5px solid #BBF7D0;border-radius:16px;overflow:hidden">
+            <div style="background:#F0FDF4;padding:14px 20px;border-bottom:1px solid #BBF7D0">
+              <div style="font-size:15px;font-weight:700">Vid&#233;o&#160;: accrocher en moins de 3 secondes</div>
+            </div>
+            <div style="padding:20px">
+              <div style="font-size:13px;line-height:1.7;margin-bottom:12px">La valeur proposition doit apparaître dans les 3 premi&#232;res secondes. Pas d&#8217;introduction g&#233;n&#233;rique.</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <div style="background:#F0FDF4;border-radius:8px;padding:12px">
+                  <div style="font-size:11px;font-weight:700;color:#065F46;margin-bottom:6px;text-transform:uppercase">&#10003; &#192; faire</div>
+                  <ul style="font-size:12px;color:#065F46;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px">
+                    <li>&#8594; Texte de valeur &#224; l&#8217;&#233;cran d&#232;s la sec.&#160;1</li>
+                    <li>&#8594; Sous-titres obligatoires (80% sans son)</li>
+                    <li>&#8594; Format carr&#233; 1:1 ou vertical 4:5</li>
+                    <li>&#8594; CTA visible dans les 5 derni&#232;res secondes</li>
+                  </ul>
+                </div>
+                <div style="background:#FEF2F2;border-radius:8px;padding:12px">
+                  <div style="font-size:11px;font-weight:700;color:#991B1B;margin-bottom:6px;text-transform:uppercase">&#10007; &#192; &#233;viter</div>
+                  <ul style="font-size:12px;color:#991B1B;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px">
+                    <li>&#8594; Logo seul en ouverture</li>
+                    <li>&#8594; Vid&#233;o &gt;30s</li>
+                    <li>&#8594; Format 16:9 sur mobile</li>
+                    <li>&#8594; CTA uniquement dans le texte</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1.5px solid #BBF7D0;border-radius:16px;overflow:hidden">
+            <div style="background:#F0FDF4;padding:14px 20px;border-bottom:1px solid #BBF7D0">
+              <div style="font-size:15px;font-weight:700">Message&#160;: parler des probl&#232;mes, pas des services</div>
+            </div>
+            <div style="padding:20px">
+              <div style="font-size:13px;line-height:1.7;margin-bottom:12px">Les prospects propri&#233;taires cherchent &#224; r&#233;soudre un probl&#232;me pr&#233;cis&#160;: DPE, loyers impa&#253;es, r&#233;glementation incomprise.</div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Message service (&#224; &#233;viter)</th><th>Message probl&#232;me (&#224; adopter)</th></tr></thead>
+                  <tbody>
+                    <tr><td>&#171;&#160;Rejoignez l&#8217;UNPI 69&#160;&#187;</td><td>&#171;&#160;Votre locataire ne paye plus&#160;? Voici vos droits&#160;&#187;</td></tr>
+                    <tr><td>&#171;&#160;D&#233;fense des propri&#233;taires depuis X ans&#160;&#187;</td><td>&#171;&#160;DPE G interdit d&#232;s 2025 &#8212; &#234;tes-vous en r&#232;gle&#160;?&#160;&#187;</td></tr>
+                    <tr><td>&#171;&#160;Syndicat reconnu nationalement&#160;&#187;</td><td>&#171;&#160;Encadrement des loyers &#224; Lyon&#160;: ce qui change pour vous&#160;&#187;</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1.5px solid #BFDBFE;border-radius:16px;overflow:hidden">
+            <div style="background:#EFF6FF;padding:14px 20px;border-bottom:1px solid #BFDBFE">
+              <div style="font-size:15px;font-weight:700">Cycle de vie cr&#233;atif &#8212; Quand renouveler&#160;?</div>
+            </div>
+            <div style="padding:20px">
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+                <div style="background:#EFF6FF;border-radius:10px;padding:16px;text-align:center">
+                  <div style="font-size:11px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;margin-bottom:6px">Alerte fr&#233;quence</div>
+                  <div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--blue)">3.5</div>
+                  <div style="font-size:11px;color:var(--muted)">Fr&#233;quence &#8805; 3.5<br>Fatigue cr&#233;ative</div>
+                </div>
+                <div style="background:#EFF6FF;border-radius:10px;padding:16px;text-align:center">
+                  <div style="font-size:11px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;margin-bottom:6px">CTR en chute</div>
+                  <div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--blue)">&#8722;30%</div>
+                  <div style="font-size:11px;color:var(--muted)">vs. semaine 1<br>Signal de fatigue</div>
+                </div>
+                <div style="background:#EFF6FF;border-radius:10px;padding:16px;text-align:center">
+                  <div style="font-size:11px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;margin-bottom:6px">Cycle max</div>
+                  <div style="font-size:28px;font-weight:700;font-family:var(--mono);color:var(--blue)">4w</div>
+                  <div style="font-size:11px;color:var(--muted)">Renouveler toutes<br>les 4 semaines</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
 <div class="tab-content" id="tab-rapport">
       <div class="section-label">Rapport</div>
@@ -2300,7 +2496,6 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
     </div>
 
   </div>
-  </div>
 
   <footer>Préparé par Avinesh — avineshbundhoo.com · Confidentiel · UNPI 69 Lyon Métropole · 2026</footer>
 </div>
@@ -2437,6 +2632,7 @@ function filterActions(status, btn) {
   });
 }
 </script>
+
 
 </body>
 </html>
