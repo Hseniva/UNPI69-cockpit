@@ -235,14 +235,10 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
   <!-- TABS -->
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="showTab('overview',this)">Vue d'Ensemble</button>
-    <button class="tab-btn" onclick="showTab('rapports',this)">Rapports & Intelligence</button>
-    <button class="tab-btn" onclick="showTab('strategie',this)">Stratégie</button>
-    <button class="tab-btn" onclick="showTab('media',this)">Plan Média</button>
-    <button class="tab-btn" onclick="showTab('creatifs',this)">Créatifs</button>
-    <button class="tab-btn" onclick="showTab('seo',this)">SEO & Digital</button>
-    <button class="tab-btn" onclick="showTab('marche',this)">Marché</button>
-    <button class="tab-btn" onclick="showTab('reco',this)">Recommandations</button>
-    <button class="tab-btn" onclick="showTab('actions',this)">Centre d'Actions</button>
+    <button class="tab-btn" onclick="showTab('intelligence',this)">Intelligence</button>
+    <button class="tab-btn" onclick="showTab('actions-reco',this)">Actions &amp; Recommandations</button>
+    <button class="tab-btn" onclick="showTab('seo-digital',this)">SEO &amp; Digital</button>
+    <button class="tab-btn" onclick="showTab('rapport',this)">Rapport</button>
   </nav>
 
   <div class="main-wrap">
@@ -356,42 +352,40 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
     </div>
 
     <!-- TAB 2: RAPPORTS & INTELLIGENCE -->
-    <div class="tab-content" id="tab-rapports">
-      <div class="section-label">Intelligence — Marché, Search &amp; Digital</div>
-      <div class="section-title">Vision globale de l'écosystème digital</div>
 
-      <!-- SUB-TABS -->
+    <div class="tab-content" id="tab-intelligence">
+      <div class="section-label">Intelligence</div>
+      <div class="section-title">Que se passe-t-il sur le marché &amp; quelles opportunités exploiter ?</div>
+
       <div style="display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid var(--border);overflow-x:auto">
-        <button class="rep-tab-btn active" onclick="showRepTab('search-intel',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--blue);border-bottom:2px solid var(--blue);margin-bottom:-2px;white-space:nowrap">Search Intelligence</button>
-        <button class="rep-tab-btn" onclick="showRepTab('seo-intel',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">SEO &amp; CrazyDodo</button>
-        <button class="rep-tab-btn" onclick="showRepTab('geo-intel',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">GEO / AEO — IA</button>
-        <button class="rep-tab-btn" onclick="showRepTab('opportunities-intel',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Opportunités</button>
-        <button class="rep-tab-btn" onclick="showRepTab('rapports-perf',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Rapports &amp; Performance</button>
-        <button class="rep-tab-btn" onclick="showRepTab('cerveau-rep',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">◈ Le Cerveau</button>
+        <button class="rep-tab-btn active" onclick="showRepTab('int-marche',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--blue);border-bottom:2px solid var(--blue);margin-bottom:-2px;white-space:nowrap">Tendances Marché</button>
+        <button class="rep-tab-btn" onclick="showRepTab('int-cpl',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">CPL Intelligence</button>
+        <button class="rep-tab-btn" onclick="showRepTab('int-opportunites',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Opportunités</button>
+        <button class="rep-tab-btn" onclick="showRepTab('int-strategie',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Stratégie</button>
+        <button class="rep-tab-btn" onclick="showRepTab('int-media',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Plan Média</button>
       </div>
 
-      <!-- ── SEARCH INTELLIGENCE ── -->
-      <div class="rep-tab-content" id="rep-search-intel">
+      <!-- TENDANCES MARCHÉ -->
+      <div class="rep-tab-content" id="rep-int-marche">
         <div class="section-label mb-16">Tendances &amp; demande marché — France / Lyon Métropole</div>
 
         <div class="callout mb-24">
-          <div class="callout-title">→ Google Trends — Connexion à configurer</div>
-          <div class="callout-text">Cette section se connectera à Google Search Console, Google Ads et Google Trends pour afficher les données de demande réelles en temps réel. Les insights ci-dessous sont basés sur l'analyse du marché et des intentions de recherche identifiées dans la stratégie.</div>
+          <div class="callout-title">→ Connexion Google Search Console &amp; Google Trends en préparation</div>
+          <div class="callout-text">Dès l'intégration GSC activée, cette section affichera les volumes de recherche réels, la position moyenne, le CTR organique et les requêtes émergentes pour unpi69.fr. Les insights ci-dessous sont basés sur l'analyse du marché identifiée dans la stratégie et l'audit SEO.</div>
         </div>
 
-        <!-- SEARCH DEMAND SIGNALS -->
         <div class="section-label mb-12">Signaux de demande — Secteur propriétaires bailleurs, France 2026</div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px">
           <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:18px">
             <div style="font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">▲ Tendance forte</div>
-            <div style="font-size:14px;font-weight:700;margin-bottom:6px">DPE bailleur</div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.5">Requêtes en forte croissance depuis janvier 2026. L'interdiction DPE G/F génère un volume de recherche croissant sur "DPE propriétaire obligation" et "mise en conformité bailleur".</div>
+            <div style="font-size:14px;font-weight:700;margin-bottom:6px">DPE bailleur 2026</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.5">Requêtes en forte croissance depuis jan 2026. L'interdiction DPE G/F génère un volume croissant sur "DPE propriétaire obligation" et "mise en conformité bailleur".</div>
             <div style="margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600">Intention : informationnelle + commerciale</div>
           </div>
           <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:18px">
             <div style="font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">▲ Tendance forte</div>
             <div style="font-size:14px;font-weight:700;margin-bottom:6px">Encadrement loyers Lyon</div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.5">Requêtes stables à haut volume depuis l'extension de l'encadrement loyers à Lyon Métropole. "Loyer référence Lyon", "règles encadrement loyer Lyon".</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.5">Volume stable à haut niveau depuis l'extension de l'encadrement loyers à Lyon Métropole. "Loyer référence Lyon", "règles encadrement loyer Lyon".</div>
             <div style="margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600">Intention : informationnelle + transactionnelle</div>
           </div>
           <div style="background:#FEF9EC;border:1px solid #FDE68A;border-radius:12px;padding:18px">
@@ -402,814 +396,47 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
           </div>
         </div>
 
-        <!-- KEYWORD OPPORTUNITIES -->
         <div class="card mb-24">
-          <div class="section-label mb-16">Opportunités de mots-clés identifiées — À valider via Search Console</div>
+          <div class="section-label mb-16">Opportunités de mots-clés — Marché non couvert par UNPI 69</div>
           <div class="table-wrap" style="margin-bottom:0">
             <table>
               <thead><tr><th>Mot-clé</th><th>Intention</th><th>Segment cible</th><th>Canal recommandé</th><th>Potentiel</th><th>Couverture UNPI 69</th></tr></thead>
               <tbody>
                 <tr><td><strong>syndicat propriétaires Lyon</strong></td><td>Navigationnelle</td><td>Segment B</td><td>SEA Brand + SEO</td><td><span class="badge badge-green">Élevé</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
                 <tr><td><strong>défense bailleur Lyon</strong></td><td>Commerciale</td><td>Segment B</td><td>SEA + SEO</td><td><span class="badge badge-green">Élevé</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
-                <tr><td><strong>DPE bailleur obligation 2026</strong></td><td>Informationnelle</td><td>Segments A+B</td><td>Contenu SEO + SEA</td><td><span class="badge badge-green">Très élevé</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
+                <tr><td><strong>DPE bailleur obligation 2026</strong></td><td>Informationnelle</td><td>A+B</td><td>Contenu SEO + SEA</td><td><span class="badge badge-green">Très élevé</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
                 <tr><td><strong>encadrement loyers Lyon 2026</strong></td><td>Informationnelle</td><td>Segment B</td><td>Contenu SEO</td><td><span class="badge badge-green">Élevé</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
-                <tr><td><strong>conseil fiscalité propriétaire</strong></td><td>Commerciale</td><td>Segments A+B</td><td>SEA + LinkedIn</td><td><span class="badge badge-orange">Moyen</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
-                <tr><td><strong>copropriété Lyon conseil</strong></td><td>Informationnelle</td><td>Segment A</td><td>SEO + Meta</td><td><span class="badge badge-orange">Moyen</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
-                <tr><td><strong>adhésion UNPI 69</strong></td><td>Transactionnelle</td><td>Tous</td><td>SEA Brand</td><td><span class="badge badge-blue">Faible volume</span></td><td><span class="badge badge-orange">Partielle</span></td></tr>
+                <tr><td><strong>conseil fiscalité propriétaire</strong></td><td>Commerciale</td><td>A+B</td><td>SEA + LinkedIn</td><td><span class="badge badge-orange">Moyen</span></td><td><span class="badge badge-red">Non couverte</span></td></tr>
+                <tr><td><strong>adhésion UNPI 69</strong></td><td>Transactionnelle</td><td>Tous</td><td>SEA Brand</td><td><span class="badge badge-blue">Faible vol.</span></td><td><span class="badge badge-orange">Partielle</span></td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- SEASONALITY -->
         <div class="card">
           <div class="section-label mb-12">Saisonnalité de la demande — Secteur immobilier / propriétaires, France</div>
-          <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px">
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF2F2;border:1px solid #FECACA">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Janv</div>
-              <div style="height:40px;background:var(--blue);border-radius:4px;opacity:0.7"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Moyen</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#F0FDF4">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Fév</div>
-              <div style="height:50px;background:var(--blue);border-radius:4px;opacity:0.8"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Fort</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#F0FDF4">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Mar</div>
-              <div style="height:55px;background:var(--blue);border-radius:4px;opacity:0.9"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Fort</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF9EC">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Avr</div>
-              <div style="height:45px;background:var(--blue);border-radius:4px;opacity:0.75"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Moyen</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF9EC">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Mai</div>
-              <div style="height:48px;background:var(--blue);border-radius:4px;opacity:0.8"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Moyen+</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF2F2">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Juin</div>
-              <div style="height:35px;background:var(--blue);border-radius:4px;opacity:0.6"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Faible</div>
-            </div>
+          <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-bottom:12px">
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Jan</div><div style="height:36px;background:var(--blue);border-radius:3px;opacity:0.65"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Moy</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Fév</div><div style="height:44px;background:var(--blue);border-radius:3px;opacity:0.75"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Fort</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Mar</div><div style="height:50px;background:var(--blue);border-radius:3px;opacity:0.85"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Fort</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Avr</div><div style="height:40px;background:var(--blue);border-radius:3px;opacity:0.7"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Moy</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Mai</div><div style="height:42px;background:var(--blue);border-radius:3px;opacity:0.72"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Moy+</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Juin</div><div style="height:30px;background:var(--blue);border-radius:3px;opacity:0.55"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Faible</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Juil</div><div style="height:20px;background:var(--muted);border-radius:3px;opacity:0.5"></div><div style="font-size:9px;color:var(--red);margin-top:3px;font-weight:600">Bas</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Août</div><div style="height:14px;background:var(--muted);border-radius:3px;opacity:0.4"></div><div style="font-size:9px;color:var(--red);margin-top:3px;font-weight:600">Creux</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Sept</div><div style="height:60px;background:var(--blue);border-radius:3px"></div><div style="font-size:9px;color:var(--blue);margin-top:3px;font-weight:700">Pic ▲</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Oct</div><div style="height:58px;background:var(--blue);border-radius:3px"></div><div style="font-size:9px;color:var(--blue);margin-top:3px;font-weight:700">Pic ▲</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Nov</div><div style="height:48px;background:var(--blue);border-radius:3px;opacity:0.82"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Fort</div></div>
+            <div style="text-align:center"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Déc</div><div style="height:32px;background:var(--blue);border-radius:3px;opacity:0.6"></div><div style="font-size:9px;color:var(--muted);margin-top:3px">Moy</div></div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px">
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF2F2">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Juil</div>
-              <div style="height:25px;background:var(--muted);border-radius:4px;opacity:0.5"></div>
-              <div style="font-size:10px;color:var(--red);margin-top:4px;font-weight:600">Bas</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF2F2">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Août</div>
-              <div style="height:20px;background:var(--muted);border-radius:4px;opacity:0.4"></div>
-              <div style="font-size:10px;color:var(--red);margin-top:4px;font-weight:600">Très bas</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#EFF4FF">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Sept</div>
-              <div style="height:60px;background:var(--blue);border-radius:4px"></div>
-              <div style="font-size:10px;color:var(--blue);margin-top:4px;font-weight:700">Pic</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#EFF4FF">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Oct</div>
-              <div style="height:58px;background:var(--blue);border-radius:4px"></div>
-              <div style="font-size:10px;color:var(--blue);margin-top:4px;font-weight:700">Pic</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#F0FDF4">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Nov</div>
-              <div style="height:50px;background:var(--blue);border-radius:4px;opacity:0.85"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Fort</div>
-            </div>
-            <div style="text-align:center;padding:12px 8px;border-radius:8px;background:#FEF9EC">
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px">Déc</div>
-              <div style="height:38px;background:var(--blue);border-radius:4px;opacity:0.65"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:4px">Moyen</div>
-            </div>
-          </div>
-          <div style="font-size:11px;color:var(--muted);margin-top:12px;font-family:var(--mono)">Demande relative estimée · Secteur propriétaires immobilier France · Sept-Oct = pic rentrée fiscale · Juil-Août = creux estival</div>
-          <div style="background:#EFF4FF;border-radius:8px;padding:10px 14px;margin-top:12px;font-size:12px;color:var(--blue)"><strong>Implication :</strong> Intensifier les budgets en septembre (Phase 2 lancement) — timing aligné avec le pic de demande. Budgets conservateurs juillet-août (Phase 1 fin).</div>
+          <div style="font-size:11px;color:var(--muted);font-family:var(--mono)">Demande relative estimée · Secteur propriétaires France · Sept-Oct = pic rentrée fiscale</div>
+          <div style="background:#EFF4FF;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--blue)"><strong>Implication :</strong> Intensifier les budgets en septembre (Phase 2 lancement) — timing aligné avec le pic de demande naturelle.</div>
         </div>
       </div>
 
-      <!-- ── SEO & CRAZYDODO ── -->
-      <div class="rep-tab-content" id="rep-seo-intel" style="display:none">
-        <div class="section-label mb-12">Audit SEO — Données CrazyDodo · unpi69.fr · Août 2026</div>
-
-        <!-- SCORES -->
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px">
-          <div style="background:#fff;border:2px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Health</div>
-            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--orange);line-height:1">74</div>
-            <div style="font-size:11px;color:var(--muted)">/100</div>
-          </div>
-          <div style="background:#fff;border:2px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">SEO</div>
-            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--orange);line-height:1">69</div>
-            <div style="font-size:11px;color:var(--muted)">/100 · Grade C</div>
-          </div>
-          <div style="background:#fff;border:2px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">GEO (IA)</div>
-            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--red);line-height:1">50</div>
-            <div style="font-size:11px;color:var(--muted)">/100 · Faible</div>
-          </div>
-          <div style="background:#fff;border:2px solid var(--border);border-radius:12px;padding:20px;text-align:center">
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">AEO (Voice)</div>
-            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--green);line-height:1">80</div>
-            <div style="font-size:11px;color:var(--muted)">/100 · Bon</div>
-          </div>
-        </div>
-
-        <!-- QUICK METRICS -->
-        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:24px">
-          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)">
-            <div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--blue)">2.01s</div>
-            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Temps de chargement</div>
-          </div>
-          <div style="background:#FEF9EC;border-radius:10px;padding:12px;text-align:center;border:1px solid #FDE68A">
-            <div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--orange)">7</div>
-            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Avertissements</div>
-          </div>
-          <div style="background:#F0FDF4;border-radius:10px;padding:12px;text-align:center;border:1px solid #BBF7D0">
-            <div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--green)">10</div>
-            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Checks OK</div>
-          </div>
-          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)">
-            <div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--text)">18</div>
-            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Backlinks</div>
-          </div>
-          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)">
-            <div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--text)">15</div>
-            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Domaines référents</div>
-          </div>
-          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)">
-            <div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--muted)">—</div>
-            <div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Trafic mensuel</div>
-          </div>
-        </div>
-
-        <!-- 7 WARNINGS -->
-        <div class="section-label mb-12">7 avertissements identifiés — Source: CrazyDodo</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A">
-            <div class="finding-num" style="background:var(--orange)">1</div>
-            <div class="finding-text"><strong>Title trop court</strong> — 24 caractères vs optimum 50-60. Titre actuel : "UNPI 69 - LYON MÉTROPOLE". <span style="color:var(--green)">Effort : 5 min</span></div>
-          </div>
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A">
-            <div class="finding-num" style="background:var(--orange)">2</div>
-            <div class="finding-text"><strong>Images sans ALT</strong> — 6 images sur 18 (33%) sans attribut ALT. Perte de signaux SEO et accessibilité. <span style="color:var(--green)">Effort : 15 min</span></div>
-          </div>
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A">
-            <div class="finding-num" style="background:var(--orange)">3</div>
-            <div class="finding-text"><strong>Open Graph incomplet</strong> — og:title, og:description, og:image manquants. Impact sur partage social et prévisualisation. <span style="color:var(--green)">Effort : 10 min</span></div>
-          </div>
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A">
-            <div class="finding-num" style="background:var(--orange)">4</div>
-            <div class="finding-text"><strong>Zéro données structurées</strong> — Aucun Schema.org sur l'ensemble du site. Pas de rich snippets possibles. <span style="color:var(--orange)">Effort : 20 min</span></div>
-          </div>
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A">
-            <div class="finding-num" style="background:var(--orange)">5</div>
-            <div class="finding-text"><strong>Sitemap.xml manquant</strong> — Google ne peut pas indexer efficacement toutes les pages du site. <span style="color:var(--green)">Effort : 10 min</span></div>
-          </div>
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A">
-            <div class="finding-num" style="background:var(--orange)">6</div>
-            <div class="finding-text"><strong>Headers de sécurité manquants</strong> — Signal de confiance pour Google et les moteurs IA. <span style="color:var(--orange)">Effort : 30 min</span></div>
-          </div>
-          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A" style="grid-column:1/-1">
-            <div class="finding-num" style="background:var(--orange)">7</div>
-            <div class="finding-text"><strong>Twitter/X Card tags manquants</strong> — Perte de visibilité sur les partages Twitter/X. <span style="color:var(--green)">Effort : 5 min</span></div>
-          </div>
-        </div>
-
-        <!-- 10 CHECKS PASSED -->
-        <div class="card">
-          <div class="section-label mb-12">10 checks validés</div>
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
-            <div style="font-size:13px;color:var(--green)">✓ HTTPS / SSL activé</div>
-            <div style="font-size:13px;color:var(--green)">✓ Meta Description présente (146 car.)</div>
-            <div style="font-size:13px;color:var(--green)">✓ H1 présent ("UNPI 69 LYON MÉTROPOLE")</div>
-            <div style="font-size:13px;color:var(--green)">✓ Tag canonique présent</div>
-            <div style="font-size:13px;color:var(--green)">✓ Viewport mobile configuré</div>
-            <div style="font-size:13px;color:var(--green)">✓ Contenu suffisant (1 837 mots)</div>
-            <div style="font-size:13px;color:var(--green)">✓ Bon maillage interne</div>
-            <div style="font-size:13px;color:var(--green)">✓ Robots.txt présent</div>
-            <div style="font-size:13px;color:var(--green)">✓ Poids de page acceptable</div>
-            <div style="font-size:13px;color:var(--green)">✓ Favicon présent</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── GEO / AEO ── -->
-      <div class="rep-tab-content" id="rep-geo-intel" style="display:none">
-        <div class="section-label mb-12">Visibilité IA — GEO &amp; AEO · Source: CrazyDodo</div>
-
-        <div style="background:#0F172A;border-radius:16px;padding:28px;margin-bottom:24px;color:#fff">
-          <div style="font-size:16px;font-weight:700;margin-bottom:6px">Compatibilité moteurs IA — unpi69.fr</div>
-          <div style="font-size:13px;opacity:.7;margin-bottom:24px">Mesure la capacité du site à être cité et indexé par les IA génératives (ChatGPT, Perplexity, Google AI Overviews)</div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
-            <div style="text-align:center">
-              <div style="font-size:36px;font-weight:700;font-family:var(--mono);color:#DC2626">20%</div>
-              <div style="font-size:12px;opacity:.7;margin-top:4px">Google AI Overviews</div>
-              <div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:20%;background:#DC2626;border-radius:2px"></div></div>
-            </div>
-            <div style="text-align:center">
-              <div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--orange)">45%</div>
-              <div style="font-size:12px;opacity:.7;margin-top:4px">ChatGPT / Copilot</div>
-              <div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:45%;background:var(--orange);border-radius:2px"></div></div>
-            </div>
-            <div style="text-align:center">
-              <div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--orange)">55%</div>
-              <div style="font-size:12px;opacity:.7;margin-top:4px">Perplexity AI</div>
-              <div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:55%;background:var(--orange);border-radius:2px"></div></div>
-            </div>
-            <div style="text-align:center">
-              <div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--green)">70%</div>
-              <div style="font-size:12px;opacity:.7;margin-top:4px">Voice Assistants</div>
-              <div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:70%;background:var(--green);border-radius:2px"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section-label mb-12">Plan d'action GEO — 6 corrections prioritaires</div>
-        <div class="table-wrap mb-24">
-          <table>
-            <thead><tr><th>#</th><th>Action</th><th>Priorité</th><th>Impact IA</th><th>Effort</th></tr></thead>
-            <tbody>
-              <tr><td><span class="badge badge-red">1</span></td><td><strong>Données structurées Schema.org</strong> — Organization + WebPage + Article</td><td><span class="badge badge-red">Critique</span></td><td>Google AI Overviews</td><td>20 min</td></tr>
-              <tr><td><span class="badge badge-red">2</span></td><td><strong>FAQ Schema</strong> — 5-10 paires Q&amp;A structurées (#1 pour apparaître dans AI Overviews)</td><td><span class="badge badge-red">Critique</span></td><td>Tous les moteurs IA</td><td>30 min</td></tr>
-              <tr><td><span class="badge badge-orange">3</span></td><td><strong>HTTPS forcé</strong> — Redirection HTTP→HTTPS (signal de confiance pour les IA)</td><td><span class="badge badge-orange">Haut</span></td><td>Tous les moteurs IA</td><td>15 min</td></tr>
-              <tr><td><span class="badge badge-orange">4</span></td><td><strong>Article/Content Schema</strong> — author, datePublished, headline</td><td><span class="badge badge-orange">Haut</span></td><td>ChatGPT, Perplexity</td><td>20 min</td></tr>
-              <tr><td><span class="badge badge-orange">5</span></td><td><strong>Person Schema (E-E-A-T)</strong> — name, jobTitle, url, sameAs LinkedIn</td><td><span class="badge badge-orange">Haut</span></td><td>Google AI, expertise signal</td><td>15 min</td></tr>
-              <tr><td><span class="badge badge-orange">6</span></td><td><strong>Organization Schema</strong> — name, url, logo, contactPoint</td><td><span class="badge badge-orange">Haut</span></td><td>Brand entity recognition</td><td>20 min</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout">
-          <div class="callout-title">→ Pourquoi le GEO/AEO est stratégique pour UNPI 69</div>
-          <div class="callout-text">En 2026, de plus en plus de propriétaires posent leurs questions directement à ChatGPT ou Google AI : "Quels sont mes droits en tant que bailleur à Lyon ?" — si le site UNPI 69 n'est pas structuré pour les IA, il ne sera jamais cité. Avec 6 corrections simples, le score GEO peut passer de 50% à 85%+, générant du trafic qualifié sans budget publicitaire.</div>
-        </div>
-      </div>
-
-      <!-- ── OPPORTUNITIES ── -->
-      <div class="rep-tab-content" id="rep-opportunities-intel" style="display:none">
-        <div class="section-label mb-16">Opportunités identifiées — Exploitables immédiatement</div>
-
-        <div class="insight-card">
-          <div class="insight-type opportunity">◆ Opportunité SEA — Haute intention</div>
-          <div class="insight-title">Aucune concurrence sur les requêtes cœur de métier UNPI 69</div>
-          <div class="insight-text">Les requêtes "syndicat propriétaires Lyon", "défense bailleur Lyon" et "conseil bailleur Lyon" ne sont actuellement pas couvertes par un seul annonceur en achat d'espace payant. L'UNPI 69 pourrait s'y positionner avec un CPC très faible (absence d'enchères concurrentes). Action : lancer une campagne SEA brand + générique dès Phase 1. Chaque jour de retard = trafic gratuit laissé à la concurrence.</div>
-        </div>
-
-        <div class="insight-card">
-          <div class="insight-type opportunity">◆ Opportunité GEO — Visibilité IA</div>
-          <div class="insight-title">6 corrections = passage de 20% à 85%+ de compatibilité Google AI Overviews</div>
-          <div class="insight-text">Le score GEO actuel de unpi69.fr est de 50/100. La compatibilité avec Google AI Overviews est de seulement 20%. Six corrections Schema.org (temps total estimé : 2h) permettraient de multiplier par 4 la probabilité d'être cité par les IA génératives. Cela génère un trafic qualifié sans budget additionnel — propriétaires qui posent des questions sur leurs droits directement à ChatGPT ou Google AI.</div>
-        </div>
-
-        <div class="insight-card">
-          <div class="insight-type opportunity">◆ Opportunité contenu — DPE 2026</div>
-          <div class="insight-title">Forte demande sur "DPE bailleur obligation 2026" — zéro contenu UNPI 69</div>
-          <div class="insight-text">Les recherches liées aux obligations DPE pour bailleurs sont en forte croissance depuis janvier 2026. Le site UNPI 69 ne couvre actuellement aucun contenu optimisé sur ce sujet. Opportunité : créer 2-3 articles de fond sur "DPE G/F interdits : ce que vous devez faire" et "Mise en conformité DPE Lyon : guide propriétaires". Ces pages capteraient un trafic hautement qualifié et serviraient de landing pages pour les campagnes SEA.</div>
-        </div>
-
-        <div class="insight-card">
-          <div class="insight-type alert">● Fenêtre d'opportunité — Rentrée septembre</div>
-          <div class="insight-title">Septembre-Octobre = pic de demande · Phase 2 doit être au maximum</div>
-          <div class="insight-text">La saisonnalité du secteur immobilier France montre un pic clair en septembre-octobre (rentrée fiscale, déclarations de revenus locatifs, nouveaux contrats de location). La Phase 2 lancée en septembre doit être préparée dès juillet : landing pages prêtes, créatifs testés, audiences lookalike construites. Chaque semaine de retard sur la préparation Phase 2 = budget perdu pendant le pic saisonnier.</div>
-        </div>
-
-        <div class="insight-card">
-          <div class="insight-type optimization">→ Quick Win — 1h de travail</div>
-          <div class="insight-title">5 corrections SEO = +15 points de score en moins d'une heure</div>
-          <div class="insight-text">Les 5 corrections à faible effort (title, ALT images, Open Graph, sitemap, Twitter cards) représentent environ 45 minutes de travail technique et permettraient de faire passer le score SEO de 69/100 à ~84/100. Ces corrections améliorent également le Quality Score Google Ads — ce qui réduit directement le CPC et donc le CPL des campagnes SEA. ROI immédiat, effort minimal.</div>
-        </div>
-      </div>
-
-      <!-- ── RAPPORTS PERFORMANCE ── -->
-      <div class="rep-tab-content" id="rep-rapports-perf" style="display:none">
-        <div class="section-label mb-16">Rapports de performance — Données campagne</div>
-
-        <div style="background:#FEF9EC;border:1.5px solid var(--gold);border-radius:12px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:14px">
-          <div style="font-size:22px;color:var(--gold)">◈</div>
-          <div>
-            <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:3px">En attente des premières données de campagne</div>
-            <div style="font-size:12px;color:#92400E;opacity:.8">Dès réception de l'export Excel Meta + Google Ads, cette section affichera les données réelles. Toutes les colonnes sont prêtes.</div>
-          </div>
-        </div>
-
-        <!-- CROSS-NETWORK OVERVIEW -->
-        <div class="section-label mb-12">Vue consolidée — Tous canaux</div>
-        <div class="grid-4 mb-24">
-          <div class="kpi-card"><div class="kpi-label">Budget dépensé</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">En attente</div></div>
-          <div class="kpi-card"><div class="kpi-label">Leads générés</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible Phase 1 : à définir</div></div>
-          <div class="kpi-card"><div class="kpi-label">CPL moyen</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible : 25-35€</div></div>
-          <div class="kpi-card"><div class="kpi-label">Adhérents convertis</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Objectif : +300</div></div>
-        </div>
-
-        <div class="table-wrap mb-24">
-          <table>
-            <thead><tr><th>Canal</th><th>Budget alloué</th><th>Dépensé</th><th>Impressions</th><th>Clics</th><th>Leads</th><th>CPL</th><th>Statut</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Meta Lead Ads</strong></td><td>18 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;22€</td><td><span class="badge badge-gray">En attente</span></td></tr>
-              <tr><td><strong>SEA Google</strong></td><td>16 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;35€</td><td><span class="badge badge-gray">En attente</span></td></tr>
-              <tr><td><strong>Demand Gen</strong></td><td>6 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>CTR &gt;0,15%</td><td><span class="badge badge-gray">En attente</span></td></tr>
-              <tr><td><strong>LinkedIn Ads</strong></td><td>3 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;150€</td><td><span class="badge badge-gray">En attente</span></td></tr>
-              <tr style="font-weight:700;background:#F8FAFC"><td>TOTAL</td><td>45 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- META DEEP DIVE -->
-        <div class="section-label mb-12">Meta Ads — Détail par segment</div>
-        <div class="grid-2 mb-24">
-          <div class="card">
-            <div style="font-size:13px;font-weight:700;margin-bottom:12px">Segment A — Primo-accédants 25-45 ans</div>
-            <div class="table-wrap" style="margin-bottom:0">
-              <table>
-                <thead><tr><th>Métrique</th><th>Cible</th><th>Réalisé</th></tr></thead>
-                <tbody>
-                  <tr><td>Budget</td><td>9 500€</td><td>—</td></tr>
-                  <tr><td>CTR</td><td>&gt;1,5%</td><td>—</td></tr>
-                  <tr><td>CPL</td><td>&lt;22€</td><td>—</td></tr>
-                  <tr><td>Leads</td><td>—</td><td>—</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card">
-            <div style="font-size:13px;font-weight:700;margin-bottom:12px">Segment B — Patrimoine constitué 45-65 ans</div>
-            <div class="table-wrap" style="margin-bottom:0">
-              <table>
-                <thead><tr><th>Métrique</th><th>Cible</th><th>Réalisé</th></tr></thead>
-                <tbody>
-                  <tr><td>Budget</td><td>9 500€</td><td>—</td></tr>
-                  <tr><td>CTR</td><td>&gt;1,5%</td><td>—</td></tr>
-                  <tr><td>CPL</td><td>&lt;22€</td><td>—</td></tr>
-                  <tr><td>Leads</td><td>—</td><td>—</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- SEA DEEP DIVE -->
-        <div class="section-label mb-12">SEA Google — Mots-clés prioritaires</div>
-        <div class="card">
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">syndicat propriétaires Lyon</span>
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">défense bailleur Lyon</span>
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">DPE propriétaire Lyon</span>
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">encadrement loyers Lyon</span>
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">UNPI 69</span>
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">fiscalité propriétaire</span>
-            <span class="badge badge-blue" style="font-size:12px;padding:6px 12px">copropriété Lyon conseil</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── LE CERVEAU ── -->
-      <div class="rep-tab-content" id="rep-cerveau-rep" style="display:none">
-        <div style="background:#0F172A;border-radius:16px;padding:32px;margin-bottom:24px;color:#fff">
-          <div style="font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:2px;opacity:.5;margin-bottom:12px;text-transform:uppercase">◈ Intelligence artificielle</div>
-          <div style="font-size:24px;font-weight:700;margin-bottom:8px">Le Cerveau — Moteur d'apprentissage continu</div>
-          <div style="font-size:14px;opacity:.75;line-height:1.7">Chaque export de données que vous partagez est ingéré, analysé et comparé aux périodes précédentes. Le cerveau apprend en continu — il détecte les patterns, anticipe les anomalies et génère des recommandations de plus en plus précises à mesure que la campagne progresse.</div>
-        </div>
-
-        <div class="grid-3 mb-24">
-          <div style="background:#0F172A;border-radius:12px;padding:20px;color:#fff;text-align:center">
-            <div style="font-family:var(--mono);font-size:11px;opacity:.5;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">→ INGEST</div>
-            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Ingestion</div>
-            <div style="font-size:12px;opacity:.6;line-height:1.6">Exports Meta, Google Ads, LinkedIn, Search Console — chaque upload enrichit la base historique de performance.</div>
-          </div>
-          <div style="background:#003189;border-radius:12px;padding:20px;color:#fff;text-align:center">
-            <div style="font-family:var(--mono);font-size:11px;opacity:.7;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">∑ ANALYSE</div>
-            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Analyse</div>
-            <div style="font-size:12px;opacity:.8;line-height:1.6">Comparaison période vs période. Détection des variations &gt;20%, identification des drivers de performance et des anomalies.</div>
-          </div>
-          <div style="background:var(--gold);border-radius:12px;padding:20px;color:#fff;text-align:center">
-            <div style="font-family:var(--mono);font-size:11px;opacity:.8;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">◈ PRÉDIT</div>
-            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Prédiction</div>
-            <div style="font-size:12px;opacity:.9;line-height:1.6">Recommandations actionnables basées sur les patterns détectés. S'affine à chaque nouvelle donnée.</div>
-          </div>
-        </div>
-
-        <div class="section-label mb-16">Exemples d'insights générés automatiquement</div>
-
-        <div class="insight-card">
-          <div class="insight-type alert">● Alerte performance — Exemple</div>
-          <div class="insight-title">"Le CPL Meta a augmenté de 24% sur les 7 derniers jours"</div>
-          <div class="insight-text">Principalement dû à une hausse de la fréquence sur le créatif Segment B (3,8 vs seuil 3,5) et un déclin du CTR de 1,8% à 1,1%. Recommandation : rafraîchir le créatif Segment B avant d'augmenter le budget. Rotation suggérée : format carrousel → vidéo 9:16.</div>
-        </div>
-
-        <div class="insight-card">
-          <div class="insight-type opportunity">◆ Opportunité de scaling — Exemple</div>
-          <div class="insight-title">"Google Ads dispose d'un potentiel de budget non utilisé"</div>
-          <div class="insight-text">La campagne brand affiche un CPL de 18€ — 49% en dessous du seuil d'alerte. Impression Share perdu sur budget estimé à 34%. Recommandation : réallouer 2 000€ du budget Demand Gen vers SEA brand pour capter les impressions manquées.</div>
-        </div>
-
-        <div style="background:#F8FAFC;border:1px dashed var(--border);border-radius:12px;padding:24px;text-align:center;margin-top:8px">
-          <div style="font-size:32px;margin-bottom:12px;color:var(--muted)">◈</div>
-          <div style="font-size:14px;font-weight:600;margin-bottom:8px">Le cerveau s'active au premier upload de données</div>
-          <div style="font-size:13px;color:var(--muted)">Partagez votre premier export Excel après le lancement des campagnes.<br>Les insights réels remplaceront ces exemples automatiquement.</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="tab-content" id="tab-strategie">
-      <div class="section-label">Stratégie d'Acquisition</div>
-      <div class="section-title">Dispositif en 2 phases — Test &amp; Learn</div>
-
-      <div class="phase-wrap">
-        <div class="phase-card">
-          <div class="phase-num">Phase 01</div>
-          <div class="phase-name">Pilote &amp; Fondations</div>
-          <div class="phase-period">Mai – Juillet 2026</div>
-          <div class="phase-budget">15 000€</div>
-          <div class="phase-item">Setup GA4 + pixels Meta / LinkedIn</div>
-          <div class="phase-item">2-3 landing pages dédiées par segment</div>
-          <div class="phase-item">6-8 visuels créatifs par cible</div>
-          <div class="phase-item">Bâtir audiences qualifiées</div>
-          <div class="phase-item">Valider les hypothèses CPL</div>
-          <div class="phase-kpi">
-            <div class="phase-kpi-label">CPL cible</div>
-            <div class="phase-kpi-val">À définir sur données</div>
-          </div>
-        </div>
-        <div class="phase-arrow">→</div>
-        <div class="phase-card gold">
-          <div class="phase-num">Phase 02</div>
-          <div class="phase-name gold">Conversion &amp; Scale</div>
-          <div class="phase-period">Septembre – Décembre 2026</div>
-          <div class="phase-budget gold">35 000€</div>
-          <div class="phase-item">Retargeting + lookalikes Phase 1</div>
-          <div class="phase-item">Nurturing email 3-4 touches</div>
-          <div class="phase-item">Optimisation UX landing pages</div>
-          <div class="phase-item">Scale combinaisons gagnantes</div>
-          <div class="phase-item">Meta Lead Ads + SEA générique</div>
-          <div class="phase-kpi">
-            <div class="phase-kpi-label">CPL cible</div>
-            <div class="phase-kpi-val" style="color:var(--gold)">25 – 35€</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-24">
-        <div class="section-label mb-16">Tunnel d'acquisition — 5 étapes</div>
-        <div class="funnel-wrap">
-          <div class="funnel-stage">
-            <div class="funnel-bar" style="width:100%;background:#003189">1 · Clic publicitaire — Meta / SEA / LinkedIn</div>
-          </div>
-          <div class="funnel-stage">
-            <div class="funnel-bar" style="width:85%;background:#1a4aab;margin:0 auto">2 · Landing page — Promesse + preuves sociales</div>
-          </div>
-          <div class="funnel-stage">
-            <div class="funnel-bar" style="width:65%;background:#3562c3;margin:0 auto">3 · Formulaire — Contact / intérêt qualifié</div>
-          </div>
-          <div class="funnel-stage">
-            <div class="funnel-bar" style="width:45%;background:#4f7adb;margin:0 auto">4 · Nurturing CRM — 3-4 emails personnalisés</div>
-          </div>
-          <div class="funnel-stage">
-            <div class="funnel-bar" style="width:25%;background:#C9A84C;margin:0 auto">5 · Adhésion — 250€ en ligne</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-2 mb-24">
-        <div class="card blue">
-          <div class="section-label mb-8">Segment A — Primo-accédants</div>
-          <div style="font-size:20px;font-weight:700;margin-bottom:4px">25-45 ans</div>
-          <div class="badge badge-blue mb-16">40% du budget · 9 500€</div>
-          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Besoins : copropriété, DPE, fiscalité</div>
-          <div style="font-size:13px;font-style:italic;color:var(--blue);font-weight:500">"Évitez les pièges — conseils copro / DPE / fiscalité"</div>
-        </div>
-        <div class="card gold">
-          <div class="section-label mb-8">Segment B — Patrimoine constitué</div>
-          <div style="font-size:20px;font-weight:700;margin-bottom:4px">45-65 ans</div>
-          <div class="badge badge-orange mb-16">60% du budget · 9 500€</div>
-          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Besoins : sécurité, optimisation fiscale, défense bailleurs</div>
-          <div style="font-size:13px;font-style:italic;color:var(--gold);font-weight:500">"Encadrement loyers, DPE, fiscalité : UNPI vous accompagne"</div>
-        </div>
-      </div>
-
-      <div class="section-label mb-16">Projections économiques — 3 scénarios</div>
-      <div class="grid-3">
-        <div class="scenario-card optimiste">
-          <div class="scenario-title" style="color:var(--green)">◆ Scénario optimiste</div>
-          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">25€</span></div>
-          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">15%</span></div>
-          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">167€</span></div>
-          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~300</span></div>
-          <div class="scenario-stat"><span>Rentabilité</span><span class="scenario-val">&lt; 12 mois</span></div>
-        </div>
-        <div class="scenario-card reference">
-          <div class="scenario-title" style="color:var(--blue)">→ Scénario de référence</div>
-          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">40€</span></div>
-          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">11%</span></div>
-          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">400€</span></div>
-          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~124</span></div>
-          <div class="scenario-stat"><span>Valeur 3 ans</span><span class="scenario-val">528€</span></div>
-        </div>
-        <div class="scenario-card prudent">
-          <div class="scenario-title" style="color:var(--orange)">▸ Scénario prudent</div>
-          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">35€</span></div>
-          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">7%</span></div>
-          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">583€</span></div>
-          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~75</span></div>
-          <div class="scenario-stat"><span>Point de départ</span><span class="scenario-val">Conservateur</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 4: PLAN MÉDIA -->
-    <div class="tab-content" id="tab-media">
-      <div class="section-label">Plan Média</div>
-      <div class="section-title">Répartition budgétaire &amp; pilotage</div>
-
-      <div class="card mb-24">
-        <div class="section-label mb-16">Budget total — 45 000€ média</div>
-        <div class="donut-wrap">
-          <svg id="donut-chart" width="200" height="200"></svg>
-          <div class="donut-legend" id="donut-legend"></div>
-        </div>
-      </div>
-
-      <div class="section-label mb-16">Planning mensuel</div>
-      <div class="monthly-cards">
-        <div class="monthly-card">
-          <div class="monthly-month">Juin 2026</div>
-          <div class="monthly-amount">2 533€</div>
-          <div class="monthly-detail">2 semaines · Phase 1</div>
-        </div>
-        <div class="monthly-card">
-          <div class="monthly-month">Juillet 2026</div>
-          <div class="monthly-amount">6 333€</div>
-          <div class="monthly-detail">5 semaines · Phase 1</div>
-        </div>
-        <div class="monthly-card">
-          <div class="monthly-month">Août 2026</div>
-          <div class="monthly-amount">5 067€</div>
-          <div class="monthly-detail">4 semaines · Transition</div>
-        </div>
-        <div class="monthly-card">
-          <div class="monthly-month">Septembre 2026</div>
-          <div class="monthly-amount">5 067€</div>
-          <div class="monthly-detail">4 semaines · Phase 2</div>
-        </div>
-      </div>
-
-      <div class="table-wrap mb-24">
-        <table>
-          <thead>
-            <tr><th>Canal</th><th>Stratégie</th><th>CPL Cible</th><th>Seuil d'alerte</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>SEA Google</strong></td><td>Intention forte, requêtes brand</td><td><span class="badge badge-green">&lt; 35€</span></td><td>&gt; 45€ sur 7j</td></tr>
-            <tr><td><strong>Meta Lead Ads</strong></td><td>Volume + ciblage granulaire</td><td><span class="badge badge-green">&lt; 22€</span></td><td>&gt; 30€ ou complétion &lt; 60%</td></tr>
-            <tr><td><strong>Demand Gen</strong></td><td>Retargeting + lookalike</td><td><span class="badge badge-blue">CTR &gt; 0,15%</span></td><td>CTR &lt; 0,08% sur 14j</td></tr>
-            <tr><td><strong>LinkedIn Ads</strong></td><td>Profils pros qualifiés</td><td><span class="badge badge-orange">&lt; 150€</span></td><td>&gt; 200€</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="grid-2">
-        <div class="card blue">
-          <div class="section-label mb-8">Ciblage — Segment A</div>
-          <div style="font-size:16px;font-weight:700;margin-bottom:12px">Primo-accédants · 25-45 ans</div>
-          <div class="badge badge-blue mb-16">Budget Meta : 9 500€</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Intérêts</div>
-          <div style="font-size:13px;line-height:2">Immobilier · Premier achat immobilier · Prêt immobilier · Copropriété · DPE · Jeunes actifs · Famille</div>
-        </div>
-        <div class="card gold">
-          <div class="section-label mb-8">Ciblage — Segment B</div>
-          <div style="font-size:16px;font-weight:700;margin-bottom:12px">Patrimoine constitué · 45-65 ans</div>
-          <div class="badge badge-orange mb-16">Budget Meta : 9 500€</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Intérêts</div>
-          <div style="font-size:13px;line-height:2">Investissement locatif · Défiscalisation · Gestion de patrimoine · Retraite · Revenus locatifs · Résidence secondaire</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB: CRÉATIFS -->
-    <div class="tab-content" id="tab-creatifs">
-      <div class="section-label">Intelligence Créative</div>
-      <div class="section-title">Créatifs, veille concurrentielle &amp; inspiration</div>
-
-      <!-- CREATIVE BRIEF BY SEGMENT -->
-      <div class="section-label mb-16">Brief créatif par segment</div>
-      <div class="grid-2 mb-24">
-        <div style="background:#EFF4FF;border:1.5px solid #93C5FD;border-radius:12px;padding:24px">
-          <div class="section-label mb-8" style="color:var(--blue)">Segment A — Primo-accédants 25-45 ans</div>
-          <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)">"Évitez les pièges — conseils copro / DPE / fiscalité"</div>
-          <div class="mb-16">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Angles créatifs</div>
-            <div class="phase-item mb-6" style="font-size:13px">Peur de faire une erreur → "Votre premier bien mérite une protection"</div>
-            <div class="phase-item mb-6" style="font-size:13px">Urgence DPE → "DPE G/F interdit : ce que vous devez savoir"</div>
-            <div class="phase-item mb-6" style="font-size:13px">Complexité copropriété → "Copropriété : droits et obligations expliqués"</div>
-            <div class="phase-item" style="font-size:13px">Coût d'une erreur → "Une erreur fiscale peut vous coûter des milliers d'euros"</div>
-          </div>
-          <div class="mb-16">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Formats recommandés</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px">
-              <span class="badge badge-blue">Carrousel 1:1</span>
-              <span class="badge badge-blue">Vidéo 9:16 (15s)</span>
-              <span class="badge badge-blue">Statique 4:5</span>
-              <span class="badge badge-blue">RSA Google</span>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ton &amp; style</div>
-            <div style="font-size:13px;color:var(--muted)">Pédagogique, rassurant, concret. Visuels : jeune couple / appartement moderne / documents. Éviter le jargon juridique.</div>
-          </div>
-        </div>
-
-        <div style="background:#FDF8EC;border:1.5px solid #FDE68A;border-radius:12px;padding:24px">
-          <div class="section-label mb-8" style="color:var(--gold)">Segment B — Patrimoine constitué 45-65 ans</div>
-          <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--gold)">"Encadrement loyers, DPE, fiscalité : UNPI vous accompagne"</div>
-          <div class="mb-16">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Angles créatifs</div>
-            <div class="phase-item mb-6" style="font-size:13px">Défense droits → "Encadrement loyers : vos droits, nos experts"</div>
-            <div class="phase-item mb-6" style="font-size:13px">Optimisation fiscale → "Réduisez votre imposition sur revenus locatifs"</div>
-            <div class="phase-item mb-6" style="font-size:13px">Sécurité → "2 120 propriétaires lyonnais nous font confiance"</div>
-            <div class="phase-item" style="font-size:13px">Actualité → "Nouvelles obligations bailleurs 2026 : êtes-vous prêt ?"</div>
-          </div>
-          <div class="mb-16">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Formats recommandés</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px">
-              <span class="badge badge-orange">Statique 1:1</span>
-              <span class="badge badge-orange">Lead Gen LinkedIn</span>
-              <span class="badge badge-orange">Vidéo testimonial</span>
-              <span class="badge badge-orange">RSA Google</span>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ton &amp; style</div>
-            <div style="font-size:13px;color:var(--muted)">Professionnel, expert, sérieux. Visuels : immobilier haussmannien Lyon / chiffres clés / expertise. Insister sur la valeur de défense collective.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- A/B TEST FRAMEWORK -->
-      <div class="card mb-24">
-        <div class="section-label mb-16">Framework A/B Test — Créatifs</div>
-        <div class="table-wrap" style="margin-bottom:0">
-          <table>
-            <thead><tr><th>Variable testée</th><th>Version A</th><th>Version B</th><th>Métrique de décision</th><th>Durée test</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Angle message</strong></td><td>Peur de l'erreur (DPE)</td><td>Opportunité fiscale</td><td>CTR + CPL</td><td>14 jours</td></tr>
-              <tr><td><strong>Format visuel</strong></td><td>Carrousel éducatif</td><td>Vidéo 9:16 témoignage</td><td>CTR + taux complétion</td><td>14 jours</td></tr>
-              <tr><td><strong>CTA</strong></td><td>"Rejoindre l'UNPI 69"</td><td>"Protéger mon bien gratuitement"</td><td>Taux clic CTA</td><td>7 jours</td></tr>
-              <tr><td><strong>Accroche</strong></td><td>Question ("Êtes-vous prêt ?")</td><td>Chiffre clé ("74€ offerts")</td><td>Taux engagement</td><td>7 jours</td></tr>
-              <tr><td><strong>Ciblage</strong></td><td>Intérêts immobiliers</td><td>Comportement lookalike</td><td>CPL + qualité lead</td><td>21 jours</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- COMPETITOR AD INTELLIGENCE -->
-      <div class="card mb-24">
-        <div class="section-label mb-12">Veille publicitaire concurrentielle</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">Sources à surveiller régulièrement pour identifier les créatifs concurrents</div>
-        <div class="grid-3">
-          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
-            <div style="font-size:13px;font-weight:700;margin-bottom:6px">Meta Ad Library</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Rechercher : "FNAIM", "SNAPAP", "propriétaires", "syndicat" + filtre France</div>
-            <a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=FR&q=syndicat+propri%C3%A9taires" target="_blank" style="font-size:11px;font-family:var(--mono);color:var(--blue);text-decoration:none">→ Ouvrir Meta Ad Library FR</a>
-          </div>
-          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
-            <div style="font-size:13px;font-weight:700;margin-bottom:6px">Google Ads Transparency</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Rechercher les annonceurs actifs sur requêtes "propriétaire Lyon", "défense bailleur"</div>
-            <a href="https://adstransparency.google.com/?region=FR" target="_blank" style="font-size:11px;font-family:var(--mono);color:var(--blue);text-decoration:none">→ Ouvrir Google Ads Transparency</a>
-          </div>
-          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
-            <div style="font-size:13px;font-weight:700;margin-bottom:6px">LinkedIn Campaign Manager</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Profil FNAIM, associations professionnelles immobilier — voir leurs annonces sponsorisées</div>
-            <div style="font-size:11px;font-family:var(--mono);color:var(--muted)">Recherche manuelle via profil entreprise</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- COMPETITOR ADS GALLERY -->
-      <div class="card mb-24">
-        <div class="section-label mb-12">Galerie — Publicités concurrentes &amp; inspiration</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">Les créatifs collectés lors de la veille seront affichés ici. Section alimentée au fil de la campagne.</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
-            <div style="font-size:28px;color:var(--muted)">◆</div>
-            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Créatif concurrent 1<br>À venir</div>
-          </div>
-          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
-            <div style="font-size:28px;color:var(--muted)">◆</div>
-            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Créatif concurrent 2<br>À venir</div>
-          </div>
-          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
-            <div style="font-size:28px;color:var(--muted)">◆</div>
-            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Inspiration créative<br>À venir</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CREATIVE SPECS -->
-      <div class="card">
-        <div class="section-label mb-16">Spécifications techniques — Formats Meta</div>
-        <div class="table-wrap" style="margin-bottom:0">
-          <table>
-            <thead><tr><th>Placement</th><th>Ratio</th><th>Résolution</th><th>Formats</th><th>Durée vidéo</th><th>Texte principal</th></tr></thead>
-            <tbody>
-              <tr><td>Feed &amp; Explore</td><td>1:1 ou 4:5</td><td>1080 × 1080 / 1080 × 1350 px</td><td>JPG, PNG, MP4</td><td>1s – 241min</td><td>125 caractères</td></tr>
-              <tr><td>Story &amp; Reels</td><td>9:16</td><td>1080 × 1920 px</td><td>JPG, PNG, MP4</td><td>1s – 60s</td><td>125 caractères</td></tr>
-              <tr><td>Carrousel</td><td>1:1</td><td>1080 × 1080 px</td><td>JPG, PNG</td><td>—</td><td>125 caractères / carte</td></tr>
-              <tr><td>LinkedIn Lead Gen</td><td>1:1 ou 1.91:1</td><td>1200 × 1200 px</td><td>JPG, PNG</td><td>—</td><td>150 caractères</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- TAB 5: SEO -->
-    <div class="tab-content" id="tab-seo">
-      <div class="section-label">SEO &amp; Présence Digitale</div>
-      <div class="section-title">Audit — État des lieux</div>
-
-      <div class="global-score">
-        <div class="global-score-num">25<span class="global-score-denom">/100</span></div>
-        <div><span class="badge badge-red" style="font-size:12px;padding:4px 12px">● Action Requise — Score Global</span></div>
-      </div>
-
-      <div class="grid-2 mb-24">
-        <div class="card">
-          <div class="section-label mb-16">Scores par catégorie</div>
-          <div id="seo-bars">
-            <div class="seo-bar-item">
-              <div class="seo-bar-header"><span class="seo-bar-name">SEO Technique</span><span class="seo-bar-score" style="color:var(--red)">35/100 <span class="badge badge-red">Urgent</span></span></div>
-              <div class="seo-track"><div class="seo-fill red" data-w="35"></div></div>
-            </div>
-            <div class="seo-bar-item">
-              <div class="seo-bar-header"><span class="seo-bar-name">Optimisation On-Page</span><span class="seo-bar-score" style="color:var(--red)">28/100 <span class="badge badge-red">Urgent</span></span></div>
-              <div class="seo-track"><div class="seo-fill red" data-w="28"></div></div>
-            </div>
-            <div class="seo-bar-item">
-              <div class="seo-bar-header"><span class="seo-bar-name">Contenu &amp; Mots-clés</span><span class="seo-bar-score" style="color:var(--red)">20/100 <span class="badge badge-red">Urgent</span></span></div>
-              <div class="seo-track"><div class="seo-fill red" data-w="20"></div></div>
-            </div>
-            <div class="seo-bar-item">
-              <div class="seo-bar-header"><span class="seo-bar-name">Données Structurées</span><span class="seo-bar-score" style="color:var(--red)">0/100 <span class="badge badge-red">Urgent</span></span></div>
-              <div class="seo-track"><div class="seo-fill red" data-w="0"></div></div>
-            </div>
-            <div class="seo-bar-item">
-              <div class="seo-bar-header"><span class="seo-bar-name">Maillage Interne</span><span class="seo-bar-score" style="color:var(--orange)">55/100 <span class="badge badge-orange">Moyen</span></span></div>
-              <div class="seo-track"><div class="seo-fill orange" data-w="55"></div></div>
-            </div>
-            <div class="seo-bar-item">
-              <div class="seo-bar-header"><span class="seo-bar-name">Autorité &amp; Backlinks</span><span class="seo-bar-score" style="color:var(--orange)">10/100 <span class="badge badge-orange">Moyen</span></span></div>
-              <div class="seo-track"><div class="seo-fill orange" data-w="10"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="section-label mb-16">5 constats critiques</div>
-          <div class="finding"><div class="finding-num">1</div><div class="finding-text"><strong>Double balise H1 sur la homepage</strong> — Google ne peut pas identifier la page principale du site.</div></div>
-          <div class="finding"><div class="finding-num">2</div><div class="finding-text"><strong>Zéro schema markup sur 57 URLs</strong> — aucun rich snippet possible (FAQ, LocalBusiness, BreadcrumbList).</div></div>
-          <div class="finding"><div class="finding-num">3</div><div class="finding-text"><strong>Titres trop courts</strong> — 24 caractères sur la homepage vs optimum 50-60 caractères.</div></div>
-          <div class="finding"><div class="finding-num">4</div><div class="finding-text"><strong>17+ images sans attribut ALT</strong> — perte de signaux SEO et problème d'accessibilité.</div></div>
-          <div class="finding"><div class="finding-num">5</div><div class="finding-text"><strong>Écart total avec la concurrence</strong> — fnaim.fr génère 156 615 visites/mois vs ~0 pour UNPI 69. Aucun mot-clé en commun.</div></div>
-        </div>
-      </div>
-
-      <div class="table-wrap mb-24">
-        <table>
-          <thead>
-            <tr><th>Page</th><th>Title actuel</th><th>Car.</th><th>Title optimisé</th><th>Car.</th><th>Priorité</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Homepage</td><td>UNPI 69 - LYON MÉTROPOLE</td><td><span class="badge badge-red">24</span></td><td>Syndicat Propriétaires Lyon — Conseil &amp; Défense — UNPI 69</td><td><span class="badge badge-green">55</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
-            <tr><td>/nos-services/</td><td>Nos services - UNPI 69 Lyon Métropole</td><td><span class="badge badge-orange">37</span></td><td>Conseil Juridique Propriétaire Lyon — Nos Services — UNPI 69</td><td><span class="badge badge-green">47</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
-            <tr><td>/adherer-a-lunpi-69/</td><td>Devenir adhérent - UNPI 69 Lyon Métropole</td><td><span class="badge badge-orange">41</span></td><td>Adhésion UNPI 69 Lyon — Tarifs &amp; Avantages Propriétaire</td><td><span class="badge badge-green">56</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>#</th><th>Action SEO</th><th>Impact</th><th>Effort</th></tr></thead>
-          <tbody>
-            <tr><td><span class="badge badge-red">1</span></td><td>Corriger double H1 homepage</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-green">Faible</span></td></tr>
-            <tr><td><span class="badge badge-red">2</span></td><td>Implémenter schema markup (LocalBusiness + FAQPage)</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-orange">Moyen</span></td></tr>
-            <tr><td><span class="badge badge-red">3</span></td><td>Optimiser titles + meta descriptions (3 pages prioritaires)</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-green">Faible</span></td></tr>
-            <tr><td><span class="badge badge-orange">4</span></td><td>Ajouter attributs ALT sur 17+ images</td><td><span class="badge badge-orange">Moyen</span></td><td><span class="badge badge-green">Faible</span></td></tr>
-            <tr><td><span class="badge badge-orange">5</span></td><td>Stratégie de contenu — mots-clés propriétaires Lyon</td><td><span class="badge badge-red">Très fort</span></td><td><span class="badge badge-red">Élevé</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- TAB 6: MARCHÉ & INTELLIGENCE CPL -->
-    <div class="tab-content" id="tab-marche">
-      <div class="section-label">Marché &amp; Intelligence CPL</div>
+      <!-- CPL INTELLIGENCE -->
+      <div class="rep-tab-content" id="rep-int-cpl" style="display:none">
+        <div class="section-label">Marché &amp; Intelligence CPL</div>
       <div class="section-title">Benchmarks contextualisés &amp; potentiel de performance</div>
 
       <!-- STRATEGIC QUESTION -->
@@ -1456,10 +683,299 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
         <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:6px">◈ Ce module évolue avec vos données</div>
         <div style="font-size:12px;color:var(--blue);opacity:.8;line-height:1.6">À mesure que les campagnes génèrent des données réelles, le CPL Intelligence Engine réévalue automatiquement les scénarios. Le CPL lancement sera remplacé par le CPL réel, le CPL cible sera recalculé sur la base des performances observées, et les leviers seront classés par impact mesuré — pas estimé.</div>
       </div>
+      </div>
+
+      <!-- OPPORTUNITÉS (new card format) -->
+      <div class="rep-tab-content" id="rep-int-opportunites" style="display:none">
+        <div class="section-label mb-16">Opportunités détectées — Priorisées &amp; actionnables</div>
+
+        <!-- OPP CARD COMPONENT -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+
+          <!-- Card 1 -->
+          <div style="background:#fff;border:1.5px solid #BBF7D0;border-radius:16px;overflow:hidden">
+            <div style="background:#F0FDF4;padding:14px 20px;border-bottom:1px solid #BBF7D0;display:flex;align-items:center;gap:10px">
+              <div style="background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase">◆ Opportunité</div>
+              <div style="font-size:15px;font-weight:700">Aucune concurrence SEA sur les requêtes cœur de métier UNPI 69</div>
+              <div style="margin-left:auto;background:#D1FAE5;color:#065F46;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">● HAUTE PRIORITÉ</div>
+            </div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Source de la donnée</div><div style="font-size:13px">Analyse marché · Google Ads Transparency · Absence d'annonceurs identifiée</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Canal concerné</div><div style="font-size:13px">SEA Google — Campagnes Search</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Pourquoi c'est important</div><div style="font-size:13px">Les requêtes "syndicat propriétaires Lyon", "défense bailleur Lyon" ne sont couvertes par aucun annonceur payant. CPC minimal = CPL très bas pendant la fenêtre d'opportunité.</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Impact potentiel</div><div style="font-size:13px">CPC estimé &lt;0,80€ · CPL potentiel &lt;20€ · Trafic qualifié à coût marginal</div></div>
+              <div style="grid-column:1/-1"><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Action recommandée</div><div style="font-size:13px;background:#F0FDF4;border-radius:8px;padding:10px 14px;color:#065F46">Lancer un groupe d'annonces SEA sur "syndicat propriétaires Lyon", "défense bailleur Lyon", "UNPI 69" dès Phase 1. Budget test : 500€ · Chaque semaine de retard = trafic laissé sans capteur.</div></div>
+              <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px">
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted)">Statut : <span style="color:var(--orange);font-weight:600">En attente — à lancer</span></div>
+                <div style="font-size:11px;color:var(--muted)">Effort d'implémentation : ★★☆☆☆ Faible</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div style="background:#fff;border:1.5px solid #BBF7D0;border-radius:16px;overflow:hidden">
+            <div style="background:#F0FDF4;padding:14px 20px;border-bottom:1px solid #BBF7D0;display:flex;align-items:center;gap:10px">
+              <div style="background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase">◆ Opportunité</div>
+              <div style="font-size:15px;font-weight:700">6 corrections = Google AI Overviews passe de 20% à 85%+</div>
+              <div style="margin-left:auto;background:#D1FAE5;color:#065F46;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">● HAUTE PRIORITÉ</div>
+            </div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Source de la donnée</div><div style="font-size:13px">CrazyDodo SEO Audit · Août 2026 · Score GEO : 50/100 · Google AI Overviews : 20%</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Canal concerné</div><div style="font-size:13px">SEO organique · IA génératives (ChatGPT, Perplexity, Google AI)</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Pourquoi c'est important</div><div style="font-size:13px">En 2026, les propriétaires posent leurs questions à ChatGPT/Google AI. Si unpi69.fr n'est pas structuré pour les IA, il ne sera jamais cité. Trafic qualifié gratuit en jeu.</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Impact potentiel</div><div style="font-size:13px">Score GEO : 50 → 85+ · Visibilité ChatGPT : 45% → 80%+ · Trafic organique IA sans budget additionnel</div></div>
+              <div style="grid-column:1/-1"><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Action recommandée</div><div style="font-size:13px;background:#F0FDF4;border-radius:8px;padding:10px 14px;color:#065F46">Implémenter Schema.org (Organization + WebPage) + FAQ Schema + Open Graph sur unpi69.fr. Temps total estimé : 2h. Déléguer au webmaster We Are Flex Free immédiatement.</div></div>
+              <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px">
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted)">Statut : <span style="color:var(--orange);font-weight:600">À déléguer — We Are Flex Free</span></div>
+                <div style="font-size:11px;color:var(--muted)">Effort d'implémentation : ★★☆☆☆ Faible (2h)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div style="background:#fff;border:1.5px solid #FDE68A;border-radius:16px;overflow:hidden">
+            <div style="background:#FEF9EC;padding:14px 20px;border-bottom:1px solid #FDE68A;display:flex;align-items:center;gap:10px">
+              <div style="background:var(--gold);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase">◆ Opportunité</div>
+              <div style="font-size:15px;font-weight:700">Contenu DPE 2026 — forte demande, zéro contenu UNPI 69</div>
+              <div style="margin-left:auto;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">● PRIORITÉ MOYENNE</div>
+            </div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Source de la donnée</div><div style="font-size:13px">Analyse tendances · Réglementation DPE 2025-2026 · Recherches croissantes France</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Canal concerné</div><div style="font-size:13px">SEO organique · Contenu · SEA (landing pages)</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Pourquoi c'est important</div><div style="font-size:13px">Les recherches sur "DPE bailleur obligation 2026" sont en hausse depuis jan 2026. UNPI 69 a une légitimité naturelle sur ce sujet — zéro contenu aujourd'hui = trafic laissé aux concurrents.</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Impact potentiel</div><div style="font-size:13px">2-3 articles = pages d'atterrissage pour SEA + trafic organique récurrent · Audience qualifiée Segment B</div></div>
+              <div style="grid-column:1/-1"><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Action recommandée</div><div style="font-size:13px;background:#FEF9EC;border-radius:8px;padding:10px 14px;color:#92400E">Créer 2 articles : "DPE G/F interdits : obligations du bailleur Lyon 2026" + "Mise en conformité DPE Lyon : guide propriétaires". Optimisés SEO + utilisés comme landing pages pour les annonces SEA.</div></div>
+              <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px">
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted)">Statut : <span style="color:var(--orange);font-weight:600">À planifier — Phase 2</span></div>
+                <div style="font-size:11px;color:var(--muted)">Effort d'implémentation : ★★★☆☆ Moyen (rédaction + SEO)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div style="background:#fff;border:1.5px solid #BFDBFE;border-radius:16px;overflow:hidden">
+            <div style="background:#EFF6FF;padding:14px 20px;border-bottom:1px solid #BFDBFE;display:flex;align-items:center;gap:10px">
+              <div style="background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase">● Alerte</div>
+              <div style="font-size:15px;font-weight:700">Fenêtre critique — Phase 2 doit être prête avant le 1er septembre</div>
+              <div style="margin-left:auto;background:#DBEAFE;color:#1E40AF;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">● URGENCE</div>
+            </div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Source de la donnée</div><div style="font-size:13px">Saisonnalité marché · Plan média UNPI 69 · Analyse secteur immobilier France</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Canal concerné</div><div style="font-size:13px">Tous canaux — Meta, SEA Google, Demand Gen, LinkedIn</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Pourquoi c'est important</div><div style="font-size:13px">Septembre-octobre = pic de la demande propriétaires (rentrée fiscale). La Phase 2 (35K€) doit être opérationnelle J1 septembre. Chaque jour de retard = budget perdu pendant le pic.</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Impact potentiel</div><div style="font-size:13px">±15% de volume de leads selon le timing de lancement · La préparation en juillet/août est décisive</div></div>
+              <div style="grid-column:1/-1"><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Action recommandée</div><div style="font-size:13px;background:#EFF6FF;border-radius:8px;padding:10px 14px;color:#1E40AF">Préparer en août : créatifs Phase 2 testés, audiences lookalike construites sur leads Phase 1, landing pages actualisées, budget Google Ads configuré. Objectif : lancement Phase 2 le 1er septembre au plus tard.</div></div>
+              <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px">
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted)">Statut : <span style="color:var(--red);font-weight:600">Fenêtre ouverte — action requise avant sept</span></div>
+                <div style="font-size:11px;color:var(--muted)">Effort d'implémentation : ★★★★☆ Élevé (préparation complète)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div style="background:#fff;border:1.5px solid #BBF7D0;border-radius:16px;overflow:hidden">
+            <div style="background:#F0FDF4;padding:14px 20px;border-bottom:1px solid #BBF7D0;display:flex;align-items:center;gap:10px">
+              <div style="background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase">→ Quick Win</div>
+              <div style="font-size:15px;font-weight:700">5 corrections SEO = +15 pts de score + réduction directe du CPC Google Ads</div>
+              <div style="margin-left:auto;background:#D1FAE5;color:#065F46;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">● PRIORITÉ HAUTE</div>
+            </div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Source de la donnée</div><div style="font-size:13px">CrazyDodo Audit · Score SEO actuel 69/100 · 7 avertissements · Google Quality Score</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Canal concerné</div><div style="font-size:13px">SEO organique + SEA Google (Quality Score)</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Pourquoi c'est important</div><div style="font-size:13px">Le Quality Score Google Ads est influencé par la qualité de la landing page. Un meilleur score SEO = meilleur QS = CPC plus bas = CPL plus bas. ROI double : SEO + paid.</div></div>
+              <div><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Impact potentiel</div><div style="font-size:13px">Score 69 → 84+ · Réduction CPC estimée : -10 à -20% · Économie directe sur budget SEA</div></div>
+              <div style="grid-column:1/-1"><div style="font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Action recommandée</div><div style="font-size:13px;background:#F0FDF4;border-radius:8px;padding:10px 14px;color:#065F46">Corriger : title (24→55 chars), ALT 6 images, Open Graph (og:title/description/image), sitemap.xml, Twitter cards. Effort total estimé : 45 minutes. À faire avant le lancement des campagnes SEA.</div></div>
+              <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:12px">
+                <div style="font-family:var(--mono);font-size:11px;color:var(--muted)">Statut : <span style="color:var(--orange);font-weight:600">À déléguer immédiatement</span></div>
+                <div style="font-size:11px;color:var(--muted)">Effort d'implémentation : ★☆☆☆☆ Très faible (45 min)</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STRATÉGIE -->
+      <div class="rep-tab-content" id="rep-int-strategie" style="display:none">
+        <div class="section-label">Stratégie d'Acquisition</div>
+      <div class="section-title">Dispositif en 2 phases — Test &amp; Learn</div>
+
+      <div class="phase-wrap">
+        <div class="phase-card">
+          <div class="phase-num">Phase 01</div>
+          <div class="phase-name">Pilote &amp; Fondations</div>
+          <div class="phase-period">Mai – Juillet 2026</div>
+          <div class="phase-budget">15 000€</div>
+          <div class="phase-item">Setup GA4 + pixels Meta / LinkedIn</div>
+          <div class="phase-item">2-3 landing pages dédiées par segment</div>
+          <div class="phase-item">6-8 visuels créatifs par cible</div>
+          <div class="phase-item">Bâtir audiences qualifiées</div>
+          <div class="phase-item">Valider les hypothèses CPL</div>
+          <div class="phase-kpi">
+            <div class="phase-kpi-label">CPL cible</div>
+            <div class="phase-kpi-val">À définir sur données</div>
+          </div>
+        </div>
+        <div class="phase-arrow">→</div>
+        <div class="phase-card gold">
+          <div class="phase-num">Phase 02</div>
+          <div class="phase-name gold">Conversion &amp; Scale</div>
+          <div class="phase-period">Septembre – Décembre 2026</div>
+          <div class="phase-budget gold">35 000€</div>
+          <div class="phase-item">Retargeting + lookalikes Phase 1</div>
+          <div class="phase-item">Nurturing email 3-4 touches</div>
+          <div class="phase-item">Optimisation UX landing pages</div>
+          <div class="phase-item">Scale combinaisons gagnantes</div>
+          <div class="phase-item">Meta Lead Ads + SEA générique</div>
+          <div class="phase-kpi">
+            <div class="phase-kpi-label">CPL cible</div>
+            <div class="phase-kpi-val" style="color:var(--gold)">25 – 35€</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-24">
+        <div class="section-label mb-16">Tunnel d'acquisition — 5 étapes</div>
+        <div class="funnel-wrap">
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:100%;background:#003189">1 · Clic publicitaire — Meta / SEA / LinkedIn</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:85%;background:#1a4aab;margin:0 auto">2 · Landing page — Promesse + preuves sociales</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:65%;background:#3562c3;margin:0 auto">3 · Formulaire — Contact / intérêt qualifié</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:45%;background:#4f7adb;margin:0 auto">4 · Nurturing CRM — 3-4 emails personnalisés</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-bar" style="width:25%;background:#C9A84C;margin:0 auto">5 · Adhésion — 250€ en ligne</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2 mb-24">
+        <div class="card blue">
+          <div class="section-label mb-8">Segment A — Primo-accédants</div>
+          <div style="font-size:20px;font-weight:700;margin-bottom:4px">25-45 ans</div>
+          <div class="badge badge-blue mb-16">40% du budget · 9 500€</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Besoins : copropriété, DPE, fiscalité</div>
+          <div style="font-size:13px;font-style:italic;color:var(--blue);font-weight:500">"Évitez les pièges — conseils copro / DPE / fiscalité"</div>
+        </div>
+        <div class="card gold">
+          <div class="section-label mb-8">Segment B — Patrimoine constitué</div>
+          <div style="font-size:20px;font-weight:700;margin-bottom:4px">45-65 ans</div>
+          <div class="badge badge-orange mb-16">60% du budget · 9 500€</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Besoins : sécurité, optimisation fiscale, défense bailleurs</div>
+          <div style="font-size:13px;font-style:italic;color:var(--gold);font-weight:500">"Encadrement loyers, DPE, fiscalité : UNPI vous accompagne"</div>
+        </div>
+      </div>
+
+      <div class="section-label mb-16">Projections économiques — 3 scénarios</div>
+      <div class="grid-3">
+        <div class="scenario-card optimiste">
+          <div class="scenario-title" style="color:var(--green)">◆ Scénario optimiste</div>
+          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">25€</span></div>
+          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">15%</span></div>
+          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">167€</span></div>
+          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~300</span></div>
+          <div class="scenario-stat"><span>Rentabilité</span><span class="scenario-val">&lt; 12 mois</span></div>
+        </div>
+        <div class="scenario-card reference">
+          <div class="scenario-title" style="color:var(--blue)">→ Scénario de référence</div>
+          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">40€</span></div>
+          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">11%</span></div>
+          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">400€</span></div>
+          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~124</span></div>
+          <div class="scenario-stat"><span>Valeur 3 ans</span><span class="scenario-val">528€</span></div>
+        </div>
+        <div class="scenario-card prudent">
+          <div class="scenario-title" style="color:var(--orange)">▸ Scénario prudent</div>
+          <div class="scenario-stat"><span>CPL</span><span class="scenario-val">35€</span></div>
+          <div class="scenario-stat"><span>Taux de conversion</span><span class="scenario-val">7%</span></div>
+          <div class="scenario-stat"><span>CAC</span><span class="scenario-val">583€</span></div>
+          <div class="scenario-stat"><span>Adhérents nets</span><span class="scenario-val">~75</span></div>
+          <div class="scenario-stat"><span>Point de départ</span><span class="scenario-val">Conservateur</span></div>
+        </div>
+      </div>
+      </div>
+
+      <!-- PLAN MÉDIA -->
+      <div class="rep-tab-content" id="rep-int-media" style="display:none">
+        <div class="section-label">Plan Média</div>
+      <div class="section-title">Répartition budgétaire &amp; pilotage</div>
+
+      <div class="card mb-24">
+        <div class="section-label mb-16">Budget total — 45 000€ média</div>
+        <div class="donut-wrap">
+          <svg id="donut-chart" width="200" height="200"></svg>
+          <div class="donut-legend" id="donut-legend"></div>
+        </div>
+      </div>
+
+      <div class="section-label mb-16">Planning mensuel</div>
+      <div class="monthly-cards">
+        <div class="monthly-card">
+          <div class="monthly-month">Juin 2026</div>
+          <div class="monthly-amount">2 533€</div>
+          <div class="monthly-detail">2 semaines · Phase 1</div>
+        </div>
+        <div class="monthly-card">
+          <div class="monthly-month">Juillet 2026</div>
+          <div class="monthly-amount">6 333€</div>
+          <div class="monthly-detail">5 semaines · Phase 1</div>
+        </div>
+        <div class="monthly-card">
+          <div class="monthly-month">Août 2026</div>
+          <div class="monthly-amount">5 067€</div>
+          <div class="monthly-detail">4 semaines · Transition</div>
+        </div>
+        <div class="monthly-card">
+          <div class="monthly-month">Septembre 2026</div>
+          <div class="monthly-amount">5 067€</div>
+          <div class="monthly-detail">4 semaines · Phase 2</div>
+        </div>
+      </div>
+
+      <div class="table-wrap mb-24">
+        <table>
+          <thead>
+            <tr><th>Canal</th><th>Stratégie</th><th>CPL Cible</th><th>Seuil d'alerte</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>SEA Google</strong></td><td>Intention forte, requêtes brand</td><td><span class="badge badge-green">&lt; 35€</span></td><td>&gt; 45€ sur 7j</td></tr>
+            <tr><td><strong>Meta Lead Ads</strong></td><td>Volume + ciblage granulaire</td><td><span class="badge badge-green">&lt; 22€</span></td><td>&gt; 30€ ou complétion &lt; 60%</td></tr>
+            <tr><td><strong>Demand Gen</strong></td><td>Retargeting + lookalike</td><td><span class="badge badge-blue">CTR &gt; 0,15%</span></td><td>CTR &lt; 0,08% sur 14j</td></tr>
+            <tr><td><strong>LinkedIn Ads</strong></td><td>Profils pros qualifiés</td><td><span class="badge badge-orange">&lt; 150€</span></td><td>&gt; 200€</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="card blue">
+          <div class="section-label mb-8">Ciblage — Segment A</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:12px">Primo-accédants · 25-45 ans</div>
+          <div class="badge badge-blue mb-16">Budget Meta : 9 500€</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Intérêts</div>
+          <div style="font-size:13px;line-height:2">Immobilier · Premier achat immobilier · Prêt immobilier · Copropriété · DPE · Jeunes actifs · Famille</div>
+        </div>
+        <div class="card gold">
+          <div class="section-label mb-8">Ciblage — Segment B</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:12px">Patrimoine constitué · 45-65 ans</div>
+          <div class="badge badge-orange mb-16">Budget Meta : 9 500€</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Intérêts</div>
+          <div style="font-size:13px;line-height:2">Investissement locatif · Défiscalisation · Gestion de patrimoine · Retraite · Revenus locatifs · Résidence secondaire</div>
+        </div>
+      </div>
+      </div>
+
     </div>
 
-    <!-- TAB 7: RECOMMANDATIONS -->
-    <div class="tab-content" id="tab-reco">
+
+    <div class="tab-content" id="tab-actions-reco">
+      <div class="section-label">Actions &amp; Recommandations</div>
+      <div class="section-title">Que devons-nous faire maintenant ?</div>
       <div class="section-label">Recommandations &amp; Apprentissages</div>
       <div class="section-title">Synthèse stratégique</div>
 
@@ -1519,10 +1035,7 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
           <div class="phase-item">Nurturing email 3-4 touches</div>
         </div>
       </div>
-    </div>
-
-    <!-- TAB 8: ACTIONS -->
-    <div class="tab-content" id="tab-actions">
+      <div style="margin-top:32px"></div>
       <div class="section-label">Centre d'Actions</div>
       <div class="section-title">Pilotage opérationnel</div>
 
@@ -1710,4 +1223,601 @@ function filterActions(status, btn) {
 }
 </script>
 </body>
-</html>
+
+
+    <div class="tab-content" id="tab-seo-digital">
+      <div class="section-label">SEO &amp; Digital Intelligence</div>
+      <div class="section-title">Opportunités identifiées via CrazyDodo &amp; Google</div>
+
+      <div style="display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid var(--border);overflow-x:auto">
+        <button class="rep-tab-btn active" onclick="showRepTab('seo-audit',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--blue);border-bottom:2px solid var(--blue);margin-bottom:-2px;white-space:nowrap">Audit SEO</button>
+        <button class="rep-tab-btn" onclick="showRepTab('seo-geo',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">GEO / AEO — Visibilité IA</button>
+        <button class="rep-tab-btn" onclick="showRepTab('seo-action',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Plan d'action technique</button>
+        <button class="rep-tab-btn" onclick="showRepTab('seo-creatifs',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Créatifs</button>
+      </div>
+
+      <!-- AUDIT SEO -->
+      <div class="rep-tab-content" id="rep-seo-audit">
+        <div class="section-label mb-12">Scores CrazyDodo — unpi69.fr · Août 2026</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px">
+          <div style="background:#fff;border:2px solid var(--border);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Health</div>
+            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--orange);line-height:1">74</div>
+            <div style="font-size:11px;color:var(--muted)">/100</div>
+          </div>
+          <div style="background:#fff;border:2px solid var(--border);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">SEO</div>
+            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--orange);line-height:1">69</div>
+            <div style="font-size:11px;color:var(--muted)">/100 · Grade C</div>
+          </div>
+          <div style="background:#fff;border:2px solid #FECACA;border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">GEO (IA)</div>
+            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--red);line-height:1">50</div>
+            <div style="font-size:11px;color:var(--red)">Critique</div>
+          </div>
+          <div style="background:#fff;border:2px solid #BBF7D0;border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">AEO (Voice)</div>
+            <div style="font-size:48px;font-weight:700;font-family:var(--mono);color:var(--green);line-height:1">80</div>
+            <div style="font-size:11px;color:var(--green)">Bon</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px">
+          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)"><div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--blue)">2.01s</div><div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Chargement</div></div>
+          <div style="background:#FEF9EC;border-radius:10px;padding:12px;text-align:center;border:1px solid #FDE68A"><div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--orange)">7</div><div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Avertissements</div></div>
+          <div style="background:#F0FDF4;border-radius:10px;padding:12px;text-align:center;border:1px solid #BBF7D0"><div style="font-size:18px;font-weight:700;font-family:var(--mono);color:var(--green)">10</div><div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Checks OK</div></div>
+          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)"><div style="font-size:18px;font-weight:700;font-family:var(--mono)">18</div><div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Backlinks</div></div>
+          <div style="background:#F8FAFC;border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)"><div style="font-size:18px;font-weight:700;font-family:var(--mono)">15</div><div style="font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px">Domaines référents</div></div>
+        </div>
+
+        <div class="section-label mb-12">7 avertissements — Source CrazyDodo</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A"><div class="finding-num" style="background:var(--orange)">1</div><div class="finding-text"><strong>Title trop court</strong> — 24 car. vs idéal 50-60. "UNPI 69 - LYON MÉTROPOLE" → à enrichir avec le bénéfice. <span style="color:var(--green)">5 min</span></div></div>
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A"><div class="finding-num" style="background:var(--orange)">2</div><div class="finding-text"><strong>ALT images manquants</strong> — 6/18 images (33%) sans attribut ALT. Perte de signaux SEO + accessibilité. <span style="color:var(--green)">15 min</span></div></div>
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A"><div class="finding-num" style="background:var(--orange)">3</div><div class="finding-text"><strong>Open Graph incomplet</strong> — og:title, og:description, og:image tous manquants. Impact partage social et IA. <span style="color:var(--green)">10 min</span></div></div>
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A"><div class="finding-num" style="background:var(--orange)">4</div><div class="finding-text"><strong>Aucune donnée structurée</strong> — Zéro Schema.org sur le site. Pas de rich snippets possibles. <span style="color:var(--orange)">20 min</span></div></div>
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A"><div class="finding-num" style="background:var(--orange)">5</div><div class="finding-text"><strong>Sitemap.xml manquant</strong> — Google ne peut pas indexer efficacement toutes les pages. <span style="color:var(--green)">10 min</span></div></div>
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A"><div class="finding-num" style="background:var(--orange)">6</div><div class="finding-text"><strong>Headers de sécurité</strong> — Signal de confiance pour Google et moteurs IA. <span style="color:var(--orange)">30 min</span></div></div>
+          <div class="finding" style="background:#FEF9EC;border-color:#FDE68A;grid-column:1/-1"><div class="finding-num" style="background:var(--orange)">7</div><div class="finding-text"><strong>Twitter/X Card tags manquants</strong> — Perte de visibilité sur les partages réseaux sociaux. <span style="color:var(--green)">5 min</span></div></div>
+        </div>
+
+        <div class="card">
+          <div class="section-label mb-12">10 checks validés</div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
+            <div style="font-size:13px;color:var(--green)">✓ HTTPS / SSL activé</div>
+            <div style="font-size:13px;color:var(--green)">✓ Meta Description présente (146 car.)</div>
+            <div style="font-size:13px;color:var(--green)">✓ H1 présent : "UNPI 69 LYON MÉTROPOLE"</div>
+            <div style="font-size:13px;color:var(--green)">✓ Tag canonique présent</div>
+            <div style="font-size:13px;color:var(--green)">✓ Viewport mobile configuré</div>
+            <div style="font-size:13px;color:var(--green)">✓ Contenu suffisant (1 837 mots)</div>
+            <div style="font-size:13px;color:var(--green)">✓ Bon maillage interne</div>
+            <div style="font-size:13px;color:var(--green)">✓ Robots.txt présent</div>
+            <div style="font-size:13px;color:var(--green)">✓ Poids de page acceptable</div>
+            <div style="font-size:13px;color:var(--green)">✓ Favicon présent</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+        <div class="section-label">SEO &amp; Présence Digitale</div>
+      <div class="section-title">Audit — État des lieux</div>
+
+      <div class="global-score">
+        <div class="global-score-num">25<span class="global-score-denom">/100</span></div>
+        <div><span class="badge badge-red" style="font-size:12px;padding:4px 12px">● Action Requise — Score Global</span></div>
+      </div>
+
+      <div class="grid-2 mb-24">
+        <div class="card">
+          <div class="section-label mb-16">Scores par catégorie</div>
+          <div id="seo-bars">
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">SEO Technique</span><span class="seo-bar-score" style="color:var(--red)">35/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="35"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Optimisation On-Page</span><span class="seo-bar-score" style="color:var(--red)">28/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="28"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Contenu &amp; Mots-clés</span><span class="seo-bar-score" style="color:var(--red)">20/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="20"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Données Structurées</span><span class="seo-bar-score" style="color:var(--red)">0/100 <span class="badge badge-red">Urgent</span></span></div>
+              <div class="seo-track"><div class="seo-fill red" data-w="0"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Maillage Interne</span><span class="seo-bar-score" style="color:var(--orange)">55/100 <span class="badge badge-orange">Moyen</span></span></div>
+              <div class="seo-track"><div class="seo-fill orange" data-w="55"></div></div>
+            </div>
+            <div class="seo-bar-item">
+              <div class="seo-bar-header"><span class="seo-bar-name">Autorité &amp; Backlinks</span><span class="seo-bar-score" style="color:var(--orange)">10/100 <span class="badge badge-orange">Moyen</span></span></div>
+              <div class="seo-track"><div class="seo-fill orange" data-w="10"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-label mb-16">5 constats critiques</div>
+          <div class="finding"><div class="finding-num">1</div><div class="finding-text"><strong>Double balise H1 sur la homepage</strong> — Google ne peut pas identifier la page principale du site.</div></div>
+          <div class="finding"><div class="finding-num">2</div><div class="finding-text"><strong>Zéro schema markup sur 57 URLs</strong> — aucun rich snippet possible (FAQ, LocalBusiness, BreadcrumbList).</div></div>
+          <div class="finding"><div class="finding-num">3</div><div class="finding-text"><strong>Titres trop courts</strong> — 24 caractères sur la homepage vs optimum 50-60 caractères.</div></div>
+          <div class="finding"><div class="finding-num">4</div><div class="finding-text"><strong>17+ images sans attribut ALT</strong> — perte de signaux SEO et problème d'accessibilité.</div></div>
+          <div class="finding"><div class="finding-num">5</div><div class="finding-text"><strong>Écart total avec la concurrence</strong> — fnaim.fr génère 156 615 visites/mois vs ~0 pour UNPI 69. Aucun mot-clé en commun.</div></div>
+        </div>
+      </div>
+
+      <div class="table-wrap mb-24">
+        <table>
+          <thead>
+            <tr><th>Page</th><th>Title actuel</th><th>Car.</th><th>Title optimisé</th><th>Car.</th><th>Priorité</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Homepage</td><td>UNPI 69 - LYON MÉTROPOLE</td><td><span class="badge badge-red">24</span></td><td>Syndicat Propriétaires Lyon — Conseil &amp; Défense — UNPI 69</td><td><span class="badge badge-green">55</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
+            <tr><td>/nos-services/</td><td>Nos services - UNPI 69 Lyon Métropole</td><td><span class="badge badge-orange">37</span></td><td>Conseil Juridique Propriétaire Lyon — Nos Services — UNPI 69</td><td><span class="badge badge-green">47</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
+            <tr><td>/adherer-a-lunpi-69/</td><td>Devenir adhérent - UNPI 69 Lyon Métropole</td><td><span class="badge badge-orange">41</span></td><td>Adhésion UNPI 69 Lyon — Tarifs &amp; Avantages Propriétaire</td><td><span class="badge badge-green">56</span></td><td><span class="badge badge-red">Urgent</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Action SEO</th><th>Impact</th><th>Effort</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-red">1</span></td><td>Corriger double H1 homepage</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td><span class="badge badge-red">2</span></td><td>Implémenter schema markup (LocalBusiness + FAQPage)</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-orange">Moyen</span></td></tr>
+            <tr><td><span class="badge badge-red">3</span></td><td>Optimiser titles + meta descriptions (3 pages prioritaires)</td><td><span class="badge badge-green">Fort</span></td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td><span class="badge badge-orange">4</span></td><td>Ajouter attributs ALT sur 17+ images</td><td><span class="badge badge-orange">Moyen</span></td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td><span class="badge badge-orange">5</span></td><td>Stratégie de contenu — mots-clés propriétaires Lyon</td><td><span class="badge badge-red">Très fort</span></td><td><span class="badge badge-red">Élevé</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+        </div>
+      </div>
+
+      <!-- GEO / AEO -->
+      <div class="rep-tab-content" id="rep-seo-geo" style="display:none">
+        <div style="background:#0F172A;border-radius:16px;padding:28px;margin-bottom:24px;color:#fff">
+          <div style="font-size:16px;font-weight:700;margin-bottom:6px">Compatibilité moteurs IA — unpi69.fr</div>
+          <div style="font-size:13px;opacity:.7;margin-bottom:24px">GEO : capacité à être cité et indexé par les IA génératives · AEO : voice assistants &amp; featured snippets</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+            <div style="text-align:center"><div style="font-size:36px;font-weight:700;font-family:var(--mono);color:#DC2626">20%</div><div style="font-size:12px;opacity:.7;margin-top:4px">Google AI Overviews</div><div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:20%;background:#DC2626;border-radius:2px"></div></div></div>
+            <div style="text-align:center"><div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--orange)">45%</div><div style="font-size:12px;opacity:.7;margin-top:4px">ChatGPT / Copilot</div><div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:45%;background:var(--orange);border-radius:2px"></div></div></div>
+            <div style="text-align:center"><div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--orange)">55%</div><div style="font-size:12px;opacity:.7;margin-top:4px">Perplexity AI</div><div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:55%;background:var(--orange);border-radius:2px"></div></div></div>
+            <div style="text-align:center"><div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--green)">70%</div><div style="font-size:12px;opacity:.7;margin-top:4px">Voice Assistants</div><div style="height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:4px;width:70%;background:var(--green);border-radius:2px"></div></div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;border-top:1px solid rgba(255,255,255,.1);padding-top:20px">
+            <div><div style="font-size:11px;opacity:.5;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Score GEO global</div><div style="font-size:32px;font-weight:700;font-family:var(--mono);color:var(--orange)">50<span style="font-size:16px;opacity:.6">/100</span></div><div style="font-size:12px;opacity:.6;margin-top:4px">Generative Engine Optimisation</div></div>
+            <div><div style="font-size:11px;opacity:.5;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Score AEO global</div><div style="font-size:32px;font-weight:700;font-family:var(--mono);color:var(--green)">80<span style="font-size:16px;opacity:.6">/100</span></div><div style="font-size:12px;opacity:.6;margin-top:4px">Answer Engine Optimisation</div></div>
+          </div>
+        </div>
+
+        <div class="section-label mb-12">Plan d'action GEO — 6 corrections prioritaires</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>#</th><th>Action</th><th>Priorité</th><th>Impact IA</th><th>Effort</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge badge-red">1</span></td><td><strong>Schema.org</strong> — Organization + WebPage + Article JSON-LD</td><td><span class="badge badge-red">Critique</span></td><td>Google AI Overviews</td><td>20 min</td></tr>
+              <tr><td><span class="badge badge-red">2</span></td><td><strong>FAQ Schema</strong> — 5-10 Q&amp;A structurées sur les droits des bailleurs</td><td><span class="badge badge-red">Critique</span></td><td>Tous moteurs IA</td><td>30 min</td></tr>
+              <tr><td><span class="badge badge-orange">3</span></td><td><strong>HTTPS forcé</strong> — Redirection HTTP→HTTPS sur toutes les pages</td><td><span class="badge badge-orange">Haut</span></td><td>Tous moteurs IA</td><td>15 min</td></tr>
+              <tr><td><span class="badge badge-orange">4</span></td><td><strong>Article/Content Schema</strong> — author, datePublished, headline</td><td><span class="badge badge-orange">Haut</span></td><td>ChatGPT, Perplexity</td><td>20 min</td></tr>
+              <tr><td><span class="badge badge-orange">5</span></td><td><strong>Person Schema (E-E-A-T)</strong> — name, jobTitle, sameAs LinkedIn</td><td><span class="badge badge-orange">Haut</span></td><td>Google AI, expertise</td><td>15 min</td></tr>
+              <tr><td><span class="badge badge-orange">6</span></td><td><strong>Organization Schema</strong> — name, url, logo, contactPoint</td><td><span class="badge badge-orange">Haut</span></td><td>Brand entity IA</td><td>20 min</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">→ Pourquoi le GEO/AEO est stratégique pour UNPI 69 en 2026</div>
+          <div class="callout-text">Les propriétaires posent leurs questions directement à ChatGPT, Perplexity et Google AI : "Quels sont mes droits en tant que bailleur à Lyon ?", "Comment me conformer au DPE 2026 ?" — si unpi69.fr n'est pas structuré pour les IA, il ne sera jamais cité. Avec ces 6 corrections (2h de travail), le score GEO peut passer de 50 à 85+, générant un flux de trafic qualifié permanent sans budget publicitaire additionnel.</div>
+        </div>
+      </div>
+
+      <!-- PLAN D'ACTION TECHNIQUE -->
+      <div class="rep-tab-content" id="rep-seo-action" style="display:none">
+        <div class="callout mb-24">
+          <div class="callout-title">→ Priorisation des corrections SEO techniques</div>
+          <div class="callout-text">Ces corrections doivent idéalement être faites AVANT le lancement des campagnes payantes. Un meilleur score SEO améliore le Quality Score Google Ads, ce qui réduit directement le CPC et donc le CPL.</div>
+        </div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Priorité</th><th>Correction</th><th>Effort</th><th>Impact SEO</th><th>Impact SEA</th><th>Déléguer à</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge badge-red">1</span></td><td>Schema.org + FAQ Schema</td><td>50 min</td><td>+8 pts</td><td>Quality Score +1</td><td>Webmaster</td></tr>
+              <tr><td><span class="badge badge-red">2</span></td><td>Title enrichi (24→55 chars)</td><td>5 min</td><td>+3 pts</td><td>CTR organique ↑</td><td>UNPI/WFF</td></tr>
+              <tr><td><span class="badge badge-orange">3</span></td><td>ALT images (6 manquants)</td><td>15 min</td><td>+2 pts</td><td>Indirectement</td><td>Webmaster</td></tr>
+              <tr><td><span class="badge badge-orange">4</span></td><td>Open Graph complet</td><td>10 min</td><td>+2 pts</td><td>Social sharing</td><td>Webmaster</td></tr>
+              <tr><td><span class="badge badge-orange">5</span></td><td>Sitemap.xml</td><td>10 min</td><td>+2 pts</td><td>Indexation</td><td>Webmaster</td></tr>
+              <tr><td><span class="badge badge-blue">6</span></td><td>Security headers</td><td>30 min</td><td>+1 pt</td><td>Trust signal</td><td>Hébergeur</td></tr>
+              <tr><td><span class="badge badge-blue">7</span></td><td>Twitter/X Card</td><td>5 min</td><td>+1 pt</td><td>Partage social</td><td>Webmaster</td></tr>
+              <tr style="font-weight:700;background:#F8FAFC"><td colspan="2">TOTAL</td><td>~2h15</td><td>+19 pts → score ~88/100</td><td>CPC -10% à -20%</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background:#0F172A;border-radius:12px;padding:20px;color:#fff">
+          <div style="font-size:13px;font-weight:700;margin-bottom:12px;opacity:.9">Contenu SEO à créer — Articles à haute valeur</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:14px">
+              <div style="font-size:12px;font-weight:600;margin-bottom:6px">Article 1 — DPE bailleur 2026</div>
+              <div style="font-size:11px;opacity:.7;line-height:1.6">"DPE G et F interdits : obligations du bailleur à Lyon en 2026" — cible : propriétaires Segment B · Mots-clés : DPE bailleur obligation 2026, mise en conformité propriétaire Lyon</div>
+            </div>
+            <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:14px">
+              <div style="font-size:12px;font-weight:600;margin-bottom:6px">Article 2 — Encadrement loyers</div>
+              <div style="font-size:11px;opacity:.7;line-height:1.6">"Encadrement des loyers à Lyon Métropole : guide complet pour propriétaires" — Segment A+B · Mots-clés : loyer référence Lyon, zones encadrement loyer Lyon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRÉATIFS -->
+      <div class="rep-tab-content" id="rep-seo-creatifs" style="display:none">
+        <div class="section-label">Intelligence Créative</div>
+      <div class="section-title">Créatifs, veille concurrentielle &amp; inspiration</div>
+
+      <!-- CREATIVE BRIEF BY SEGMENT -->
+      <div class="section-label mb-16">Brief créatif par segment</div>
+      <div class="grid-2 mb-24">
+        <div style="background:#EFF4FF;border:1.5px solid #93C5FD;border-radius:12px;padding:24px">
+          <div class="section-label mb-8" style="color:var(--blue)">Segment A — Primo-accédants 25-45 ans</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)">"Évitez les pièges — conseils copro / DPE / fiscalité"</div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Angles créatifs</div>
+            <div class="phase-item mb-6" style="font-size:13px">Peur de faire une erreur → "Votre premier bien mérite une protection"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Urgence DPE → "DPE G/F interdit : ce que vous devez savoir"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Complexité copropriété → "Copropriété : droits et obligations expliqués"</div>
+            <div class="phase-item" style="font-size:13px">Coût d'une erreur → "Une erreur fiscale peut vous coûter des milliers d'euros"</div>
+          </div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Formats recommandés</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="badge badge-blue">Carrousel 1:1</span>
+              <span class="badge badge-blue">Vidéo 9:16 (15s)</span>
+              <span class="badge badge-blue">Statique 4:5</span>
+              <span class="badge badge-blue">RSA Google</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ton &amp; style</div>
+            <div style="font-size:13px;color:var(--muted)">Pédagogique, rassurant, concret. Visuels : jeune couple / appartement moderne / documents. Éviter le jargon juridique.</div>
+          </div>
+        </div>
+
+        <div style="background:#FDF8EC;border:1.5px solid #FDE68A;border-radius:12px;padding:24px">
+          <div class="section-label mb-8" style="color:var(--gold)">Segment B — Patrimoine constitué 45-65 ans</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--gold)">"Encadrement loyers, DPE, fiscalité : UNPI vous accompagne"</div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Angles créatifs</div>
+            <div class="phase-item mb-6" style="font-size:13px">Défense droits → "Encadrement loyers : vos droits, nos experts"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Optimisation fiscale → "Réduisez votre imposition sur revenus locatifs"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Sécurité → "2 120 propriétaires lyonnais nous font confiance"</div>
+            <div class="phase-item" style="font-size:13px">Actualité → "Nouvelles obligations bailleurs 2026 : êtes-vous prêt ?"</div>
+          </div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Formats recommandés</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="badge badge-orange">Statique 1:1</span>
+              <span class="badge badge-orange">Lead Gen LinkedIn</span>
+              <span class="badge badge-orange">Vidéo testimonial</span>
+              <span class="badge badge-orange">RSA Google</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ton &amp; style</div>
+            <div style="font-size:13px;color:var(--muted)">Professionnel, expert, sérieux. Visuels : immobilier haussmannien Lyon / chiffres clés / expertise. Insister sur la valeur de défense collective.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A/B TEST FRAMEWORK -->
+      <div class="card mb-24">
+        <div class="section-label mb-16">Framework A/B Test — Créatifs</div>
+        <div class="table-wrap" style="margin-bottom:0">
+          <table>
+            <thead><tr><th>Variable testée</th><th>Version A</th><th>Version B</th><th>Métrique de décision</th><th>Durée test</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Angle message</strong></td><td>Peur de l'erreur (DPE)</td><td>Opportunité fiscale</td><td>CTR + CPL</td><td>14 jours</td></tr>
+              <tr><td><strong>Format visuel</strong></td><td>Carrousel éducatif</td><td>Vidéo 9:16 témoignage</td><td>CTR + taux complétion</td><td>14 jours</td></tr>
+              <tr><td><strong>CTA</strong></td><td>"Rejoindre l'UNPI 69"</td><td>"Protéger mon bien gratuitement"</td><td>Taux clic CTA</td><td>7 jours</td></tr>
+              <tr><td><strong>Accroche</strong></td><td>Question ("Êtes-vous prêt ?")</td><td>Chiffre clé ("74€ offerts")</td><td>Taux engagement</td><td>7 jours</td></tr>
+              <tr><td><strong>Ciblage</strong></td><td>Intérêts immobiliers</td><td>Comportement lookalike</td><td>CPL + qualité lead</td><td>21 jours</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- COMPETITOR AD INTELLIGENCE -->
+      <div class="card mb-24">
+        <div class="section-label mb-12">Veille publicitaire concurrentielle</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">Sources à surveiller régulièrement pour identifier les créatifs concurrents</div>
+        <div class="grid-3">
+          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">Meta Ad Library</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Rechercher : "FNAIM", "SNAPAP", "propriétaires", "syndicat" + filtre France</div>
+            <a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=FR&q=syndicat+propri%C3%A9taires" target="_blank" style="font-size:11px;font-family:var(--mono);color:var(--blue);text-decoration:none">→ Ouvrir Meta Ad Library FR</a>
+          </div>
+          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">Google Ads Transparency</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Rechercher les annonceurs actifs sur requêtes "propriétaire Lyon", "défense bailleur"</div>
+            <a href="https://adstransparency.google.com/?region=FR" target="_blank" style="font-size:11px;font-family:var(--mono);color:var(--blue);text-decoration:none">→ Ouvrir Google Ads Transparency</a>
+          </div>
+          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">LinkedIn Campaign Manager</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Profil FNAIM, associations professionnelles immobilier — voir leurs annonces sponsorisées</div>
+            <div style="font-size:11px;font-family:var(--mono);color:var(--muted)">Recherche manuelle via profil entreprise</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPETITOR ADS GALLERY -->
+      <div class="card mb-24">
+        <div class="section-label mb-12">Galerie — Publicités concurrentes &amp; inspiration</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">Les créatifs collectés lors de la veille seront affichés ici. Section alimentée au fil de la campagne.</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="font-size:28px;color:var(--muted)">◆</div>
+            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Créatif concurrent 1<br>À venir</div>
+          </div>
+          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="font-size:28px;color:var(--muted)">◆</div>
+            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Créatif concurrent 2<br>À venir</div>
+          </div>
+          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="font-size:28px;color:var(--muted)">◆</div>
+            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Inspiration créative<br>À venir</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATIVE SPECS -->
+      <div class="card">
+        <div class="section-label mb-16">Spécifications techniques — Formats Meta</div>
+        <div class="table-wrap" style="margin-bottom:0">
+          <table>
+            <thead><tr><th>Placement</th><th>Ratio</th><th>Résolution</th><th>Formats</th><th>Durée vidéo</th><th>Texte principal</th></tr></thead>
+            <tbody>
+              <tr><td>Feed &amp; Explore</td><td>1:1 ou 4:5</td><td>1080 × 1080 / 1080 × 1350 px</td><td>JPG, PNG, MP4</td><td>1s – 241min</td><td>125 caractères</td></tr>
+              <tr><td>Story &amp; Reels</td><td>9:16</td><td>1080 × 1920 px</td><td>JPG, PNG, MP4</td><td>1s – 60s</td><td>125 caractères</td></tr>
+              <tr><td>Carrousel</td><td>1:1</td><td>1080 × 1080 px</td><td>JPG, PNG</td><td>—</td><td>125 caractères / carte</td></tr>
+              <tr><td>LinkedIn Lead Gen</td><td>1:1 ou 1.91:1</td><td>1200 × 1200 px</td><td>JPG, PNG</td><td>—</td><td>150 caractères</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+
+    </div>
+
+
+    <div class="tab-content" id="tab-rapport">
+      <div class="section-label">Rapport</div>
+      <div class="section-title">Qu'avons-nous réalisé ? — Performance &amp; résultats détaillés</div>
+
+      <div style="display:flex;gap:0;margin-bottom:24px;border-bottom:2px solid var(--border);overflow-x:auto">
+        <button class="rep-tab-btn active" onclick="showRepTab('rap-global',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--blue);border-bottom:2px solid var(--blue);margin-bottom:-2px;white-space:nowrap">Vue consolidée</button>
+        <button class="rep-tab-btn" onclick="showRepTab('rap-meta',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Meta Ads</button>
+        <button class="rep-tab-btn" onclick="showRepTab('rap-sea',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">SEA Google</button>
+        <button class="rep-tab-btn" onclick="showRepTab('rap-linkedin',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">LinkedIn</button>
+        <button class="rep-tab-btn" onclick="showRepTab('rap-audience',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Audiences &amp; Créatifs</button>
+        <button class="rep-tab-btn" onclick="showRepTab('rap-cerveau',this)" style="padding:10px 16px;border:none;background:none;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">◈ Le Cerveau</button>
+      </div>
+
+      <!-- VUE CONSOLIDÉE -->
+      <div class="rep-tab-content" id="rep-rap-global">
+        <div style="background:#FEF9EC;border:1.5px solid var(--gold);border-radius:12px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:14px">
+          <div style="font-size:22px;color:var(--gold)">◈</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:3px">En attente des premières données de campagne</div>
+            <div style="font-size:12px;color:#92400E;opacity:.8">Dès réception de l'export Excel Meta + Google Ads, toutes les sections ci-dessous s'alimenteront automatiquement. Les structures de tableaux et KPIs sont prêtes.</div>
+          </div>
+        </div>
+
+        <div class="section-label mb-12">KPIs globaux — Tous canaux</div>
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Budget dépensé</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Budget total : 45 000€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Leads générés</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Objectif : +300 adhérents</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL moyen</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible : 25-35€</div></div>
+          <div class="kpi-card"><div class="kpi-label">ROAS global</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">LTV adhérent : 250€ an 1</div></div>
+        </div>
+
+        <div class="section-label mb-12">Performance par canal</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Canal</th><th>Budget alloué</th><th>Dépensé</th><th>Impressions</th><th>Clics</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th><th>CPL</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Meta Ads</strong></td><td>18 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;22€</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>SEA Google</strong></td><td>16 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;35€</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>Demand Gen</strong></td><td>6 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>LinkedIn Ads</strong></td><td>3 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;150€</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td><strong>Setup &amp; Frais</strong></td><td>2 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">—</span></td></tr>
+              <tr style="font-weight:700;background:#F8FAFC"><td>TOTAL</td><td>45 000€</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label mb-12">Évolution dans le temps</div>
+        <div style="background:#F8FAFC;border:1px dashed var(--border);border-radius:12px;padding:32px;text-align:center;margin-bottom:24px">
+          <div style="font-size:28px;color:var(--muted);margin-bottom:12px">📈</div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:6px">Graphiques d'évolution hebdomadaire</div>
+          <div style="font-size:13px;color:var(--muted)">CPL · Leads · Budget · Impressions — comparaison semaine/semaine et période/période<br>S'activent au premier export de données</div>
+        </div>
+
+        <div class="section-label mb-12">Comparaison période actuelle vs période précédente</div>
+        <div class="grid-4">
+          <div class="kpi-card"><div class="kpi-label">Variation CPL</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">vs période N-1</div></div>
+          <div class="kpi-card"><div class="kpi-label">Variation Leads</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">vs période N-1</div></div>
+          <div class="kpi-card"><div class="kpi-label">Variation CTR</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">vs période N-1</div></div>
+          <div class="kpi-card"><div class="kpi-label">Variation ROAS</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">vs période N-1</div></div>
+        </div>
+      </div>
+
+      <!-- META ADS -->
+      <div class="rep-tab-content" id="rep-rap-meta" style="display:none">
+        <div class="section-label mb-16">Meta Ads — Performance détaillée</div>
+
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Dépenses Meta</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Budget : 18 000€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Impressions</div><div class="kpi-value" style="color:var(--muted)">—</div></div>
+          <div class="kpi-card"><div class="kpi-label">Leads Meta</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible CPL &lt;22€</div></div>
+          <div class="kpi-card"><div class="kpi-label">CPL Meta</div><div class="kpi-value" style="color:var(--muted)">—</div></div>
+        </div>
+
+        <div class="section-label mb-12">Par segment d'audience</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Segment</th><th>Budget</th><th>Impressions</th><th>Clics</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th><th>CPL</th><th>Fréquence</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Segment A — Primo-accédants 25-45</strong></td><td>9 500€</td><td>—</td><td>—</td><td>Cible &gt;1,5%</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;22€</td><td>—</td></tr>
+              <tr><td><strong>Segment B — Patrimoine 45-65</strong></td><td>9 500€</td><td>—</td><td>—</td><td>Cible &gt;1,5%</td><td>—</td><td>—</td><td>—</td><td>Cible &lt;22€</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label mb-12">Par campagne</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Campagne</th><th>Phase</th><th>Période</th><th>Budget</th><th>Leads</th><th>CPL</th><th>CTR</th><th>ROAS</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td>Notoriété Segment A</td><td>1</td><td>Juin–Juil 2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td>Lead Gen Segment A</td><td>1</td><td>Juin–Juil 2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td>Retargeting Segment A</td><td>1</td><td>Juin–Juil 2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td>Lead Gen Segment B</td><td>1</td><td>Juin–Juil 2026</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SEA GOOGLE -->
+      <div class="rep-tab-content" id="rep-rap-sea" style="display:none">
+        <div class="section-label mb-16">SEA Google — Performance détaillée</div>
+
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Dépenses Google</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Budget : 16 000€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Clics</div><div class="kpi-value" style="color:var(--muted)">—</div></div>
+          <div class="kpi-card"><div class="kpi-label">Conversions</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible CPL &lt;35€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Quality Score moy.</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Objectif &gt;7/10</div></div>
+        </div>
+
+        <div class="section-label mb-12">Performance par groupe d'annonces</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Groupe d'annonces</th><th>Mots-clés principaux</th><th>Impressions</th><th>Clics</th><th>CTR</th><th>CPC moy.</th><th>Conversions</th><th>CPL</th><th>QS</th></tr></thead>
+            <tbody>
+              <tr><td>Brand UNPI 69</td><td>UNPI 69, syndicat propriétaires Lyon</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Défense bailleur</td><td>défense bailleur Lyon, droits propriétaire</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>DPE propriétaire</td><td>DPE bailleur 2026, conformité DPE</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Fiscalité bailleur</td><td>fiscalité propriétaire, conseil bailleur</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label mb-12">Performance des annonces Search</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Annonce</th><th>Titre</th><th>Impressions</th><th>CTR</th><th>Conversions</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td>RSA 1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+              <tr><td>RSA 2</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En attente</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LINKEDIN -->
+      <div class="rep-tab-content" id="rep-rap-linkedin" style="display:none">
+        <div class="section-label mb-16">LinkedIn Ads — Performance détaillée</div>
+
+        <div class="grid-4 mb-24">
+          <div class="kpi-card"><div class="kpi-label">Dépenses LinkedIn</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Budget : 3 000€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Impressions</div><div class="kpi-value" style="color:var(--muted)">—</div></div>
+          <div class="kpi-card"><div class="kpi-label">Leads</div><div class="kpi-value" style="color:var(--muted)">—</div><div class="kpi-sub">Cible CPL &lt;150€</div></div>
+          <div class="kpi-card"><div class="kpi-label">Taux de conversion</div><div class="kpi-value" style="color:var(--muted)">—</div></div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">→ LinkedIn — Cible principale : Segment B · Patrimoine constitué 45-65 ans</div>
+          <div class="callout-text">Ciblage recommandé : propriétaires / investisseurs immobiliers · Secteur : immobilier, finance, juridique · Zone : Lyon Métropole · Format : Lead Gen Forms pour maximiser le taux de conversion. CPL cible &lt;150€ (audience ultra qualifiée, faible volume).</div>
+        </div>
+      </div>
+
+      <!-- AUDIENCES & CRÉATIFS -->
+      <div class="rep-tab-content" id="rep-rap-audience" style="display:none">
+        <div class="section-label mb-16">Performance par audience &amp; créatifs</div>
+
+        <div class="section-label mb-12">Audiences — Performance comparative</div>
+        <div class="table-wrap mb-24">
+          <table>
+            <thead><tr><th>Audience</th><th>Canal</th><th>Type</th><th>Taille estimée</th><th>Impressions</th><th>CTR</th><th>CPL</th><th>Qualité leads</th></tr></thead>
+            <tbody>
+              <tr><td>Intérêt propriétaires immobilier</td><td>Meta</td><td>Cold</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Lookalike adhérents</td><td>Meta</td><td>LAL 1%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Retargeting visiteurs site</td><td>Meta</td><td>Retargeting</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Propriétaires &gt;45 ans, Lyon</td><td>LinkedIn</td><td>Démographique</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label mb-12">Performance des créatifs</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Créatif</th><th>Segment</th><th>Format</th><th>Impressions</th><th>CTR</th><th>Fréquence</th><th>CPL</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td>Visuel A1 — Primo-accédants</td><td>A</td><td>Image 1:1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En test</span></td></tr>
+              <tr><td>Visuel A2 — DPE</td><td>A</td><td>Image 4:5</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En test</span></td></tr>
+              <tr><td>Vidéo B1 — Patrimoine</td><td>B</td><td>Vidéo 9:16</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En test</span></td></tr>
+              <tr><td>Carrousel B2 — Droits</td><td>B</td><td>Carrousel</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge badge-gray">En test</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LE CERVEAU -->
+      <div class="rep-tab-content" id="rep-rap-cerveau" style="display:none">
+        <div style="background:#0F172A;border-radius:16px;padding:32px;margin-bottom:24px;color:#fff">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:2px;opacity:.5;margin-bottom:12px;text-transform:uppercase">◈ Intelligence artificielle</div>
+          <div style="font-size:24px;font-weight:700;margin-bottom:8px">Le Cerveau — Moteur d'apprentissage continu</div>
+          <div style="font-size:14px;opacity:.75;line-height:1.7">Chaque export partagé est ingéré, comparé aux périodes précédentes et converti en insights actionnables. Le cerveau apprend à chaque upload — il détecte les patterns, anticipe les anomalies, génère des recommandations de plus en plus précises.</div>
+        </div>
+
+        <div class="grid-3 mb-24">
+          <div style="background:#0F172A;border-radius:12px;padding:20px;color:#fff;text-align:center">
+            <div style="font-family:var(--mono);font-size:11px;opacity:.5;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">→ INGEST</div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Ingestion</div>
+            <div style="font-size:12px;opacity:.6;line-height:1.6">Export Meta, Google Ads, LinkedIn, Search Console → chaque upload enrichit la base historique de performance.</div>
+          </div>
+          <div style="background:#003189;border-radius:12px;padding:20px;color:#fff;text-align:center">
+            <div style="font-family:var(--mono);font-size:11px;opacity:.7;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">∑ ANALYSE</div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Analyse</div>
+            <div style="font-size:12px;opacity:.8;line-height:1.6">Comparaison période vs période. Variations &gt;20% flagguées. Identification des drivers de performance et anomalies.</div>
+          </div>
+          <div style="background:var(--gold);border-radius:12px;padding:20px;color:#fff;text-align:center">
+            <div style="font-family:var(--mono);font-size:11px;opacity:.8;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">◈ PRÉDIT</div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:8px">Prédiction</div>
+            <div style="font-size:12px;opacity:.9;line-height:1.6">Recommandations actionnables basées sur les patterns. S'affine à chaque nouvelle donnée.</div>
+          </div>
+        </div>
+
+        <div class="section-label mb-16">Exemples d'insights automatiques — S'activent au premier upload</div>
+
+        <div class="insight-card">
+          <div class="insight-type alert">● Alerte performance — Exemple</div>
+          <div class="insight-title">"CPL Meta +24% sur 7 jours — Fréquence créatif Segment B trop élevée"</div>
+          <div class="insight-text"><strong>Analyse :</strong> Fréquence 3.8 vs seuil 3.5. CTR en baisse de 1.8% → 1.1%. <strong>Recommandation :</strong> Rafraîchir le créatif Segment B avant d'augmenter le budget. Format suggéré : vidéo 9:16 en remplacement du format image statique actuel.</div>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-type opportunity">◆ Opportunité scaling — Exemple</div>
+          <div class="insight-title">"SEA Brand sous-budgété — 34% d'Impression Share perdu sur budget"</div>
+          <div class="insight-text"><strong>Analyse :</strong> CPL brand à 18€ — 49% sous le seuil d'alerte. Impression Share Lost on Budget = 34%. <strong>Recommandation :</strong> Réallouer 2 000€ du budget Demand Gen vers SEA brand. ROI immédiat garanti.</div>
+        </div>
+
+        <div style="background:#F8FAFC;border:1px dashed var(--border);border-radius:12px;padding:24px;text-align:center;margin-top:8px">
+          <div style="font-size:32px;margin-bottom:12px;color:var(--muted)">◈</div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:8px">Le cerveau s'active au premier upload de données</div>
+          <div style="font-size:13px;color:var(--muted)">Partagez votre premier export Excel après lancement des campagnes.<br>Les insights réels remplaceront ces exemples automatiquement.</div>
+        </div>
+      </div>
+
+    </div>
+
+    
