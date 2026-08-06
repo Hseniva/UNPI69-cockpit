@@ -40,12 +40,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .header-clock{font-family:var(--mono);font-size:12px;opacity:.8}
 .badge-conf{background:var(--red);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;font-family:var(--mono);text-transform:uppercase}
 /* DATE RANGE */
-.daterange-bar{background:#fff;border-bottom:1px solid var(--border);padding:10px 24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.daterange-label{font-size:12px;font-weight:600;color:var(--muted);font-family:var(--mono);margin-right:4px;text-transform:uppercase;letter-spacing:.5px}
-.dr-btn{padding:5px 14px;border:1.5px solid var(--border);background:#fff;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;transition:.15s;color:var(--text)}
-.dr-btn:hover{border-color:var(--blue);color:var(--blue)}
-.dr-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
-.dr-note{font-size:11px;color:var(--muted);font-family:var(--mono);margin-left:auto}
+
 /* TABS */
 .tab-nav{background:#fff;border-bottom:2px solid var(--border);padding:0 24px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
 .tab-nav::-webkit-scrollbar{display:none}
@@ -236,16 +231,6 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
       <span class="badge-conf">Confidentiel</span>
     </div>
   </header>
-
-  <!-- DATE RANGE -->
-  <div class="daterange-bar">
-    <span class="daterange-label">Période</span>
-    <button class="dr-btn" onclick="setRange('7j',this)">7 jours</button>
-    <button class="dr-btn" onclick="setRange('30j',this)">30 jours</button>
-    <button class="dr-btn" onclick="setRange('3m',this)">3 mois</button>
-    <button class="dr-btn active" onclick="setRange('all',this)">Depuis le début</button>
-    <span class="dr-note" id="dr-note">Données disponibles dès le lancement des campagnes</span>
-  </div>
 
   <!-- TABS -->
   <nav class="tab-nav">
@@ -788,6 +773,143 @@ footer{background:#fff;border-top:1px solid var(--border);padding:16px 24px;text
       </div>
     </div>
 
+    <!-- TAB: CRÉATIFS -->
+    <div class="tab-content" id="tab-creatifs">
+      <div class="section-label">Intelligence Créative</div>
+      <div class="section-title">Créatifs, veille concurrentielle &amp; inspiration</div>
+
+      <!-- CREATIVE BRIEF BY SEGMENT -->
+      <div class="section-label mb-16">Brief créatif par segment</div>
+      <div class="grid-2 mb-24">
+        <div style="background:#EFF4FF;border:1.5px solid #93C5FD;border-radius:12px;padding:24px">
+          <div class="section-label mb-8" style="color:var(--blue)">Segment A — Primo-accédants 25-45 ans</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--blue)">"Évitez les pièges — conseils copro / DPE / fiscalité"</div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Angles créatifs</div>
+            <div class="phase-item mb-6" style="font-size:13px">Peur de faire une erreur → "Votre premier bien mérite une protection"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Urgence DPE → "DPE G/F interdit : ce que vous devez savoir"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Complexité copropriété → "Copropriété : droits et obligations expliqués"</div>
+            <div class="phase-item" style="font-size:13px">Coût d'une erreur → "Une erreur fiscale peut vous coûter des milliers d'euros"</div>
+          </div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Formats recommandés</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="badge badge-blue">Carrousel 1:1</span>
+              <span class="badge badge-blue">Vidéo 9:16 (15s)</span>
+              <span class="badge badge-blue">Statique 4:5</span>
+              <span class="badge badge-blue">RSA Google</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ton &amp; style</div>
+            <div style="font-size:13px;color:var(--muted)">Pédagogique, rassurant, concret. Visuels : jeune couple / appartement moderne / documents. Éviter le jargon juridique.</div>
+          </div>
+        </div>
+
+        <div style="background:#FDF8EC;border:1.5px solid #FDE68A;border-radius:12px;padding:24px">
+          <div class="section-label mb-8" style="color:var(--gold)">Segment B — Patrimoine constitué 45-65 ans</div>
+          <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--gold)">"Encadrement loyers, DPE, fiscalité : UNPI vous accompagne"</div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Angles créatifs</div>
+            <div class="phase-item mb-6" style="font-size:13px">Défense droits → "Encadrement loyers : vos droits, nos experts"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Optimisation fiscale → "Réduisez votre imposition sur revenus locatifs"</div>
+            <div class="phase-item mb-6" style="font-size:13px">Sécurité → "2 120 propriétaires lyonnais nous font confiance"</div>
+            <div class="phase-item" style="font-size:13px">Actualité → "Nouvelles obligations bailleurs 2026 : êtes-vous prêt ?"</div>
+          </div>
+          <div class="mb-16">
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Formats recommandés</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="badge badge-orange">Statique 1:1</span>
+              <span class="badge badge-orange">Lead Gen LinkedIn</span>
+              <span class="badge badge-orange">Vidéo testimonial</span>
+              <span class="badge badge-orange">RSA Google</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ton &amp; style</div>
+            <div style="font-size:13px;color:var(--muted)">Professionnel, expert, sérieux. Visuels : immobilier haussmannien Lyon / chiffres clés / expertise. Insister sur la valeur de défense collective.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A/B TEST FRAMEWORK -->
+      <div class="card mb-24">
+        <div class="section-label mb-16">Framework A/B Test — Créatifs</div>
+        <div class="table-wrap" style="margin-bottom:0">
+          <table>
+            <thead><tr><th>Variable testée</th><th>Version A</th><th>Version B</th><th>Métrique de décision</th><th>Durée test</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Angle message</strong></td><td>Peur de l'erreur (DPE)</td><td>Opportunité fiscale</td><td>CTR + CPL</td><td>14 jours</td></tr>
+              <tr><td><strong>Format visuel</strong></td><td>Carrousel éducatif</td><td>Vidéo 9:16 témoignage</td><td>CTR + taux complétion</td><td>14 jours</td></tr>
+              <tr><td><strong>CTA</strong></td><td>"Rejoindre l'UNPI 69"</td><td>"Protéger mon bien gratuitement"</td><td>Taux clic CTA</td><td>7 jours</td></tr>
+              <tr><td><strong>Accroche</strong></td><td>Question ("Êtes-vous prêt ?")</td><td>Chiffre clé ("74€ offerts")</td><td>Taux engagement</td><td>7 jours</td></tr>
+              <tr><td><strong>Ciblage</strong></td><td>Intérêts immobiliers</td><td>Comportement lookalike</td><td>CPL + qualité lead</td><td>21 jours</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- COMPETITOR AD INTELLIGENCE -->
+      <div class="card mb-24">
+        <div class="section-label mb-12">Veille publicitaire concurrentielle</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">Sources à surveiller régulièrement pour identifier les créatifs concurrents</div>
+        <div class="grid-3">
+          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">Meta Ad Library</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Rechercher : "FNAIM", "SNAPAP", "propriétaires", "syndicat" + filtre France</div>
+            <a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=FR&q=syndicat+propri%C3%A9taires" target="_blank" style="font-size:11px;font-family:var(--mono);color:var(--blue);text-decoration:none">→ Ouvrir Meta Ad Library FR</a>
+          </div>
+          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">Google Ads Transparency</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Rechercher les annonceurs actifs sur requêtes "propriétaire Lyon", "défense bailleur"</div>
+            <a href="https://adstransparency.google.com/?region=FR" target="_blank" style="font-size:11px;font-family:var(--mono);color:var(--blue);text-decoration:none">→ Ouvrir Google Ads Transparency</a>
+          </div>
+          <div style="background:#F8FAFC;border-radius:10px;padding:16px;border:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:700;margin-bottom:6px">LinkedIn Campaign Manager</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Profil FNAIM, associations professionnelles immobilier — voir leurs annonces sponsorisées</div>
+            <div style="font-size:11px;font-family:var(--mono);color:var(--muted)">Recherche manuelle via profil entreprise</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPETITOR ADS GALLERY -->
+      <div class="card mb-24">
+        <div class="section-label mb-12">Galerie — Publicités concurrentes &amp; inspiration</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">Les créatifs collectés lors de la veille seront affichés ici. Section alimentée au fil de la campagne.</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="font-size:28px;color:var(--muted)">◆</div>
+            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Créatif concurrent 1<br>À venir</div>
+          </div>
+          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="font-size:28px;color:var(--muted)">◆</div>
+            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Créatif concurrent 2<br>À venir</div>
+          </div>
+          <div style="background:#F8FAFC;border:2px dashed var(--border);border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="font-size:28px;color:var(--muted)">◆</div>
+            <div style="font-size:12px;color:var(--muted);text-align:center;font-family:var(--mono)">Inspiration créative<br>À venir</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATIVE SPECS -->
+      <div class="card">
+        <div class="section-label mb-16">Spécifications techniques — Formats Meta</div>
+        <div class="table-wrap" style="margin-bottom:0">
+          <table>
+            <thead><tr><th>Placement</th><th>Ratio</th><th>Résolution</th><th>Formats</th><th>Durée vidéo</th><th>Texte principal</th></tr></thead>
+            <tbody>
+              <tr><td>Feed &amp; Explore</td><td>1:1 ou 4:5</td><td>1080 × 1080 / 1080 × 1350 px</td><td>JPG, PNG, MP4</td><td>1s – 241min</td><td>125 caractères</td></tr>
+              <tr><td>Story &amp; Reels</td><td>9:16</td><td>1080 × 1920 px</td><td>JPG, PNG, MP4</td><td>1s – 60s</td><td>125 caractères</td></tr>
+              <tr><td>Carrousel</td><td>1:1</td><td>1080 × 1080 px</td><td>JPG, PNG</td><td>—</td><td>125 caractères / carte</td></tr>
+              <tr><td>LinkedIn Lead Gen</td><td>1:1 ou 1.91:1</td><td>1200 × 1200 px</td><td>JPG, PNG</td><td>—</td><td>150 caractères</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
     <!-- TAB 5: SEO -->
     <div class="tab-content" id="tab-seo">
       <div class="section-label">SEO &amp; Présence Digitale</div>
@@ -1269,17 +1391,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// DATE RANGE
-let currentRange = 'all';
-function setRange(r, btn) {
-  currentRange = r;
-  document.querySelectorAll('.dr-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const labels = {'7j':'7 derniers jours','30j':'30 derniers jours','3m':'3 derniers mois','all':'Depuis le début'};
-  document.getElementById('dr-note').textContent = labels[r] + ' · Données disponibles dès le lancement des campagnes';
-  const ap = document.getElementById('actions-period');
-  if (ap) ap.textContent = '● Période : ' + labels[r] + ' · Toutes les actions';
-}
+// Date range removed
 
 // TABS
 let donutInited = false;
@@ -1350,13 +1462,19 @@ function initDonut() {
 
 
 function showRepTab(id, btn) {
-  document.querySelectorAll('.rep-tab-btn').forEach(b => { b.classList.remove('active'); b.style.color=''; b.style.borderBottomColor=''; b.style.fontWeight=''; });
-  document.querySelectorAll('.rep-tab-content').forEach(t => t.style.display='none');
+  document.querySelectorAll('.rep-tab-btn').forEach(b => {
+    b.classList.remove('active');
+    b.style.color = 'var(--muted)';
+    b.style.borderBottom = '2px solid transparent';
+    b.style.fontWeight = '500';
+  });
+  document.querySelectorAll('.rep-tab-content').forEach(t => { t.style.display = 'none'; });
   btn.classList.add('active');
-  btn.style.color='var(--blue)';
-  btn.style.borderBottomColor='var(--blue)';
-  btn.style.fontWeight='600';
-  document.getElementById('rep-' + id).style.display='block';
+  btn.style.color = 'var(--blue)';
+  btn.style.borderBottom = '2px solid var(--blue)';
+  btn.style.fontWeight = '600';
+  const el = document.getElementById('rep-' + id);
+  if (el) el.style.display = 'block';
 }
 
 // ACTION FILTER
