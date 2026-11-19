@@ -1,0 +1,27 @@
+{
+ "ppl2": {
+  "ad_name": "P1_PPL2_NOUVEAUX PROPRIETAIRES",
+  "headline": "Première copropriété ?",
+  "link": "https://unpi69.fr/nouveaux-proprietaires-et-coproprietaires/"
+ },
+ "ppl1": {
+  "ad_name": "PPL1_ConseilSyndical",
+  "headline": "Copropriétaire à Lyon ?",
+  "link": "https://unpi69.fr/conseil-syndical-et-conseils-en-copropriete/"
+ },
+ "ppl3": {
+  "ad_name": "PPL3_Patrimoine",
+  "headline": "Protégez votre patrimoine",
+  "link": "https://unpi69.fr/protection-du-patrimoine/"
+ },
+ "ppl4": {
+  "ad_name": "PPL4_RenovationEnergetique",
+  "headline": "Rénovation énergétique : un accompagnement clair",
+  "link": "https://unpi69.fr/renovation-energetique/"
+ },
+ "ppl5": {
+  "ad_name": "PPL5_RevenusLocatifs",
+  "headline": "Sécurisez vos revenus locatifs",
+  "link": "https://unpi69.fr/revenus-locatifs-et-defense-du-proprietaire-bailleur/"
+ }
+}

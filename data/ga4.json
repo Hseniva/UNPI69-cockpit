@@ -1,0 +1,108 @@
+{
+ "updated_at": "2026-11-19T18:05:00+01:00",
+ "property_id": "519433339",
+ "measurement_id": "G-17FSE1Z4S9",
+ "period": "12 – 18 novembre 2026 (7 jours)",
+ "kpis": {
+  "active_users": 36,
+  "active_users_change": 71.4,
+  "sessions": 58,
+  "sessions_change": 65.7
+ },
+ "channels": [
+  [
+   "Recherche Google (naturel)",
+   32
+  ],
+  [
+   "Publicité réseaux sociaux",
+   8
+  ],
+  [
+   "Accès direct",
+   7
+  ],
+  [
+   "Réseaux sociaux (naturel)",
+   6
+  ],
+  [
+   "Sites référents",
+   3
+  ],
+  [
+   "Non attribué",
+   3
+  ]
+ ],
+ "cities": [
+  [
+   "Lyon",
+   12
+  ],
+  [
+   "Saint-Étienne",
+   2
+  ],
+  [
+   "Annecy",
+   1
+  ],
+  [
+   "Annonay",
+   1
+  ]
+ ],
+ "pages_28d": {
+  "period": "22 oct. – 18 nov. 2026",
+  "total_views": 443,
+  "rows": [
+   [
+    "/ (accueil)",
+    105
+   ],
+   [
+    "/adherer-a-lunpi-69/",
+    52
+   ],
+   [
+    "/contact/",
+    34
+   ],
+   [
+    "/nos-services/",
+    33
+   ],
+   [
+    "/notre-boutique/",
+    29
+   ],
+   [
+    "/produit/adhesion-premiere-annee/",
+    23
+   ],
+   [
+    "/rejoindre-unpi69/",
+    20
+   ],
+   [
+    "/partenaires/",
+    16
+   ]
+  ]
+ },
+ "lp_28d": [
+  [
+   "PPL1 · /conseil-syndical-et-conseils-en-copropriete/",
+   11
+  ],
+  [
+   "PPL2 · /nouveaux-proprietaires-et-coproprietaires/",
+   3
+  ],
+  [
+   "PPL5 · /revenus-locatifs-et-defense-du-proprietaire-bailleur/",
+   1
+  ]
+ ]
+}
