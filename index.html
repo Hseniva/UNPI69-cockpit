@@ -292,8 +292,11 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-of
 <section class="pane" id="creas">
   <div class="eyebrow">Créas</div>
   <h1>Les annonces en ligne</h1>
-  <p class="lead">Une annonce principale par thématique, classées par coût par visite. Visuels carrés tels que diffusés.</p>
+  <p class="lead">L'annonce qui génère le plus de visites dans chaque thématique, classées par coût par visite. Visuels carrés tels que diffusés.</p>
   <div class="grid g5" id="crea-grid"></div>
+  <h2>Toutes les annonces en ligne <span class="note" id="crea-all-n" style="font-weight:400"></span></h2>
+  <p class="note">Mise à jour automatique chaque matin avec les données Meta : une nouvelle annonce apparaît ici dès qu'elle diffuse.</p>
+  <div class="grid g5" id="crea-all"></div>
   <h2>Formats et prochaines créas</h2>
   <div class="card"><ul class="clean">
     <li>Formats en ligne : carré (fil d'actualité), 4:5 et vertical 9:16 (Stories, Reels) pour chaque annonce.</li>
@@ -535,12 +538,26 @@ function renderCreas(m,c){
     const card=document.createElement('div'); card.className='card crea';
     const info=c[t.crea]||{};
     card.innerHTML=`<img alt="" loading="lazy"><div><span class="rank">#${i+1}</span> <span class="t"></span></div><div class="note h" style="margin:0"></div><dl><dt>Clics</dt><dd></dd><dt>Taux de clic</dt><dd></dd><dt>Visites</dt><dd></dd><dt>Coût / visite</dt><dd></dd><dt>CPM</dt><dd></dd></dl>`;
-    card.querySelector('img').src=`assets/crea/${t.crea}.jpg`; card.querySelector('img').alt=`Visuel ${t.code} ${t.name}`;
+    card.querySelector('img').src=info.image||`assets/crea/${t.crea}.jpg`; card.querySelector('img').alt=`Visuel ${t.code} ${t.name}`;
     card.querySelector('.t').textContent=`${t.code} · ${t.name}`;
     card.querySelector('.h').textContent=info.headline?`« ${info.headline} »`:'';
     const dd=card.querySelectorAll('dd');
     [INT(t.link_clicks),PCT(t.link_clicks/t.impressions*100),INT(t.lpv),EUR(t.cpv),EUR(t.spend/t.impressions*1000)].forEach((v,k)=>dd[k].textContent=v);
     grid.appendChild(card);
+  });
+  // all live ads (refreshed automatically with the Meta data)
+  const all=$('crea-all'); if(!all||!c.ads) return; all.replaceChildren();
+  set('crea-all-n',`${c.ads.length} annonces actives`);
+  c.ads.forEach(a=>{
+    const info=c[a.key]||{}, s=(m.ads||[]).find(x=>x.ad_id===a.ad_id)||{};
+    const card=document.createElement('div'); card.className='card crea';
+    card.innerHTML=`<img alt="" loading="lazy"><div class="t"></div><div class="note h" style="margin:0"></div><dl><dt>Dépense</dt><dd></dd><dt>Clics</dt><dd></dd><dt>Visites</dt><dd></dd><dt>Coût / visite</dt><dd></dd></dl>`;
+    card.querySelector('img').src=info.image; card.querySelector('img').alt='Visuel '+a.name;
+    card.querySelector('.t').textContent=a.name;
+    card.querySelector('.h').textContent=info.headline?`« ${info.headline} »`:'';
+    const dd=card.querySelectorAll('dd');
+    [EUR(s.spend||0),INT(s.link_clicks||0),INT(s.lpv||0),s.lpv?EUR(s.spend/s.lpv):'—'].forEach((v,k)=>dd[k].textContent=v);
+    all.appendChild(card);
   });
 }
 

@@ -1,32 +1,40 @@
 {
- "updated_at": "2026-11-19T18:10:00+01:00",
+ "updated_at": "2026-11-21T05:49+01:00",
  "source": "Meta Ads · compte UNPI 69 (act_997654456068162) · campagne UNPI69_P1_Trafic_LP",
  "launch_date": "2026-11-18",
  "objective": "Visites des pages (jusqu'au 30/11), puis demandes d'adhésion",
  "budget": {
   "phase1_meta": 7300,
-  "daily_total": 50,
+  "daily_total": 50.0,
   "end_date": "2026-12-31"
  },
  "daily": [
   {
    "date": "2026-11-18",
-   "spend": 47.15,
-   "impressions": 15333,
-   "reach": 11275,
+   "spend": 47.19,
+   "impressions": 15341,
+   "reach": 11277,
    "link_clicks": 211,
    "lpv": 136,
    "leads": 0
   },
   {
    "date": "2026-11-19",
-   "spend": 19.74,
-   "impressions": 6350,
-   "reach": 4424,
+   "spend": 19.77,
+   "impressions": 6362,
+   "reach": 4428,
    "link_clicks": 76,
-   "lpv": 63,
-   "leads": 0,
-   "partial": true
+   "lpv": 64,
+   "leads": 0
+  },
+  {
+   "date": "2026-11-20",
+   "spend": 31.59,
+   "impressions": 7414,
+   "reach": 5616,
+   "link_clicks": 119,
+   "lpv": 89,
+   "leads": 0
   }
  ],
  "themes": [
@@ -34,216 +42,231 @@
    "code": "PPL1",
    "name": "Conseil syndical",
    "target": "45 ans et +",
-   "daily_budget": 10,
-   "spend": 16.22,
-   "impressions": 5077,
-   "link_clicks": 74,
-   "lpv": 52,
+   "daily_budget": 10.0,
+   "spend": 23.09,
+   "impressions": 6502,
+   "link_clicks": 90,
+   "lpv": 68,
    "leads": 0,
-   "crea": "ppl1"
+   "crea": "ad_120249499791730426"
   },
   {
    "code": "PPL2",
    "name": "Nouveaux propriétaires",
    "target": "25-45 ans",
-   "daily_budget": 12,
-   "spend": 15.15,
-   "impressions": 5311,
-   "link_clicks": 65,
-   "lpv": 43,
+   "daily_budget": 12.0,
+   "spend": 22.16,
+   "impressions": 7136,
+   "link_clicks": 103,
+   "lpv": 71,
    "leads": 0,
-   "crea": "ppl2"
+   "crea": "ad_120249499276530426"
   },
   {
    "code": "PPL3",
    "name": "Protection du patrimoine",
    "target": "45 ans et +",
-   "daily_budget": 10,
-   "spend": 11.4,
-   "impressions": 3740,
-   "link_clicks": 43,
-   "lpv": 35,
+   "daily_budget": 10.0,
+   "spend": 17.89,
+   "impressions": 5342,
+   "link_clicks": 71,
+   "lpv": 56,
    "leads": 0,
-   "crea": "ppl3"
+   "crea": "ad_120249504622070426"
   },
   {
    "code": "PPL4",
    "name": "Rénovation énergétique",
    "target": "25-45 ans",
-   "daily_budget": 8,
-   "spend": 10.45,
-   "impressions": 3354,
-   "link_clicks": 45,
-   "lpv": 29,
+   "daily_budget": 8.0,
+   "spend": 14.98,
+   "impressions": 4533,
+   "link_clicks": 54,
+   "lpv": 36,
    "leads": 0,
-   "crea": "ppl4"
+   "crea": "ad_120249499617260426"
   },
   {
    "code": "PPL5",
    "name": "Revenus locatifs",
    "target": "45 ans et +",
-   "daily_budget": 10,
-   "spend": 13.68,
-   "impressions": 4204,
-   "link_clicks": 60,
-   "lpv": 40,
+   "daily_budget": 10.0,
+   "spend": 20.43,
+   "impressions": 5604,
+   "link_clicks": 88,
+   "lpv": 58,
    "leads": 0,
-   "crea": "ppl5"
+   "crea": "ad_120249504748480426"
   }
  ],
  "ads": [
   {
    "name": "PPL1 · Conseil syndical",
+   "ad_id": "120249499791730426",
    "theme": "PPL1",
-   "spend": 16.22,
-   "impressions": 5077,
-   "link_clicks": 74,
-   "lpv": 52,
+   "spend": 23.09,
+   "impressions": 6502,
+   "link_clicks": 90,
+   "lpv": 68,
    "leads": 0,
-   "crea": "ppl1"
+   "crea": "ad_120249499791730426"
   },
   {
    "name": "PPL5 · Revenus locatifs",
+   "ad_id": "120249504748480426",
    "theme": "PPL5",
-   "spend": 13.68,
-   "impressions": 4204,
-   "link_clicks": 60,
-   "lpv": 40,
+   "spend": 20.43,
+   "impressions": 5604,
+   "link_clicks": 88,
+   "lpv": 58,
    "leads": 0,
-   "crea": "ppl5"
+   "crea": "ad_120249504748480426"
   },
   {
-   "name": "PPL3 · Patrimoine",
+   "name": "PPL3 · Protection du patrimoine",
+   "ad_id": "120249504622070426",
    "theme": "PPL3",
-   "spend": 11.4,
-   "impressions": 3740,
-   "link_clicks": 43,
-   "lpv": 35,
+   "spend": 17.89,
+   "impressions": 5342,
+   "link_clicks": 71,
+   "lpv": 56,
    "leads": 0,
-   "crea": "ppl3"
+   "crea": "ad_120249504622070426"
   },
   {
    "name": "PPL4 · Rénovation énergétique",
+   "ad_id": "120249499617260426",
    "theme": "PPL4",
-   "spend": 10.45,
-   "impressions": 3354,
-   "link_clicks": 45,
-   "lpv": 29,
+   "spend": 14.98,
+   "impressions": 4533,
+   "link_clicks": 54,
+   "lpv": 36,
    "leads": 0,
-   "crea": "ppl4"
+   "crea": "ad_120249499617260426"
   },
   {
    "name": "PPL2 · Nouveaux propriétaires (principale)",
+   "ad_id": "120249499276530426",
    "theme": "PPL2",
-   "spend": 7.06,
-   "impressions": 2399,
-   "link_clicks": 30,
-   "lpv": 22,
+   "spend": 8.39,
+   "impressions": 2830,
+   "link_clicks": 39,
+   "lpv": 28,
    "leads": 0,
-   "crea": "ppl2"
-  },
-  {
-   "name": "PPL2 · variante 2",
-   "theme": "PPL2",
-   "spend": 2.53,
-   "impressions": 860,
-   "link_clicks": 11,
-   "lpv": 7,
-   "leads": 0
-  },
-  {
-   "name": "PPL2 · variante 4",
-   "theme": "PPL2",
-   "spend": 1.7,
-   "impressions": 573,
-   "link_clicks": 13,
-   "lpv": 7,
-   "leads": 0
+   "crea": "ad_120249499276530426"
   },
   {
    "name": "PPL2 · variante 3",
+   "ad_id": "120249502149210426",
    "theme": "PPL2",
-   "spend": 1.68,
-   "impressions": 572,
-   "link_clicks": 3,
-   "lpv": 3,
-   "leads": 0
+   "spend": 4.43,
+   "impressions": 1339,
+   "link_clicks": 22,
+   "lpv": 13,
+   "leads": 0,
+   "crea": "ad_120249502149210426"
   },
   {
    "name": "PPL2 · variante 5",
+   "ad_id": "120249502149180426",
    "theme": "PPL2",
-   "spend": 1.26,
-   "impressions": 541,
-   "link_clicks": 4,
-   "lpv": 2,
-   "leads": 0
+   "spend": 2.64,
+   "impressions": 806,
+   "link_clicks": 18,
+   "lpv": 11,
+   "leads": 0,
+   "crea": "ad_120249502149180426"
   },
   {
-   "name": "PPL2 · variante 1",
+   "name": "PPL2 · variante 2",
+   "ad_id": "120249502149200426",
    "theme": "PPL2",
-   "spend": 0.92,
-   "impressions": 366,
+   "spend": 2.55,
+   "impressions": 765,
+   "link_clicks": 13,
+   "lpv": 11,
+   "leads": 0,
+   "crea": "ad_120249502149200426"
+  },
+  {
+   "name": "PPL2 · variante 6",
+   "ad_id": "120249502149190426",
+   "theme": "PPL2",
+   "spend": 2.45,
+   "impressions": 814,
+   "link_clicks": 7,
+   "lpv": 4,
+   "leads": 0,
+   "crea": "ad_120249502149190426"
+  },
+  {
+   "name": "PPL2 · variante 4",
+   "ad_id": "120249502149170426",
+   "theme": "PPL2",
+   "spend": 1.7,
+   "impressions": 582,
    "link_clicks": 4,
-   "lpv": 2,
-   "leads": 0
+   "lpv": 4,
+   "leads": 0,
+   "crea": "ad_120249502149170426"
   }
  ],
  "ages": [
   {
    "age": "25-34",
-   "spend": 11.66,
-   "impressions": 3988,
-   "link_clicks": 42,
-   "lpv": 25
+   "spend": 16.64,
+   "impressions": 5311,
+   "link_clicks": 67,
+   "lpv": 41
   },
   {
    "age": "35-44",
-   "spend": 12.68,
-   "impressions": 4174,
-   "link_clicks": 65,
-   "lpv": 45
+   "spend": 18.67,
+   "impressions": 5693,
+   "link_clicks": 83,
+   "lpv": 60
   },
   {
    "age": "45-54",
-   "spend": 6.76,
-   "impressions": 2446,
-   "link_clicks": 16,
-   "lpv": 12
+   "spend": 11.69,
+   "impressions": 3621,
+   "link_clicks": 37,
+   "lpv": 27
   },
   {
    "age": "55-64",
-   "spend": 9.86,
-   "impressions": 3588,
-   "link_clicks": 50,
-   "lpv": 37
+   "spend": 15.91,
+   "impressions": 5062,
+   "link_clicks": 68,
+   "lpv": 50
   },
   {
    "age": "65+",
-   "spend": 25.94,
-   "impressions": 7489,
-   "link_clicks": 114,
-   "lpv": 80
+   "spend": 35.64,
+   "impressions": 9429,
+   "link_clicks": 151,
+   "lpv": 111
   }
  ],
  "platforms": [
   {
    "platform": "Facebook",
-   "spend": 45.47,
-   "impressions": 14967,
-   "link_clicks": 221,
-   "lpv": 151
+   "spend": 62.36,
+   "impressions": 19268,
+   "link_clicks": 291,
+   "lpv": 200
   },
   {
    "platform": "Instagram",
-   "spend": 21.06,
-   "impressions": 5283,
-   "link_clicks": 64,
-   "lpv": 48
+   "spend": 35.81,
+   "impressions": 8401,
+   "link_clicks": 113,
+   "lpv": 89
   },
   {
    "platform": "Audience Network",
-   "spend": 0.37,
-   "impressions": 1436,
+   "spend": 0.38,
+   "impressions": 1448,
    "link_clicks": 2,
    "lpv": 0
   }
