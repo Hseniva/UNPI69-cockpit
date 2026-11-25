@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-23T06:38+01:00",
+ "updated_at": "2026-11-25T08:07+01:00",
  "source": "Meta Ads · compte UNPI 69 (act_997654456068162) · campagne UNPI69_P1_Trafic_LP",
  "launch_date": "2026-11-18",
  "objective": "Visites des pages (jusqu'au 30/11), puis demandes d'adhésion",
@@ -38,9 +38,9 @@
   },
   {
    "date": "2026-11-21",
-   "spend": 85.89,
-   "impressions": 28181,
-   "reach": 12323,
+   "spend": 85.91,
+   "impressions": 28187,
+   "reach": 12333,
    "link_clicks": 331,
    "lpv": 221,
    "leads": 0
@@ -48,7 +48,7 @@
   {
    "date": "2026-11-22",
    "spend": 9.33,
-   "impressions": 2382,
+   "impressions": 2383,
    "reach": 1702,
    "link_clicks": 47,
    "lpv": 46,
@@ -62,7 +62,7 @@
    "target": "45 ans et +",
    "daily_budget": 10.0,
    "spend": 41.67,
-   "impressions": 11982,
+   "impressions": 11983,
    "link_clicks": 175,
    "lpv": 131,
    "leads": 0,
@@ -86,7 +86,7 @@
    "target": "45 ans et +",
    "daily_budget": 10.0,
    "spend": 36.32,
-   "impressions": 12049,
+   "impressions": 12051,
    "link_clicks": 142,
    "lpv": 110,
    "leads": 0,
@@ -109,8 +109,8 @@
    "name": "Revenus locatifs",
    "target": "45 ans et +",
    "daily_budget": 10.0,
-   "spend": 39.92,
-   "impressions": 10994,
+   "spend": 39.94,
+   "impressions": 10998,
    "link_clicks": 162,
    "lpv": 116,
    "leads": 0,
@@ -123,7 +123,7 @@
    "ad_id": "120249499791730426",
    "theme": "PPL1",
    "spend": 41.67,
-   "impressions": 11982,
+   "impressions": 11983,
    "link_clicks": 175,
    "lpv": 131,
    "leads": 0,
@@ -133,8 +133,8 @@
    "name": "PPL5 · Revenus locatifs",
    "ad_id": "120249504748480426",
    "theme": "PPL5",
-   "spend": 39.92,
-   "impressions": 10994,
+   "spend": 39.94,
+   "impressions": 10998,
    "link_clicks": 162,
    "lpv": 116,
    "leads": 0,
@@ -145,7 +145,7 @@
    "ad_id": "120249504622070426",
    "theme": "PPL3",
    "spend": 36.32,
-   "impressions": 12049,
+   "impressions": 12051,
    "link_clicks": 142,
    "lpv": 110,
    "leads": 0,
@@ -260,8 +260,8 @@
   },
   {
    "age": "65+",
-   "spend": 68.11,
-   "impressions": 18394,
+   "spend": 68.13,
+   "impressions": 18401,
    "link_clicks": 258,
    "lpv": 202
   }
@@ -269,8 +269,8 @@
  "platforms": [
   {
    "platform": "Facebook",
-   "spend": 124.68,
-   "impressions": 35212,
+   "spend": 124.7,
+   "impressions": 35219,
    "link_clicks": 514,
    "lpv": 371
   },
