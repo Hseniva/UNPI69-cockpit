@@ -101,13 +101,6 @@
    "Nouveau propriétaire à Lyon ?\nPremière AG, charges, travaux, DPE : posez vos questions à des juristes spécialisés en droit immobilier de l'UNPI 69. \n✓ Des réponses adaptées à votre situation\n✓ Un accompagnement personnalisé et juridique\n\nOffre anniversaire 140 ans : droits d’entrée de 74 € offerts avec le code UNPI140, jusqu’au 31/12/2026.\nVotre 1re année : 176 € au lieu de 250 €.\n\nAdhérez en ligne et on vous rappelle sous 48h."
   ]
  },
- "ad_120249502149170426": {
-  "ad_name": "PPL2 · variante 4",
-  "headline": "Nouveau propriétaire à Lyon ?",
-  "link": "https://unpi69.fr/nouveaux-proprietaires-et-coproprietaires/",
-  "image": "assets/crea/ad_120249502149170426.jpg",
-  "text": "Vous venez d’acheter votre logement à Lyon ou dans la Métropole ? \n\nDPE, travaux, autorisations, aides : avancez avec méthode avec les juristes de l’UNPI 69. \n✓ Des juristes spécialisés en droit immobilier, pas un forum ni une IA\n✓ Des réponses adaptées à votre situation\n✓ Un accompagnement personnalisé et juridique\n\nDroits d’entrée de 74 € offerts avec le code UNPI140, jusqu’au 31/12/2026\nVotre 1re année : 176 € au lieu de 250 €\n\nAdhérez en ligne et on vous rappelle sous 48h."
- },
  "ad_120249502149210426": {
   "ad_name": "PPL2 · variante 3",
   "headline": "Nouveau propriétaire à Lyon ?",
@@ -115,11 +108,11 @@
   "image": "assets/crea/ad_120249502149210426.jpg",
   "text": "Vous venez d’acheter votre logement à Lyon ou dans la Métropole ? \n\nDPE, travaux, autorisations, aides : avancez avec méthode avec les juristes de l’UNPI 69. \n✓ Des juristes spécialisés en droit immobilier, pas un forum ni une IA\n✓ Des réponses adaptées à votre situation\n✓ Un accompagnement personnalisé et juridique\n\nDroits d’entrée de 74 € offerts avec le code UNPI140, jusqu’au 31/12/2026\nVotre 1re année : 176 € au lieu de 250 €\n\nAdhérez en ligne et on vous rappelle sous 48h."
  },
- "ad_120249502149190426": {
-  "ad_name": "PPL2 · variante 6",
+ "ad_120249502149170426": {
+  "ad_name": "PPL2 · variante 4",
   "headline": "Nouveau propriétaire à Lyon ?",
   "link": "https://unpi69.fr/nouveaux-proprietaires-et-coproprietaires/",
-  "image": "assets/crea/ad_120249502149190426.jpg",
+  "image": "assets/crea/ad_120249502149170426.jpg",
   "text": "Vous venez d’acheter votre logement à Lyon ou dans la Métropole ? \n\nDPE, travaux, autorisations, aides : avancez avec méthode avec les juristes de l’UNPI 69. \n✓ Des juristes spécialisés en droit immobilier, pas un forum ni une IA\n✓ Des réponses adaptées à votre situation\n✓ Un accompagnement personnalisé et juridique\n\nDroits d’entrée de 74 € offerts avec le code UNPI140, jusqu’au 31/12/2026\nVotre 1re année : 176 € au lieu de 250 €\n\nAdhérez en ligne et on vous rappelle sous 48h."
  },
  "ad_120249502149200426": {
@@ -127,6 +120,13 @@
   "headline": "Nouveau propriétaire à Lyon ?",
   "link": "https://unpi69.fr/nouveaux-proprietaires-et-coproprietaires/",
   "image": "assets/crea/ad_120249502149200426.jpg",
+  "text": "Vous venez d’acheter votre logement à Lyon ou dans la Métropole ? \n\nDPE, travaux, autorisations, aides : avancez avec méthode avec les juristes de l’UNPI 69. \n✓ Des juristes spécialisés en droit immobilier, pas un forum ni une IA\n✓ Des réponses adaptées à votre situation\n✓ Un accompagnement personnalisé et juridique\n\nDroits d’entrée de 74 € offerts avec le code UNPI140, jusqu’au 31/12/2026\nVotre 1re année : 176 € au lieu de 250 €\n\nAdhérez en ligne et on vous rappelle sous 48h."
+ },
+ "ad_120249502149190426": {
+  "ad_name": "PPL2 · variante 6",
+  "headline": "Nouveau propriétaire à Lyon ?",
+  "link": "https://unpi69.fr/nouveaux-proprietaires-et-coproprietaires/",
+  "image": "assets/crea/ad_120249502149190426.jpg",
   "text": "Vous venez d’acheter votre logement à Lyon ou dans la Métropole ? \n\nDPE, travaux, autorisations, aides : avancez avec méthode avec les juristes de l’UNPI 69. \n✓ Des juristes spécialisés en droit immobilier, pas un forum ni une IA\n✓ Des réponses adaptées à votre situation\n✓ Un accompagnement personnalisé et juridique\n\nDroits d’entrée de 74 € offerts avec le code UNPI140, jusqu’au 31/12/2026\nVotre 1re année : 176 € au lieu de 250 €\n\nAdhérez en ligne et on vous rappelle sous 48h."
  },
  "ad_120249502149180426": {
@@ -168,28 +168,28 @@
    "name": "PPL2 · Nouveaux propriétaires (principale)"
   },
   {
-   "key": "ad_120249502149170426",
-   "ad_id": "120249502149170426",
-   "theme": "PPL2",
-   "name": "PPL2 · variante 4"
-  },
-  {
    "key": "ad_120249502149210426",
    "ad_id": "120249502149210426",
    "theme": "PPL2",
    "name": "PPL2 · variante 3"
   },
   {
-   "key": "ad_120249502149190426",
-   "ad_id": "120249502149190426",
+   "key": "ad_120249502149170426",
+   "ad_id": "120249502149170426",
    "theme": "PPL2",
-   "name": "PPL2 · variante 6"
+   "name": "PPL2 · variante 4"
   },
   {
    "key": "ad_120249502149200426",
    "ad_id": "120249502149200426",
    "theme": "PPL2",
    "name": "PPL2 · variante 2"
+  },
+  {
+   "key": "ad_120249502149190426",
+   "ad_id": "120249502149190426",
+   "theme": "PPL2",
+   "name": "PPL2 · variante 6"
   },
   {
    "key": "ad_120249502149180426",
